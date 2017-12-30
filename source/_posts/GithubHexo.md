@@ -8,6 +8,7 @@ tags: 技术
 
 ## 开始之前
 为什么要用Github搭建Hexo的博客呢？首先，省钱！作为一个学生狗，服务器支出是一笔不少的费用，虽然我现在有一台腾讯云1元的服务器，但是这台服务器还有别的用途。用Github搭建网站完全免费。除此之外，Hexo生成的是静态网站，托管在Github上，只要不是有人黑了你的Github帐号，你的网站就很安全。于是我背叛了worldpress转到了Hexo+Github上
+<!--more-->
 
 ## 准备
 - github建立Repository，名字为你的名字.github.io（如wwillv.github.io）

@@ -212,7 +212,7 @@ excerpt_description: true
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
   enable: true
-  length: 200
+  length: 350
 
 # Post meta display settings
 post_meta:
@@ -356,7 +356,7 @@ han: false
 # Disqus
 disqus:
   enable: false
-  shortname:
+  shortname: wwillv
   count: true
 
 # Hypercomments
