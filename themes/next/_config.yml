@@ -131,7 +131,7 @@ social:
   #Skype: skype:yourname?call|chat || skype
   微博: https://weibo.com/u/2693120655 || weibo
   QQ: http://sighttp.qq.com/msgrd?v=3&uin=767436053&site=&menu=yes || qq
-  steam: http://steamcommunity.com/id/will_v/ || steam
+  steam: https://steamcommunity.com/profiles/76561198258329517 || steam
 
 social_icons:
   enable: true
@@ -140,7 +140,7 @@ social_icons:
 
 # Blog rolls
 links_icon: link
-links_title: Links
+links_title: 友链
 links_layout: block
 #links_layout: inline
 links:
