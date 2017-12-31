@@ -92,6 +92,7 @@ menu:
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
+  friends: /friends/ || group
 
 # Enable/Disable menu icons.
 menu_icons:
@@ -143,8 +144,8 @@ links_icon: link
 links_title: 友链
 links_layout: block
 #links_layout: inline
-links:
-  友链测试: http://example.com/
+#links:
+  #友链测试: http://example.com/
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
