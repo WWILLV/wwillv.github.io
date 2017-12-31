@@ -87,3 +87,7 @@ backup:
     theme: next,landscape
     repository:
        github: git@github.com:WWILLV/wwillv.github.io.git,git-backup
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+plugins: hexo-generate-feed

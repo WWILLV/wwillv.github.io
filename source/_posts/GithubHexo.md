@@ -49,7 +49,7 @@ deploy:
 ## 网站备份
 由于hexo上传到Github上是生成的网站，源文件是不会上传的，换电脑后再移动文件很麻烦，这里推荐一个自动备份网站到Github的工具[hexo-git-backup](https://github.com/coneycode/hexo-git-backup),可按照README的介绍进行安装
 1. `npm install hexo-git-backup --save`安装hexo-git-backup
-2. 修改`config.yml`，加入如下内容：
+2. 修改根目录的`_config.yml`，加入如下内容：
 ```
 backup:
     type: git
@@ -71,8 +71,9 @@ git checkout branchname
 如图所示我的IP是151.101.229.147
 3. 已腾讯云的解析为例，添加如下2条记录，1条A记录和1条CHAME记录
 ![解析](https://i.loli.net/2017/12/30/5a47a0bdbe9d4.png)
-4. 在Github的仓库的设置Custom domain里填入自己的域名
+4. 在Github的仓库的设置Custom domain里填入自己的域名（不建议）
 ![github Custom domain](https://i.loli.net/2017/12/30/5a47a0bdbfe3d.png)
+在Custom domain设置域名后会发现每次上传后域名都会失效，这是因为设置Custom domain会生成一个CNAME文件，上传后这个文件会被删除，所以可以在`\source`目录下新建一个CNAME文件。Windows不能直接生成没有后缀的文件，可以先生成一个再用move命令重命名，但这样比较麻烦。如果有touch的话可以直接在目录下执行`touch CNAME`命令就可以生成了。文件内只需写一行域名即可，如`willv.cn`。
 5. 浏览器输入自己的域名，刷新一会儿就出来了
 ![fin](https://i.loli.net/2017/12/30/5a47a19107fa6.png)
 
