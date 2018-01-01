@@ -150,7 +150,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: https://i.loli.net/2017/12/30/5a4740d7c3177.jpg
+avatar: http://willv-10051416.cossh.myqcloud.com/willv/63289582_p3.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -239,8 +239,8 @@ post_wordcount:
 
 # Reward
 reward_comment: Donate comment here
-wechatpay: https://i.loli.net/2017/12/30/5a474ec4bfd2b.png
-alipay: https://i.loli.net/2017/12/30/5a474ec4bf175.png
+wechatpay: http://willv-10051416.cossh.myqcloud.com/willv/38238CB0AE8906CE0E149D4AEEEBABAB.png
+alipay: http://willv-10051416.cossh.myqcloud.com/willv/AD5239B33DC9EF73D56B1E0051416150.png
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts
