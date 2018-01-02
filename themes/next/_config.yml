@@ -141,7 +141,7 @@ social_icons:
 
 # Blog rolls
 links_icon: link
-links_title: 友链
+links_title: Links
 links_layout: block
 #links_layout: inline
 #links:
@@ -150,7 +150,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: http://willv-10051416.cossh.myqcloud.com/willv/63289582_p3.jpg
+avatar: https://i.loli.net/2018/01/02/5a4afbc5e8980.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -239,8 +239,8 @@ post_wordcount:
 
 # Reward
 reward_comment: Donate comment here
-wechatpay: http://willv-10051416.cossh.myqcloud.com/willv/38238CB0AE8906CE0E149D4AEEEBABAB.png
-alipay: http://willv-10051416.cossh.myqcloud.com/willv/AD5239B33DC9EF73D56B1E0051416150.png
+wechatpay: https://i.loli.net/2018/01/02/5a4afb332f3b6.png
+alipay: https://i.loli.net/2018/01/02/5a4afb332ef22.png
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts

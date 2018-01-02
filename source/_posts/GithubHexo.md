@@ -14,21 +14,21 @@ tags: 技术
 
 ## 安装
 1. 在你准备建立Hexo的位置上建立一个文件夹，如blog，cd进入该目录`npm install -g hexo`安装hexo
-![npm install -g hexo](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/1.png)
+![npm install -g hexo](https://i.loli.net/2018/01/02/5a4afcad132a5.png)
 2. 输入`hexo init`初始化hexo
 3. 输入`hexo g(或hexo generate)`生成静态页面
-4. 输入`hexo s(或hexo server)`启动本地服务![hexo s](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/2.png)浏览器打开`localhost:4000`![localhost:4000](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/3.png)如果你能看到这个界面说明你的hexo搭建已基本成功
+4. 输入`hexo s(或hexo server)`启动本地服务![hexo s](https://i.loli.net/2018/01/02/5a4afcb123638.png)浏览器打开`localhost:4000`![localhost:4000](https://i.loli.net/2018/01/02/5a4afcb137bf4.png)如果你能看到这个界面说明你的hexo搭建已基本成功
 5. 此时你的hexo本地配置已基本完成，可以上传github了，但为了方便我将在本地顺便将主题和插件也一并配置结束，你可以跳过这一步骤直接到上传Github去
 
 ## 配置主题
 1. 主题选择，网上有很多hexo的主题，github上也有很多，我选择的是[Next](https://github.com/iissnan/hexo-theme-next)
 2. 大多数的主题的页面都有详细的配置教程，以Next为例
 3. cd进入themes目录，clone仓库到next文件夹`git clone https://github.com/iissnan/hexo-theme-next next`
-![clone](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/4.png)
+![clone](https://i.loli.net/2018/01/02/5a4afcb128336.png)
 4. 在 hexo 根目录下 的配置文件_config.yml里设置主题`theme: next`
 5. 根据自己需要可以继续自定义主题，next主题可以参考[这篇文章](https://www.jianshu.com/p/f054333ac9e6)
 6. 运行`hexo clean`，运行`hexo g`后运行`hexo s`，浏览器打开`http://localhost:4000/`可以看到自己的新主题的样子了
-![最终效果](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/5.png)
+![最终效果](https://i.loli.net/2018/01/02/5a4afcb0865d7.png)
 
 ## 上传Github
 1. 回到主目录，安装hexo-deployer-git`npm install hexo-deployer-git`
@@ -40,9 +40,9 @@ deploy:
   branch: master
 ```
 3. `hexo d（或hexo deploy）`将网站上传至github
-![上传Github](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/6.png)
+![上传Github](https://i.loli.net/2018/01/02/5a4afcb0c96cd.png)
 4. 网站已建立完毕，访问你的名字.github.io（如wwillv.github.io）即可查看
-![](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/7.png)
+![](https://i.loli.net/2018/01/02/5a4afcb08e36e.png)
 
 ## 网站备份
 由于hexo上传到Github上是生成的网站，源文件是不会上传的，换电脑后再移动文件很麻烦，这里推荐一个自动备份网站到Github的工具[hexo-git-backup](https://github.com/coneycode/hexo-git-backup),可按照README的介绍进行安装
@@ -65,15 +65,15 @@ git checkout branchname
 ## 绑定域名
 1. 注册域名，腾讯云，阿里云（万网），GoDaddy什么的都可以，域名注册商有很多
 2. 一般域名注册都提供域名的解析，解析前ping一下自己的github.io `ping wwillv.github.io`
-![ping](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/8.png)
+![ping](https://i.loli.net/2018/01/02/5a4afcb1336e5.png)
 如图所示我的IP是151.101.229.147
 3. 已腾讯云的解析为例，添加如下2条记录，1条A记录和1条CHAME记录
-![解析](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/9.png)
+![解析](https://i.loli.net/2018/01/02/5a4afcafd32eb.png)
 4. 在Github的仓库的设置Custom domain里填入自己的域名（不建议）
-![github Custom domain](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/10.png)
+![github Custom domain](https://i.loli.net/2018/01/02/5a4afcafd2ce5.png)
 在Custom domain设置域名后会发现每次上传后域名都会失效，这是因为设置Custom domain会生成一个CNAME文件，上传后这个文件会被删除，所以可以在`\source`目录下新建一个CNAME文件。Windows不能直接生成没有后缀的文件，可以先生成一个再用move命令重命名，但这样比较麻烦。如果有touch的话可以直接在目录下执行`touch CNAME`命令就可以生成了。文件内只需写一行域名即可，如`willv.cn`。
 5. 浏览器输入自己的域名，刷新一会儿就出来了
-![fin](http://willv-10051416.cossh.myqcloud.com/willv/GithubHexo/11.png)
+![fin](https://i.loli.net/2018/01/02/5a4afe76080c1.png)
 
 ## 开始第一篇文章
 `hexo new "title"（或hexo n "title"）`新建一篇文章，也可以在`\source\_posts`新建一个.md文件。hexo使用markdown语法，文章也是md格式。与平时的富文本的博客不同，写作需要遵循markdown的语法。删除文章直接删除对应的.md文件后`hexo g`重新生成一下即可。
