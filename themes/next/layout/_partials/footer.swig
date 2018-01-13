@@ -1,4 +1,4 @@
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
 <div class="copyright">{#
 #}{% set current = date(Date.now(), "YYYY") %}{#
 #}&copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} &mdash; {% endif %}{#
@@ -23,15 +23,19 @@
 </div>
 
 {% if theme.footer.powered %}
+
+<!-- 
 <div class="powered-by">
 <i class="fa fa-user-md"></i>
 <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次
 </span>
 </span>
 </div>
-  <!-- <div class="powered-by">{#
+-->
+
+<div class="powered-by">{#
   #}{{ __('footer.powered', '<a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a>') }}{#
-#}</div> -->
+#}</div>
 {% endif %}
 
 {% if theme.footer.powered and theme.footer.theme.enable %}
