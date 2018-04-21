@@ -27,7 +27,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "Hexo, NexT, 信息安全, hack, 技术, 博客"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -37,7 +37,7 @@ rss: /atom.xml
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015
+  since: 2017
 
   # Icon between year and copyright info.
   icon: user
@@ -46,13 +46,13 @@ footer:
   copyright:
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
-  powered: true
+  powered: false
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
-    version: true
+    version: false
   # -------------------------------------------------------------
   # Any custom text can be defined here.
   #custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
@@ -67,7 +67,7 @@ footer:
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, will add site-subtitle to index page, added in main hexo config.
 # subtitle: Subtitle
@@ -92,6 +92,8 @@ menu:
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
+  projects: /projects/ || code
+  writeup: /writeups/ || flag
   friends: /friends/ || group
 
 # Enable/Disable menu icons.
@@ -150,7 +152,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: https://i.loli.net/2018/01/02/5a4afbc5e8980.jpg
+avatar: https://ooo.0o0.ooo/2018/01/02/5a4afbc5e8980.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -190,7 +192,7 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
@@ -212,14 +214,14 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: true
+  enable: false
   length: 350
 
 # Post meta display settings
 post_meta:
   item_text: true
   created_at: true
-  updated_at: false
+  updated_at: true
   categories: true
 
 # Post wordcount display settings
@@ -239,13 +241,13 @@ post_wordcount:
 
 # Reward
 reward_comment: Donate comment here
-wechatpay: https://i.loli.net/2018/01/02/5a4afb332f3b6.png
-alipay: https://i.loli.net/2018/01/02/5a4afb332ef22.png
+wechatpay: https://ooo.0o0.ooo/2018/01/02/5a4afb332f3b6.png
+alipay: https://ooo.0o0.ooo/2018/01/02/5a4afb332ef22.png
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -349,14 +351,14 @@ han: false
 #swiftype_key:
 
 # Baidu Analytics ID
-#baidu_analytics:
+baidu_analytics: 62382cd2dc6f4cabe6aae29a96f8cc47
 
 # Duoshuo ShortName
 #duoshuo_shortname:
 
 # Disqus
 disqus:
-  enable: false
+  enable: true
   shortname: wwillv
   count: true
 
@@ -375,10 +377,10 @@ changyan:
 # more info please open https://valine.js.org
 valine:
   enable: false
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
-  verify: false # Verification code
+  appid:  jGwXhp1ExTAN9iwdagbxMdhM-gzGzoHsz # your leancloud application appid
+  appkey: fobGmgYKrRcTcugwziQ59sc0 # your leancloud application appkey
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: true # Verification code
   placeholder: Just go go # comment box placeholder
   avatar: mm # gravatar style
   guest_info: nick,mail,link # custom comment header
@@ -391,7 +393,7 @@ valine:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8zMjgyOS85Mzkw
+# livere_uid: MTAyMC8zMjgyOS85Mzkw
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
@@ -440,14 +442,14 @@ gitment:
 #           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
 #           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
 needmoreshare2:
-  enable: false
+  enable: true
   postbottom:
-    enable: false
+    enable: true
     options:
       iconStyle: box
       boxForm: horizontal
       position: bottomCenter
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      networks: Weibo,Wechat,QQZone,Twitter,Facebook,GooglePlus,Tumblr,Evernote
   float:
     enable: false
     options:
@@ -461,7 +463,7 @@ needmoreshare2:
 #google_site_verification:
 
 # Google Analytics
-#google_analytics:
+google_analytics: UA-113466029-1
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster/
@@ -545,7 +547,7 @@ firestore:
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
   # count values only if the other configs are false
-  enable: false
+  enable: true
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
@@ -561,7 +563,7 @@ busuanzi_count:
 
 
 # Tencent analytics ID
-# tencent_analytics:
+#tencent_analytics: 65159075
 
 # Tencent MTA ID
 # tencent_mta:
@@ -691,7 +693,7 @@ pace: true
 pace_theme: pace-theme-minimal
 
 # Canvas-nest
-canvas_nest: true
+canvas_nest: false
 
 # three_waves
 three_waves: false

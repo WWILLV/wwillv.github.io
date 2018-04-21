@@ -4,8 +4,10 @@ date: 2018-01-14 16:04:45
 tags: 技术
 ---
 [一言](http://hitokoto.cn/)是一个非常棒的一句话服务
+![Hitokoto - 一言](https://ooo.0o0.ooo/2018/01/21/5a64a3083be83.jpg)
 关于如何调用一言API到自己的博客中呢?首先可以看一下一言的API的内容：http://hitokoto.cn/api
 这里提供一个简单的调用js
+<!-- more -->
 ```javascript
 window.onload=function () {
     var hitokoto = document.querySelector('.hitokoto');
@@ -34,11 +36,12 @@ window.onload=function () {
 </div>
 ```
 如何在Hexo中调用一言呢？
-很简单。以我的主题next为例。在目录`\themes\next\source\js\src`下新建`hitokoto.js`把调用js写进去，在`\themes\next\layout\_layout.swig`的最下面的`</body>`前新增一行
+很简单。以我的主题next为例。在目录`\themes\next\source\js\src`下新建`hitokoto.js`把调用js写进去。如果要经常性的调用，要写在网页中，那么就在`\themes\next\layout\_layout.swig`的最下面的`</body>`前新增一行。
 ```html
 <script type="text/javascript" src="/js/src/hitokoto.js"></script>
 ```
-以后在写文章时在md文件里直接写
+如果只在某个网页中使用不必这样，在md中引用javascript即可，引用格式同上面的`_layout.swig`增加的那行相同。
+在写文章时在md文件里直接写
 ```html
 <div>
     <p class="hitokoto"></p>
@@ -46,6 +49,7 @@ window.onload=function () {
 </div>
 ```
 就可以了。效果如下：
+<script type="text/javascript" src="/js/src/hitokoto.js"></script>
 <div>
     <p class="hitokoto"></p>
     <p class="from"></p>
@@ -56,5 +60,6 @@ window.onload=function () {
     <i class="hitokoto"></i><i class="from"></i>
 </div>
 ```
+还有一个带二维码的[hitokoto.html](/hitokoto.html)
 值得注意的是，这种调用方法只能同时调用一次。如有需要可以自己改一下代码。
 参考文章：[一言Hitokoto API 调用指南](https://2heng.xin/2017/08/12/hitokoto)
