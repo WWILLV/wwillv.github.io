@@ -210,7 +210,7 @@ copy对machines只复制了一个引用。
 在替换前，应该是为了节省空间，除了deepcopy对子对象外，都不进行新的内存分配。
 
 ## 链式赋值
-Python蝇营狗苟特点就是链式赋值，比如`x=y='willv'`这种语句。
+Python有一个特点就是链式赋值，比如`x=y='willv'`这种语句。
 链式赋值`x=y='willv'`本质上和下面这个代码是一样的
 ```python
 x='willv'

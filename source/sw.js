@@ -23,6 +23,7 @@ const ignoreFetch = [
   /https?:\/\/i.loli.net\//,
   /https?:\/\/hm.baidu.com\//,
   /https?:\/\/sslapi.hitokoto.cn\//,
+  /https?:\/\/qzonestyle.gtimg.cn\//,
 ];
 
 
