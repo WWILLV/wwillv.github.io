@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://willv.cn/writeups/xss.haozi.me/index.html</loc>
+    
+    <lastmod>2019-05-23T07:04:08.419Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://willv.cn/writeups/hackinglab.cn/bases.html</loc>
     
     <lastmod>2019-05-09T13:21:17.688Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://willv.cn/writeups/index.html</loc>
     
     <lastmod>2019-02-14T14:59:47.895Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://willv.cn/writeups/xss.haozi.me/index.html</loc>
-    
-    <lastmod>2019-02-14T14:57:16.422Z</lastmod>
     
   </url>
   
