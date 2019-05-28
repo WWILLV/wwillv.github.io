@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://willv.cn/writeups/ctf.bugku.com/misc.html</loc>
+    
+    <lastmod>2019-05-28T16:09:24.648Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://willv.cn/writeups/ctf.bugku.com/index.html</loc>
     
     <lastmod>2019-05-27T12:14:06.291Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://willv.cn/writeups/ctf.bugku.com/web.html</loc>
     
     <lastmod>2019-05-27T12:12:12.529Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://willv.cn/writeups/ctf.bugku.com/misc.html</loc>
-    
-    <lastmod>2019-05-27T11:47:09.330Z</lastmod>
     
   </url>
   
