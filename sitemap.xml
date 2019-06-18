@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://willv.cn/writeups/hw2019.html</loc>
+    
+    <lastmod>2019-06-18T04:35:59.118Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://willv.cn/writeups/ctf.bugku.com/misc.html</loc>
     
     <lastmod>2019-05-28T16:09:24.648Z</lastmod>
