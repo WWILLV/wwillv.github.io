@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://willv.cn/2019/11/21/CVE-2019-1388/</loc>
+    
+    <lastmod>2019-11-21T15:13:45.514Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://willv.cn/writeups/replications/%E7%AC%AC%E4%BA%94%E5%B1%8A%E4%B8%8A%E6%B5%B7%E5%B8%82%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E5%A4%A7%E8%B5%9B.html</loc>
     
     <lastmod>2019-11-10T08:18:09.776Z</lastmod>
