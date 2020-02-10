@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://willv.cn/diary/index.html</loc>
+    
+    <lastmod>2020-02-10T02:07:56.018Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/miku.html</loc>
+    
+    <lastmod>2019-12-11T14:09:56.607Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://willv.cn/ip.html</loc>
     
     <lastmod>2019-12-09T07:23:46.052Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>https://willv.cn/about/index.html</loc>
     
     <lastmod>2019-10-03T06:41:28.218Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://willv.cn/Learning-Diary/index.html</loc>
-    
-    <lastmod>2019-07-23T10:14:47.202Z</lastmod>
     
   </url>
   
