@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://willv.cn/2020/03/04/python-timeout-retry/</loc>
+    <loc>https://willv.cn/diary/index.html</loc>
     
-    <lastmod>2020-03-04T07:12:57.981Z</lastmod>
+    <lastmod>2020-03-06T14:03:47.258Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://willv.cn/diary/index.html</loc>
+    <loc>https://willv.cn/diary/slim.html</loc>
     
-    <lastmod>2020-03-04T03:49:16.611Z</lastmod>
+    <lastmod>2020-03-06T14:00:48.341Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/2020/03/04/python-timeout-retry/</loc>
+    
+    <lastmod>2020-03-04T07:22:29.882Z</lastmod>
     
   </url>
   
