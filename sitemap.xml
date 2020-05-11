@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://willv.cn/2020/05/01/zhiyun-xss/</loc>
+    <loc>https://willv.cn/2020/05/11/web-security-start/</loc>
     
-    <lastmod>2020-05-01T12:35:01.264Z</lastmod>
+    <lastmod>2020-05-11T14:39:17.878Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://willv.cn/diary/index.html</loc>
     
-    <lastmod>2020-05-01T03:41:05.789Z</lastmod>
+    <lastmod>2020-05-11T14:32:38.928Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/2020/05/01/zhiyun-xss/</loc>
+    
+    <lastmod>2020-05-01T12:37:30.561Z</lastmod>
     
   </url>
   
