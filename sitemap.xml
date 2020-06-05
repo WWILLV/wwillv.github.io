@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://willv.cn/2020/05/11/web-security-start/</loc>
+    <loc>https://willv.cn/diary/slim.html</loc>
     
-    <lastmod>2020-05-11T14:39:17.878Z</lastmod>
+    <lastmod>2020-06-05T06:29:27.034Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://willv.cn/diary/index.html</loc>
     
-    <lastmod>2020-05-11T14:32:38.928Z</lastmod>
+    <lastmod>2020-06-05T06:27:05.920Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/2020/05/11/web-security-start/</loc>
+    
+    <lastmod>2020-05-11T15:18:48.058Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>https://willv.cn/2020/03/30/since18-4big-web/</loc>
     
     <lastmod>2020-04-22T07:54:15.050Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://willv.cn/diary/slim.html</loc>
-    
-    <lastmod>2020-04-21T10:42:27.903Z</lastmod>
     
   </url>
   

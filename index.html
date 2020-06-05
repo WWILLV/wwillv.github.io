@@ -1,4 +1,2566 @@
-<!-- build time:Mon May 11 2020 23:14:02 GMT+0800 (GMT+08:00) --><!DOCTYPE html><html class="theme-next gemini use-motion" lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=2"><meta name="theme-color" content="#222"><link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css"><link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"><link rel="stylesheet" href="/css/main.css?v=7.1.0"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=7.1.0"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0"><link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222"><script id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Gemini",version:"7.1.0",sidebar:{position:"left",display:"post",offset:12,onmobile:!1,dimmer:!1},back2top:!0,back2top_sidebar:!1,fancybox:!1,fastclick:!1,lazyload:!1,tabs:!0,motion:{enable:!0,async:!1,transition:{post_block:"fadeIn",post_header:"slideDownIn",post_body:"slideDownIn",coll_header:"slideLeftIn",sidebar:"slideUpIn"}},algolia:{applicationID:"",apiKey:"",indexName:"",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><script></script><meta name="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客"><meta property="og:type" content="website"><meta property="og:title" content="时光"><meta property="og:url" content="https://willv.cn/index.html"><meta property="og:site_name" content="时光"><meta property="og:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta property="og:locale" content="zh-CN"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="时光"><meta name="twitter:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><link rel="alternate" href="/atom.xml" title="时光" type="application/atom+xml"><link rel="canonical" href="https://willv.cn/"><script id="page.configurations">CONFIG.page={sidebar:""}</script><title>时光</title><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?62382cd2dc6f4cabe6aae29a96f8cc47";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><noscript><style>.sidebar-inner,.use-motion .brand,.use-motion .collection-title,.use-motion .comments,.use-motion .menu-item,.use-motion .motion-element,.use-motion .pagination,.use-motion .post-block,.use-motion .post-body,.use-motion .post-header{opacity:initial}.use-motion .logo,.use-motion .site-subtitle,.use-motion .site-title{opacity:initial;top:initial}.use-motion .logo-line-before i{left:initial}.use-motion .logo-line-after i{right:initial}</style></noscript></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"><div class="container sidebar-position-left page-home"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">时光</span> <span class="logo-line-after"><i></i></span></a></div></div><div class="site-nav-toggle"><button aria-label="切换导航栏"><span class="btn-bar"></span> <span class="btn-bar"></span> <span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home menu-item-active"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-projects"><a href="/projects/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i><br>项目</a></li><li class="menu-item menu-item-writeup"><a href="/writeups/" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i><br>writeup</a></li><li class="menu-item menu-item-papers"><a href="/papers-reader/" rel="section"><i class="menu-item-icon fa fa-fw fa-file-pdf-o"></i><br>读论文</a></li><li class="menu-item menu-item-friends"><a href="/friends/" rel="section"><i class="menu-item-icon fa fa-fw fa-group"></i><br>友链</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class="site-search"><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class="search-icon"><i class="fa fa-search"></i> </span><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span><div class="local-search-input-wrapper"><input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input"></div></div><div id="local-search-result"></div></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><section id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2020/05/11/web-security-start/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2020/05/11/web-security-start/" class="post-title-link" itemprop="url">安全咋学啊，搞不懂啊</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2020-05-11 13:39:06 / 修改时间：22:39:17" itemprop="dateCreated datePublished" datetime="2020-05-11T13:39:06+08:00">2020-05-11</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2020/05/11/web-security-start/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/11/web-security-start/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><p>这篇文章写给<strong>完全不懂安全，想学安全的人</strong>。我也<strong>很菜</strong>，有哪些说的不对的，大佬轻点喷。</p><p>我本身是做Web的，其它的可能也会涉及到，比如逆向或者其他也有，但本文主要还是针对安全基础和Web应用安全（渗透）方面。</p><p>密码是：我是萌新（当然，真正的大佬肯定有办法绕过这个特别简单的密码验证）</p><div class="post-button text-center"><a class="btn" href="/2020/05/11/web-security-start/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2020/05/01/zhiyun-xss/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2020/05/01/zhiyun-xss/" class="post-title-link" itemprop="url">zhiyun xss</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2020-05-01 19:05:33 / 修改时间：20:37:30" itemprop="dateCreated datePublished" datetime="2020-05-01T19:05:33+08:00">2020-05-01</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2020/05/01/zhiyun-xss/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/01/zhiyun-xss/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><p>这篇文章准备申请CVE，故全文使用英语。</p><p>This article is going to apply for a CVE id, so the full text is in English.</p><div class="post-button text-center"><a class="btn" href="/2020/05/01/zhiyun-xss/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2020/03/30/since18-4big-web/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2020/03/30/since18-4big-web/" class="post-title-link" itemprop="url">2018年来安全四大顶会“泛”Web方向论文整理（更新至20年4月）</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2020-03-30 11:51:24" itemprop="dateCreated datePublished" datetime="2020-03-30T11:51:24+08:00">2020-03-30</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2020-04-22 15:54:15" itemprop="dateModified" datetime="2020-04-22T15:54:15+08:00">2020-04-22</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2020/03/30/since18-4big-web/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/30/since18-4big-web/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><ul><li><a href="http://www.sigsac.org/ccs.html" target="_blank" rel="noopener">CCS (ACM Conference on Computer and Communications Security)</a> <a href="https://dblp.uni-trier.de/db/conf/ccs/" target="_blank" rel="noopener">dblp</a></li><li><a href="http://www.ieee-security.org/index.html" target="_blank" rel="noopener">S&amp;P (IEEE Symposium on Security and Privacy)</a> <a href="https://dblp.uni-trier.de/db/conf/sp/" target="_blank" rel="noopener">dblp</a></li><li><a href="https://www.usenix.org/" target="_blank" rel="noopener">USENIX Security (Usenix Security Symposium)</a> <a href="http://dblp.uni-trier.de/db/conf/uss/" target="_blank" rel="noopener">dblp</a></li><li><a href="https://www.ndss-symposium.org/" target="_blank" rel="noopener">NDSS (ISOC Network and Distributed System Security Symposium)</a> <a href="https://dblp.uni-trier.de/db/conf/ndss/" target="_blank" rel="noopener">dblp</a></li></ul><p>目前，USENIX、SP、CCS的20年还没开，只有NDSS公布了20年的论文，等开了再更新。</p><table><thead><tr><th></th><th>CCS</th><th>S&amp;P</th><th>USENIX Security</th><th>NDSS</th></tr></thead><tbody><tr><td>2018</td><td><a href="https://dl.acm.org/doi/proceedings/10.1145/3243734" target="_blank" rel="noopener">Proceedings</a> <a href="https://dblp.uni-trier.de/db/conf/ccs/ccs2018.html" target="_blank" rel="noopener">dblp</a></td><td><a href="https://www.ieee-security.org/TC/SP2018/program.html" target="_blank" rel="noopener">program</a> <a href="https://dblp.uni-trier.de/db/conf/sp/sp2018.html" target="_blank" rel="noopener">dblp</a></td><td><a href="https://www.usenix.org/conference/usenixsecurity18/technical-sessions" target="_blank" rel="noopener">Technical Sessions</a> <a href="https://dblp.uni-trier.de/db/conf/uss/uss2018.html" target="_blank" rel="noopener">dblp</a></td><td><a href="https://www.ndss-symposium.org/ndss2018/programme/" target="_blank" rel="noopener">Programme</a> <a href="https://dblp.uni-trier.de/db/conf/ndss/ndss2018.html" target="_blank" rel="noopener">dblp</a></td></tr><tr><td>2019</td><td><a href="https://dl.acm.org/doi/proceedings/10.1145/3319535" target="_blank" rel="noopener">Proceedings</a> <a href="https://dblp.uni-trier.de/db/conf/ccs/ccs2019.html" target="_blank" rel="noopener">dblp</a></td><td><a href="https://www.ieee-security.org/TC/SP2019/program.html" target="_blank" rel="noopener">program</a> <a href="https://dblp.uni-trier.de/db/conf/sp/sp2019.html" target="_blank" rel="noopener">dblp</a></td><td><a href="https://www.usenix.org/conference/usenixsecurity19/technical-sessions" target="_blank" rel="noopener">Technical Sessions</a> <a href="https://dblp.uni-trier.de/db/conf/uss/uss2019.html" target="_blank" rel="noopener">dblp</a></td><td><a href="https://www.ndss-symposium.org/ndss-program/ndss-symposium-2019-program/" target="_blank" rel="noopener">Programme</a> <a href="https://dblp.uni-trier.de/db/conf/ndss/ndss2019.html" target="_blank" rel="noopener">dblp</a></td></tr><tr><td>2020</td><td><strong>Nov. 9-13, 2020, Orlando, USA</strong></td><td><strong>May. 18-20, 2020, San Francisco, USA</strong></td><td><strong>Aug. 12–14, 2020, Boston, USA</strong></td><td><a href="https://www.ndss-symposium.org/ndss-program/2020-program/" target="_blank" rel="noopener">Programme</a></td></tr></tbody></table><p>也不完全是Web方向，除了Web以外也有一些比如ML等我比较感兴趣的方向的论文。</p><p>一些论文上可能会加些标记：看过的论文：✔，我觉得还行：👍，我觉得不行：👎，如果看过没有评价的话，那可能是我要么看不懂，要么感觉一般般。</p><p>【⚠本文很长⚠】建议合理使用<code>CTRL+F</code>搜索。</p><div class="post-button text-center"><a class="btn" href="/2020/03/30/since18-4big-web/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2020/03/04/python-timeout-retry/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2020/03/04/python-timeout-retry/" class="post-title-link" itemprop="url">python的timeout和retry解决urlopen可能出现的卡死问题</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2020-03-04 10:05:35" itemprop="dateCreated datePublished" datetime="2020-03-04T10:05:35+08:00">2020-03-04</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2020-04-01 10:37:17" itemprop="dateModified" datetime="2020-04-01T10:37:17+08:00">2020-04-01</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2020/03/04/python-timeout-retry/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/04/python-timeout-retry/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>大概也是去年的这个时候，我写了<code>pixivLocalUpdate</code>，一个Python的小工具，用来实时更新我电脑里庞大的（现在是128GB）pixiv本地图片库。因为文件夹是按作者分类的，比较多，一个一个手动去更新不太现实，就用代码自动去实现。</p><p>代码逻辑很简单，就是<code>获取文件目录-&gt;获取作者id-&gt;检查本地最后一张图片看是否为最新-&gt;发现更新并下载</code>。然而问题来了。一开始，我下载是在Python脚本里使用<code>urlretrieve</code>下载，后面为了方便又加了<code>tqdm</code>的进度条，代码如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">    imgpath = path + <span class="string">"\\"</span> + url[url.rfind(<span class="string">'/'</span>) + <span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(imgpath):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    downloadnow = <span class="string">'\t[-]正在下载:%s'</span> % url[url.rfind(<span class="string">'/'</span>) + <span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">with</span> TqdmUpTo(unit=<span class="string">'B'</span>, unit_scale=<span class="literal">True</span>, unit_divisor=<span class="number">1024</span>, miniters=<span class="number">1</span>,</span><br><span class="line">            desc=downloadnow, ncols=<span class="number">70</span>) <span class="keyword">as</span> t:  <span class="comment"># 继承至tqdm父类的初始化参数</span></span><br><span class="line">        urlretrieve(url, imgpath, reporthook=t.update_to, data=<span class="literal">None</span>)</span><br><span class="line">    t.close()</span><br></pre></td></tr></table></figure><p>但是这个代码经常会在<code>urlretrieve</code>这里卡死，看着进度条在中间就不动了，需要手动停止进程。因为使用<code>urlretrieve</code>下载太慢了，在前几天我重构了代码，调用<code>IDM</code>在更新完所有的文件夹后统一下载。</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IDM为从注册表中获取的IDMan.exe路径（直接传也可以）</span></span><br><span class="line"><span class="comment"># 添加到IDM下载队列</span></span><br><span class="line">call([IDM, <span class="string">'/d'</span>, url, <span class="string">'/p'</span>, path, <span class="string">'/f'</span>, filename, <span class="string">'/n'</span>, <span class="string">'/a'</span>])</span><br><span class="line"><span class="comment"># 开始队列下载</span></span><br><span class="line">call([IDM, <span class="string">'/s'</span>])</span><br></pre></td></tr></table></figure><p>现在不会在下载卡死了，反而会更快的在更新时卡死，频率特别高，很头大。</p><div class="post-button text-center"><a class="btn" href="/2020/03/04/python-timeout-retry/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2020/02/22/ZhiyunTranslator-crack/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2020/02/22/ZhiyunTranslator-crack/" class="post-title-link" itemprop="url">某论文翻译软件的破解</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2020-02-22 18:29:39 / 修改时间：20:30:05" itemprop="dateCreated datePublished" datetime="2020-02-22T18:29:39+08:00">2020-02-22</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2020/02/22/ZhiyunTranslator-crack/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/22/ZhiyunTranslator-crack/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><p><img src="https://ae01.alicdn.com/kf/Ha1559458d00843d59c4c56bb3c893d9cY.png" alt="肥肠抱歉"></p><p>最近太咸鱼了，觉得自己再不看论文就要凉了。时隔多日打开了之前没看完的论文，又打开的有道翻译准备慢慢啃。刚看了一句，就想起来很久没用的一个论文翻译软件，但是这个软件不仅要登录，还有一个积分制度，积分不够只能选百度翻译，随着积分的提升就可以使用谷歌等翻译工具了。但是积分的获取只有充值或微信朋友圈拉新用户，像我这种人怎么可能这样做，就一直用着百度。百度也不是不行，但和谷歌等工具比起来还是差点意思，今天就依靠着我辣鸡的逆向水平把他给破解了。</p><div class="post-button text-center"><a class="btn" href="/2020/02/22/ZhiyunTranslator-crack/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2019/11/21/CVE-2019-1388/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2019/11/21/CVE-2019-1388/" class="post-title-link" itemprop="url">CVE-2019-1388 UAC提权</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-11-21 16:19:18" itemprop="dateCreated datePublished" datetime="2019-11-21T16:19:18+08:00">2019-11-21</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-11-24 18:16:10" itemprop="dateModified" datetime="2019-11-24T18:16:10+08:00">2019-11-24</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2019/11/21/CVE-2019-1388/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/21/CVE-2019-1388/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><h2 id="CVE-2019-1388"><a href="#CVE-2019-1388" class="headerlink" title="CVE-2019-1388"></a>CVE-2019-1388</h2><p><a href="https://www.thezdi.com/blog/2019/11/19/thanksgiving-treat-easy-as-pie-windows-7-secure-desktop-escalation-of-privilege" target="_blank" rel="noopener">CVE-2019-1388 | Windows Certificate Dialog Elevation of Privilege Vulnerability</a></p><p>2019年11月12日msrc发布了漏洞，官方的介绍是</p><blockquote><p>An elevation of privilege vulnerability exists in the Windows Certificate Dialog when it does not properly enforce user privileges. An attacker who successfully exploited this vulnerability could run processes in an elevated context. An attacker could then install programs; view, change or delete data.</p><p>To exploit this vulnerability, an attacker would first have to log on to the system. An attacker could then run a specially crafted application that could exploit the vulnerability and take control of an affected system.</p><p>The security update addresses the vulnerability by ensuring Windows Certificate Dialog properly enforces user privileges.</p><p>如果 Windows 证书对话框没有正确执行用户特权，则存在特权提升漏洞。成功利用此漏洞的攻击者可以在提升的环境中运行进程。然后，攻击者可能会安装程序，查看、更改或删除数据。<br>要利用此漏洞，攻击者首先必须以普通用户权限登录系统。然后攻击者运行一个精心调制的应用，该应用可以利用此漏洞并控制受影响的系统。<br>该安全更新通过确保 Windows 证书对话框正确执行用户特权来解决该漏洞。</p></blockquote><p>影响范围也比较广，从win7到win10，server2008到2016，如果不打补丁都有威胁。</p><p><a href="https://gist.github.com/gentilkiwi/802c221c0731c06c22bb75650e884e5a" target="_blank" rel="noopener">威胁测试名单</a></p><div class="post-button text-center"><a class="btn" href="/2019/11/21/CVE-2019-1388/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2019/10/14/oray-from-afr-to-getshell/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2019/10/14/oray-from-afr-to-getshell/" class="post-title-link" itemprop="url">通过向日葵远控从任意文件读取到获取计算机系统权限</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-10-14 14:34:33" itemprop="dateCreated datePublished" datetime="2019-10-14T14:34:33+08:00">2019-10-14</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2020-04-01 10:44:29" itemprop="dateModified" datetime="2020-04-01T10:44:29+08:00">2020-04-01</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2019/10/14/oray-from-afr-to-getshell/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/14/oray-from-afr-to-getshell/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>事情要从最近发生的一些安全事件说起。</p><p>最近TeamViewer的事闹的挺火的，起因是FireEye的一个分析APT41的PPT中提到了TeamViewer在2016年的一起事件，这张PPT被拍了下来发到了Twitter上。其实本来没什么事，首先，16年TV的那个事件也只是报纸报道，没有证据表明TV的数据收到了影响，而且，现在都9102年了，而且火眼的报告只是说了一下过去的事情来说自己多牛逼的（他说APT41是中国的，暗示中国搞过TeamViewer）。结果，深圳网警就根据这张什么都无法证明的图发了个TeamViewer被境外黑客APT41攻破有危险的公告微博，然后国内就炸了，各大公司单位纷纷禁用TeamViewer，然后深圳网警就把之前发的公告微博给删了（令人窒息的操作）。真实的开局一张图，内容全靠编系列。（TeamViewer官方和Twitter上发原图的大哥都做了澄清，TV没问题）</p><p>没有TeamViewer那用什么呢。很多人就想到了国产远控向日葵，这篇文章就说一下我发现的向日葵目前存在的安全隐患，用的时候要注意这一点。</p><div class="post-button text-center"><a class="btn" href="/2019/10/14/oray-from-afr-to-getshell/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2019/04/08/ZokuOwarimonogatari/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2019/04/08/ZokuOwarimonogatari/" class="post-title-link" itemprop="url">续·终物语</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-04-08 22:54:41" itemprop="dateCreated datePublished" datetime="2019-04-08T22:54:41+08:00">2019-04-08</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-11-09 23:50:20" itemprop="dateModified" datetime="2019-11-09T23:50:20+08:00">2019-11-09</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2019/04/08/ZokuOwarimonogatari/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/08/ZokuOwarimonogatari/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><blockquote><p>什么嘛 这种事情而已<br>如果不知道前行时是先迈出右脚还是左脚的话<br>这样做不就行了吗</p><p>不是像袋鼠 而是像青蛙一样<br>我在原田径部部员强韧的脚力牵引下<br>为了不至于被抛下而紧跟上去<br>向前进发<br>增添了两成之后向前进发<br>向着光芒的方向跳跃</p></blockquote><div class="post-button text-center"><a class="btn" href="/2019/04/08/ZokuOwarimonogatari/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2019/01/06/new-2019/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2019/01/06/new-2019/" class="post-title-link" itemprop="url">Delete</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2019-01-06 16:38:16" itemprop="dateCreated datePublished" datetime="2019-01-06T16:38:16+08:00">2019-01-06</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2020-02-10 10:31:07" itemprop="dateModified" datetime="2020-02-10T10:31:07+08:00">2020-02-10</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2019/01/06/new-2019/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/06/new-2019/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><p>9102年了，看了看以前写的辣鸡文章，想删网站跑路了。想了想，还是没有，删了几篇太蠢的文章……</p><p>想想看自己还是太菜了，越学习越发现自己越菜，连个洞也挖不出来。只求过几个月考研成绩出来可以成功上岸吧~</p><p><img src="https://ae01.alicdn.com/kf/H657b3b05e76442329866b18019a0ff78z.png" alt="9102年了_72479790"></p><div class="post-button text-center"><a class="btn" href="/2019/01/06/new-2019/#more" rel="contents">阅读全文 &raquo;</a></div></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><div class="post-block"><link itemprop="mainEntityOfPage" href="https://willv.cn/2018/07/21/RSA-ATTACK/"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="WILL_V"><meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣"><meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="时光"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"><a href="/2018/07/21/RSA-ATTACK/" class="post-title-link" itemprop="url">CTF中常见的RSA相关问题总结[转]</a></h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i> </span><span class="post-meta-item-text">发表于</span> <time title="创建时间：2018-07-21 17:33:51" itemprop="dateCreated datePublished" datetime="2018-07-21T17:33:51+08:00">2018-07-21</time> <span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-calendar-check-o"></i> </span><span class="post-meta-item-text">更新于</span> <time title="修改时间：2019-04-23 22:43:01" itemprop="dateModified" datetime="2019-04-23T22:43:01+08:00">2019-04-23</time> </span><span class="post-comments-count"><span class="post-meta-divider">|</span> <span class="post-meta-item-icon"><i class="fa fa-comment-o"></i> </span><span class="post-meta-item-text">评论数：</span> <a href="/2018/07/21/RSA-ATTACK/#comments" itemprop="discussionUrl"><span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/21/RSA-ATTACK/" itemprop="commentCount"></span></a></span></div></header><div class="post-body" itemprop="articleBody"><h1 id="原文-CTF中常见的RSA相关问题总结"><a href="#原文-CTF中常见的RSA相关问题总结" class="headerlink" title="原文:CTF中常见的RSA相关问题总结"></a><a href="https://github.com/findneo/RSA-ATTACK" target="_blank" rel="noopener">原文:CTF中常见的RSA相关问题总结</a></h1><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>理解基本概念后，代码就可以说明一切，所以本文将每种攻击方式的实现方法都提炼成了一个函数，在理解原理时会有帮助，在需要时也可以直接调用。</p><h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="RSA概要"><a href="#RSA概要" class="headerlink" title="RSA概要"></a>RSA概要</h2><p>在开始前可以通过 <a href="http://www.guideep.com/read?guide=5676830073815040" target="_blank" rel="noopener">《RSA算法详解》</a> 这篇文章了解关于RSA的基础知识，包括加解密方法，算法原理和可行性证明等。</p><h2 id="应用流程"><a href="#应用流程" class="headerlink" title="应用流程"></a>应用流程</h2><ol><li><p>选取两个较大的互不相等的质数p和q，计算<code>n = p * q</code> 。</p></li><li><p>计算<code>phi = (p-1) * (q-1)</code> 。</p></li><li><p>选取任意e，使得e满足 <code>1&lt;e&lt;phi</code> 且 <code>gcd(e , phi) == 1</code> 。</p></li><li><p>计算e关于n的模逆元d， 即d满足<code>(e * d)% n ==1</code> 。</p></li><li><p>加解密：<code>c = (m ^ e) % n</code> ， <code>m = (c ^ d) % n</code> 。其中m为明文，c为密文，(n,e)为公钥对，d为私钥，要求 <code>0 &lt;= m &lt; n</code> 。</p><div class="post-button text-center"><a class="btn" href="/2018/07/21/RSA-ATTACK/#more" rel="contents">阅读全文 &raquo;</a></div></li></ol></div><footer class="post-footer"><div class="post-eof"></div></footer></div></article></section><nav class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a></nav></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><div class="site-overview-wrap sidebar-panel sidebar-panel-active"><div class="site-overview"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"><img class="site-author-image" itemprop="image" src="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg" alt="WILL_V"><p class="site-author-name" itemprop="name">WILL_V</p><div class="site-description motion-element" itemprop="description">辣鸡CTF选手，渣Web，逆向只会F5的渣渣</div></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href="/archives/"><span class="site-state-item-count">15</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-tags"><a href="/tags/"><span class="site-state-item-count">13</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/WWILLV" title="GitHub &rarr; https://github.com/WWILLV" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a> </span><span class="links-of-author-item"><a href="mailto:admin@willv.cn" title="E-Mail &rarr; mailto:admin@willv.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a> </span><span class="links-of-author-item"><a href="https://twitter.com/twwillv" title="Twitter &rarr; https://twitter.com/twwillv" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a> </span><span class="links-of-author-item"><a href="https://weibo.com/u/2693120655" title="微博 &rarr; https://weibo.com/u/2693120655" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a></span></div><div class="cc-license motion-element" itemprop="license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a></div></div></div></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span> <span class="with-love" id="animate"><i class="fa fa-user"></i> </span><span class="author" itemprop="copyrightHolder">WILL_V</span></div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i> <span id="scrollpercent"><span>0</span>%</span></div></div><script>"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script src="/lib/jquery/index.js?v=2.1.3"></script><script src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script src="/lib/reading_progress/reading_progress.js"></script><script src="/js/utils.js?v=7.1.0"></script><script src="/js/motion.js?v=7.1.0"></script><script src="/js/affix.js?v=7.1.0"></script><script src="/js/schemes/pisces.js?v=7.1.0"></script><script src="/js/next-boot.js?v=7.1.0"></script><script src="/lib/quicklink/dist/quicklink.umd.js"></script><script>window.addEventListener('load', () => {
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+  <meta name="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="时光">
+<meta property="og:url" content="https://willv.cn/index.html">
+<meta property="og:site_name" content="时光">
+<meta property="og:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="时光">
+<meta name="twitter:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时光" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://willv.cn/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>时光</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?62382cd2dc6f4cabe6aae29a96f8cc47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时光</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/projects/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br>项目</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-writeup">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/writeups/" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br>writeup</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-papers">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/papers-reader/" rel="section"><i class="menu-item-icon fa fa-fw fa-file-pdf-o"></i> <br>读论文</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friends">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friends/" rel="section"><i class="menu-item-icon fa fa-fw fa-group"></i> <br>友链</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2020/05/11/web-security-start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/05/11/web-security-start/" class="post-title-link" itemprop="url">安全咋学啊，搞不懂啊</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-11 13:39:06 / 修改时间：23:18:48" itemprop="dateCreated datePublished" datetime="2020-05-11T13:39:06+08:00">2020-05-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/05/11/web-security-start/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/11/web-security-start/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章写给<strong>完全不懂安全，想学安全的人</strong>。我也<strong>很菜</strong>，有哪些说的不对的，大佬轻点喷。</p>
+<p>我本身是做Web的，其它的可能也会涉及到，比如逆向或者其他也有，但本文主要还是针对安全基础和Web应用安全（渗透）方面。</p>
+<p>密码是：我是萌新（当然，真正的大佬肯定有办法绕过这个特别简单的密码验证）</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/11/web-security-start/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2020/05/01/zhiyun-xss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/05/01/zhiyun-xss/" class="post-title-link" itemprop="url">zhiyun xss</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-01 19:05:33 / 修改时间：20:37:30" itemprop="dateCreated datePublished" datetime="2020-05-01T19:05:33+08:00">2020-05-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/05/01/zhiyun-xss/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/05/01/zhiyun-xss/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章准备申请CVE，故全文使用英语。</p>
+<p>This article is going to apply for a CVE id, so the full text is in English.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/01/zhiyun-xss/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2020/03/30/since18-4big-web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/30/since18-4big-web/" class="post-title-link" itemprop="url">2018年来安全四大顶会“泛”Web方向论文整理（更新至20年4月）</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-30 11:51:24" itemprop="dateCreated datePublished" datetime="2020-03-30T11:51:24+08:00">2020-03-30</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-22 15:54:15" itemprop="dateModified" datetime="2020-04-22T15:54:15+08:00">2020-04-22</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/30/since18-4big-web/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/30/since18-4big-web/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li><a href="http://www.sigsac.org/ccs.html" target="_blank" rel="noopener">CCS (ACM Conference on Computer and Communications Security)</a> <a href="https://dblp.uni-trier.de/db/conf/ccs/" target="_blank" rel="noopener">dblp</a></li>
+<li><a href="http://www.ieee-security.org/index.html" target="_blank" rel="noopener">S&amp;P (IEEE Symposium on Security and Privacy)</a> <a href="https://dblp.uni-trier.de/db/conf/sp/" target="_blank" rel="noopener">dblp</a></li>
+<li><a href="https://www.usenix.org/" target="_blank" rel="noopener">USENIX Security (Usenix Security Symposium)</a> <a href="http://dblp.uni-trier.de/db/conf/uss/" target="_blank" rel="noopener">dblp</a></li>
+<li><a href="https://www.ndss-symposium.org/" target="_blank" rel="noopener">NDSS (ISOC Network and Distributed System Security Symposium)</a> <a href="https://dblp.uni-trier.de/db/conf/ndss/" target="_blank" rel="noopener">dblp</a></li>
+</ul>
+<p>目前，USENIX、SP、CCS的20年还没开，只有NDSS公布了20年的论文，等开了再更新。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CCS</th>
+<th>S&amp;P</th>
+<th>USENIX Security</th>
+<th>NDSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2018</td>
+<td><a href="https://dl.acm.org/doi/proceedings/10.1145/3243734" target="_blank" rel="noopener">Proceedings</a> <a href="https://dblp.uni-trier.de/db/conf/ccs/ccs2018.html" target="_blank" rel="noopener">dblp</a></td>
+<td><a href="https://www.ieee-security.org/TC/SP2018/program.html" target="_blank" rel="noopener">program</a> <a href="https://dblp.uni-trier.de/db/conf/sp/sp2018.html" target="_blank" rel="noopener">dblp</a></td>
+<td><a href="https://www.usenix.org/conference/usenixsecurity18/technical-sessions" target="_blank" rel="noopener">Technical Sessions</a> <a href="https://dblp.uni-trier.de/db/conf/uss/uss2018.html" target="_blank" rel="noopener">dblp</a></td>
+<td><a href="https://www.ndss-symposium.org/ndss2018/programme/" target="_blank" rel="noopener">Programme</a> <a href="https://dblp.uni-trier.de/db/conf/ndss/ndss2018.html" target="_blank" rel="noopener">dblp</a></td>
+</tr>
+<tr>
+<td>2019</td>
+<td><a href="https://dl.acm.org/doi/proceedings/10.1145/3319535" target="_blank" rel="noopener">Proceedings</a> <a href="https://dblp.uni-trier.de/db/conf/ccs/ccs2019.html" target="_blank" rel="noopener">dblp</a></td>
+<td><a href="https://www.ieee-security.org/TC/SP2019/program.html" target="_blank" rel="noopener">program</a> <a href="https://dblp.uni-trier.de/db/conf/sp/sp2019.html" target="_blank" rel="noopener">dblp</a></td>
+<td><a href="https://www.usenix.org/conference/usenixsecurity19/technical-sessions" target="_blank" rel="noopener">Technical Sessions</a> <a href="https://dblp.uni-trier.de/db/conf/uss/uss2019.html" target="_blank" rel="noopener">dblp</a></td>
+<td><a href="https://www.ndss-symposium.org/ndss-program/ndss-symposium-2019-program/" target="_blank" rel="noopener">Programme</a> <a href="https://dblp.uni-trier.de/db/conf/ndss/ndss2019.html" target="_blank" rel="noopener">dblp</a></td>
+</tr>
+<tr>
+<td>2020</td>
+<td><strong>Nov. 9-13, 2020, Orlando, USA</strong></td>
+<td><strong>May. 18-20, 2020, San Francisco, USA</strong></td>
+<td><strong>Aug. 12–14, 2020, Boston, USA</strong></td>
+<td><a href="https://www.ndss-symposium.org/ndss-program/2020-program/" target="_blank" rel="noopener">Programme</a></td>
+</tr>
+</tbody>
+</table>
+<p>也不完全是Web方向，除了Web以外也有一些比如ML等我比较感兴趣的方向的论文。</p>
+<p>一些论文上可能会加些标记：看过的论文：✔，我觉得还行：👍，我觉得不行：👎，如果看过没有评价的话，那可能是我要么看不懂，要么感觉一般般。</p>
+<p>【⚠本文很长⚠】建议合理使用<code>CTRL+F</code>搜索。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/03/30/since18-4big-web/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2020/03/04/python-timeout-retry/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/04/python-timeout-retry/" class="post-title-link" itemprop="url">python的timeout和retry解决urlopen可能出现的卡死问题</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-04 10:05:35" itemprop="dateCreated datePublished" datetime="2020-03-04T10:05:35+08:00">2020-03-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-01 10:37:17" itemprop="dateModified" datetime="2020-04-01T10:37:17+08:00">2020-04-01</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/04/python-timeout-retry/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/04/python-timeout-retry/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>大概也是去年的这个时候，我写了<code>pixivLocalUpdate</code>，一个Python的小工具，用来实时更新我电脑里庞大的（现在是128GB）pixiv本地图片库。因为文件夹是按作者分类的，比较多，一个一个手动去更新不太现实，就用代码自动去实现。</p>
+<p>代码逻辑很简单，就是<code>获取文件目录-&gt;获取作者id-&gt;检查本地最后一张图片看是否为最新-&gt;发现更新并下载</code>。然而问题来了。一开始，我下载是在Python脚本里使用<code>urlretrieve</code>下载，后面为了方便又加了<code>tqdm</code>的进度条，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">    imgpath = path + <span class="string">"\\"</span> + url[url.rfind(<span class="string">'/'</span>) + <span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">if</span> os.path.exists(imgpath):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    downloadnow = <span class="string">'\t[-]正在下载:%s'</span> % url[url.rfind(<span class="string">'/'</span>) + <span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">with</span> TqdmUpTo(unit=<span class="string">'B'</span>, unit_scale=<span class="literal">True</span>, unit_divisor=<span class="number">1024</span>, miniters=<span class="number">1</span>,</span><br><span class="line">            desc=downloadnow, ncols=<span class="number">70</span>) <span class="keyword">as</span> t:  <span class="comment"># 继承至tqdm父类的初始化参数</span></span><br><span class="line">        urlretrieve(url, imgpath, reporthook=t.update_to, data=<span class="literal">None</span>)</span><br><span class="line">    t.close()</span><br></pre></td></tr></table></figure>
+<p>但是这个代码经常会在<code>urlretrieve</code>这里卡死，看着进度条在中间就不动了，需要手动停止进程。因为使用<code>urlretrieve</code>下载太慢了，在前几天我重构了代码，调用<code>IDM</code>在更新完所有的文件夹后统一下载。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IDM为从注册表中获取的IDMan.exe路径（直接传也可以）</span></span><br><span class="line"><span class="comment"># 添加到IDM下载队列</span></span><br><span class="line">call([IDM, <span class="string">'/d'</span>, url, <span class="string">'/p'</span>, path, <span class="string">'/f'</span>, filename, <span class="string">'/n'</span>, <span class="string">'/a'</span>])</span><br><span class="line"><span class="comment"># 开始队列下载</span></span><br><span class="line">call([IDM, <span class="string">'/s'</span>])</span><br></pre></td></tr></table></figure>
+<p>现在不会在下载卡死了，反而会更快的在更新时卡死，频率特别高，很头大。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/03/04/python-timeout-retry/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2020/02/22/ZhiyunTranslator-crack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/02/22/ZhiyunTranslator-crack/" class="post-title-link" itemprop="url">某论文翻译软件的破解</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-22 18:29:39 / 修改时间：20:30:05" itemprop="dateCreated datePublished" datetime="2020-02-22T18:29:39+08:00">2020-02-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/02/22/ZhiyunTranslator-crack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/02/22/ZhiyunTranslator-crack/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://ae01.alicdn.com/kf/Ha1559458d00843d59c4c56bb3c893d9cY.png" alt="肥肠抱歉"></p>
+<p>最近太咸鱼了，觉得自己再不看论文就要凉了。时隔多日打开了之前没看完的论文，又打开的有道翻译准备慢慢啃。刚看了一句，就想起来很久没用的一个论文翻译软件，但是这个软件不仅要登录，还有一个积分制度，积分不够只能选百度翻译，随着积分的提升就可以使用谷歌等翻译工具了。但是积分的获取只有充值或微信朋友圈拉新用户，像我这种人怎么可能这样做，就一直用着百度。百度也不是不行，但和谷歌等工具比起来还是差点意思，今天就依靠着我辣鸡的逆向水平把他给破解了。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/02/22/ZhiyunTranslator-crack/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2019/11/21/CVE-2019-1388/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/21/CVE-2019-1388/" class="post-title-link" itemprop="url">CVE-2019-1388 UAC提权</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-21 16:19:18" itemprop="dateCreated datePublished" datetime="2019-11-21T16:19:18+08:00">2019-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-24 18:16:10" itemprop="dateModified" datetime="2019-11-24T18:16:10+08:00">2019-11-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/11/21/CVE-2019-1388/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/11/21/CVE-2019-1388/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="CVE-2019-1388"><a href="#CVE-2019-1388" class="headerlink" title="CVE-2019-1388"></a>CVE-2019-1388</h2><p><a href="https://www.thezdi.com/blog/2019/11/19/thanksgiving-treat-easy-as-pie-windows-7-secure-desktop-escalation-of-privilege" target="_blank" rel="noopener">CVE-2019-1388 | Windows Certificate Dialog Elevation of Privilege Vulnerability</a></p>
+<p>2019年11月12日msrc发布了漏洞，官方的介绍是</p>
+<blockquote>
+<p>An elevation of privilege vulnerability exists in the Windows Certificate Dialog when it does not properly enforce user privileges. An attacker who successfully exploited this vulnerability could run processes in an elevated context. An attacker could then install programs; view, change or delete data.</p>
+<p>To exploit this vulnerability, an attacker would first have to log on to the system. An attacker could then run a specially crafted application that could exploit the vulnerability and take control of an affected system.</p>
+<p>The security update addresses the vulnerability by ensuring Windows Certificate Dialog properly enforces user privileges.</p>
+<p>如果 Windows 证书对话框没有正确执行用户特权，则存在特权提升漏洞。成功利用此漏洞的攻击者可以在提升的环境中运行进程。然后，攻击者可能会安装程序，查看、更改或删除数据。<br>要利用此漏洞，攻击者首先必须以普通用户权限登录系统。然后攻击者运行一个精心调制的应用，该应用可以利用此漏洞并控制受影响的系统。<br>该安全更新通过确保 Windows 证书对话框正确执行用户特权来解决该漏洞。</p>
+</blockquote>
+<p>影响范围也比较广，从win7到win10，server2008到2016，如果不打补丁都有威胁。</p>
+<p><a href="https://gist.github.com/gentilkiwi/802c221c0731c06c22bb75650e884e5a" target="_blank" rel="noopener">威胁测试名单</a></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/21/CVE-2019-1388/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2019/10/14/oray-from-afr-to-getshell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/14/oray-from-afr-to-getshell/" class="post-title-link" itemprop="url">通过向日葵远控从任意文件读取到获取计算机系统权限</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-14 14:34:33" itemprop="dateCreated datePublished" datetime="2019-10-14T14:34:33+08:00">2019-10-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-04-01 10:44:29" itemprop="dateModified" datetime="2020-04-01T10:44:29+08:00">2020-04-01</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/10/14/oray-from-afr-to-getshell/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/10/14/oray-from-afr-to-getshell/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="0x00"><a href="#0x00" class="headerlink" title="0x00"></a>0x00</h2><p>事情要从最近发生的一些安全事件说起。</p>
+<p>最近TeamViewer的事闹的挺火的，起因是FireEye的一个分析APT41的PPT中提到了TeamViewer在2016年的一起事件，这张PPT被拍了下来发到了Twitter上。其实本来没什么事，首先，16年TV的那个事件也只是报纸报道，没有证据表明TV的数据收到了影响，而且，现在都9102年了，而且火眼的报告只是说了一下过去的事情来说自己多牛逼的（他说APT41是中国的，暗示中国搞过TeamViewer）。结果，深圳网警就根据这张什么都无法证明的图发了个TeamViewer被境外黑客APT41攻破有危险的公告微博，然后国内就炸了，各大公司单位纷纷禁用TeamViewer，然后深圳网警就把之前发的公告微博给删了（令人窒息的操作）。真实的开局一张图，内容全靠编系列。（TeamViewer官方和Twitter上发原图的大哥都做了澄清，TV没问题）</p>
+<p>没有TeamViewer那用什么呢。很多人就想到了国产远控向日葵，这篇文章就说一下我发现的向日葵目前存在的安全隐患，用的时候要注意这一点。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/14/oray-from-afr-to-getshell/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2019/04/08/ZokuOwarimonogatari/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/04/08/ZokuOwarimonogatari/" class="post-title-link" itemprop="url">续·终物语</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-08 22:54:41" itemprop="dateCreated datePublished" datetime="2019-04-08T22:54:41+08:00">2019-04-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-09 23:50:20" itemprop="dateModified" datetime="2019-11-09T23:50:20+08:00">2019-11-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/08/ZokuOwarimonogatari/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/04/08/ZokuOwarimonogatari/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>什么嘛 这种事情而已<br>如果不知道前行时是先迈出右脚还是左脚的话<br>这样做不就行了吗</p>
+<p>不是像袋鼠 而是像青蛙一样<br>我在原田径部部员强韧的脚力牵引下<br>为了不至于被抛下而紧跟上去<br>向前进发<br>增添了两成之后向前进发<br>向着光芒的方向跳跃</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/04/08/ZokuOwarimonogatari/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2019/01/06/new-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/01/06/new-2019/" class="post-title-link" itemprop="url">Delete</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-06 16:38:16" itemprop="dateCreated datePublished" datetime="2019-01-06T16:38:16+08:00">2019-01-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-02-10 10:31:07" itemprop="dateModified" datetime="2020-02-10T10:31:07+08:00">2020-02-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/01/06/new-2019/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/06/new-2019/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>9102年了，看了看以前写的辣鸡文章，想删网站跑路了。想了想，还是没有，删了几篇太蠢的文章……</p>
+<p>想想看自己还是太菜了，越学习越发现自己越菜，连个洞也挖不出来。只求过几个月考研成绩出来可以成功上岸吧~</p>
+<p><img src="https://ae01.alicdn.com/kf/H657b3b05e76442329866b18019a0ff78z.png" alt="9102年了_72479790"></p>
+<!-- ![9102年了_72479790](https://ooo.0o0.ooo/2019/01/06/5c31c0526c194.png) -->
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/06/new-2019/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2018/07/21/RSA-ATTACK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/07/21/RSA-ATTACK/" class="post-title-link" itemprop="url">CTF中常见的RSA相关问题总结[转]</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-21 17:33:51" itemprop="dateCreated datePublished" datetime="2018-07-21T17:33:51+08:00">2018-07-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 22:43:01" itemprop="dateModified" datetime="2019-04-23T22:43:01+08:00">2019-04-23</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/07/21/RSA-ATTACK/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/21/RSA-ATTACK/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="原文-CTF中常见的RSA相关问题总结"><a href="#原文-CTF中常见的RSA相关问题总结" class="headerlink" title="原文:CTF中常见的RSA相关问题总结"></a><a href="https://github.com/findneo/RSA-ATTACK" target="_blank" rel="noopener">原文:CTF中常见的RSA相关问题总结</a></h1><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>理解基本概念后，代码就可以说明一切，所以本文将每种攻击方式的实现方法都提炼成了一个函数，在理解原理时会有帮助，在需要时也可以直接调用。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="RSA概要"><a href="#RSA概要" class="headerlink" title="RSA概要"></a>RSA概要</h2><p>在开始前可以通过 <a href="http://www.guideep.com/read?guide=5676830073815040" target="_blank" rel="noopener">《RSA算法详解》</a> 这篇文章了解关于RSA的基础知识，包括加解密方法，算法原理和可行性证明等。</p>
+<h2 id="应用流程"><a href="#应用流程" class="headerlink" title="应用流程"></a>应用流程</h2><ol>
+<li><p>选取两个较大的互不相等的质数p和q，计算<code>n = p * q</code> 。</p>
+</li>
+<li><p>计算<code>phi = (p-1) * (q-1)</code> 。</p>
+</li>
+<li><p>选取任意e，使得e满足 <code>1&lt;e&lt;phi</code> 且 <code>gcd(e , phi) == 1</code> 。</p>
+</li>
+<li><p>计算e关于n的模逆元d， 即d满足<code>(e * d)% n ==1</code>  。</p>
+</li>
+<li><p>加解密：<code>c = (m ^ e) % n</code> ， <code>m = (c ^ d) % n</code> 。其中m为明文，c为密文，(n,e)为公钥对，d为私钥，要求 <code>0 &lt;= m &lt; n</code> 。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/21/RSA-ATTACK/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </li></ol></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg" alt="WILL_V">
+            
+              <p class="site-author-name" itemprop="name">WILL_V</p>
+              <div class="site-description motion-element" itemprop="description">辣鸡CTF选手，渣Web，逆向只会F5的渣渣</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WWILLV" title="GitHub &rarr; https://github.com/WWILLV" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:admin@willv.cn" title="E-Mail &rarr; mailto:admin@willv.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/twwillv" title="Twitter &rarr; https://twitter.com/twwillv" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/u/2693120655" title="微博 &rarr; https://weibo.com/u/2693120655" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WILL_V</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+  
+    <script src="/lib/quicklink/dist/quicklink.umd.js"></script>
+    <script>
+      
+        window.addEventListener('load', () => {
       
         quicklink({
           timeout: 3000,
@@ -6,4 +2568,404 @@
           ignores: [uri => uri.includes('#'),uri => uri == 'https://willv.cn/',]
         });
       
-        });</script><script id="dsq-count-scr" src="https://wwillv.disqus.com/count.js" async></script><script>function proceedsearch(){$("body").append('<div class="search-popup-overlay local-search-pop-overlay"></div>').css("overflow","hidden"),$(".search-popup-overlay").click(onPopupClose),$(".popup").toggle();var e=$("#local-search-input");e.attr("autocapitalize","none"),e.attr("autocorrect","off"),e.focus()}var isfetched=!1,isXml=!0,search_path="search.xml";0===search_path.length?search_path="search.xml":/json$/i.test(search_path)&&(isXml=!1);var path="/"+search_path,onPopupClose=function(e){$(".popup").hide(),$("#local-search-input").val(""),$(".search-result-list").remove(),$("#no-result").remove(),$(".local-search-pop-overlay").remove(),$("body").css("overflow","")},searchFunc=function(e,t,o){"use strict";$("body").append('<div class="search-popup-overlay local-search-pop-overlay"><div id="search-loading-icon"><i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i></div></div>').css("overflow","hidden"),$("#search-loading-icon").css("margin","20% auto 0 auto").css("text-align","center"),$.ajax({url:e,dataType:isXml?"xml":"json",async:!0,success:function(e){isfetched=!0,$(".popup").detach().appendTo(".header-inner");var n=isXml?$("entry",e).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get():e,r=document.getElementById(t),s=document.getElementById(o),a=function(){var e=r.value.trim().toLowerCase(),t=e.split(/[\s\-]+/);t.length>1&&t.push(e);var o=[];if(e.length>0&&n.forEach(function(n){function r(t,o,n,r){for(var s=r[r.length-1],a=s.position,i=s.word,l=[],h=0;a+i.length<=n&&0!=r.length;){i===e&&h++,l.push({position:a,length:i.length});var p=a+i.length;for(r.pop();0!=r.length&&(s=r[r.length-1],a=s.position,i=s.word,p>a);)r.pop()}return c+=h,{hits:l,start:o,end:n,searchTextCount:h}}function s(e,t){var o="",n=t.start;return t.hits.forEach(function(t){o+=e.substring(n,t.position);var r=t.position+t.length;o+='<b class="search-keyword">'+e.substring(t.position,r)+"</b>",n=r}),o+=e.substring(n,t.end)}var a=!1,i=0,c=0,l=n.title.trim(),h=l.toLowerCase(),p=n.content.trim().replace(/<[^>]+>/g,""),u=p.toLowerCase(),f=decodeURIComponent(n.url).replace(/\/{2,}/g,"/"),d=[],g=[];if(""!=l&&(t.forEach(function(e){function t(e,t,o){var n=e.length;if(0===n)return[];var r=0,s=[],a=[];for(o||(t=t.toLowerCase(),e=e.toLowerCase());(s=t.indexOf(e,r))>-1;)a.push({position:s,word:e}),r=s+n;return a}d=d.concat(t(e,h,!1)),g=g.concat(t(e,u,!1))}),(d.length>0||g.length>0)&&(a=!0,i=d.length+g.length)),a){[d,g].forEach(function(e){e.sort(function(e,t){return t.position!==e.position?t.position-e.position:e.word.length-t.word.length})});var v=[];0!=d.length&&v.push(r(l,0,l.length,d));for(var $=[];0!=g.length;){var C=g[g.length-1],m=C.position,x=C.word,w=m-20,y=m+80;0>w&&(w=0),y<m+x.length&&(y=m+x.length),y>p.length&&(y=p.length),$.push(r(p,w,y,g))}$.sort(function(e,t){return e.searchTextCount!==t.searchTextCount?t.searchTextCount-e.searchTextCount:e.hits.length!==t.hits.length?t.hits.length-e.hits.length:e.start-t.start});var T=parseInt("1");T>=0&&($=$.slice(0,T));var b="";b+=0!=v.length?"<li><a href='"+f+"' class='search-result-title'>"+s(l,v[0])+"</a>":"<li><a href='"+f+"' class='search-result-title'>"+l+"</a>",$.forEach(function(e){b+="<a href='"+f+'\'><p class="search-result">'+s(p,e)+"...</p></a>"}),b+="</li>",o.push({item:b,searchTextCount:c,hitCount:i,id:o.length})}}),1===t.length&&""===t[0])s.innerHTML='<div id="no-result"><i class="fa fa-search fa-5x"></i></div>';else if(0===o.length)s.innerHTML='<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>';else{o.sort(function(e,t){return e.searchTextCount!==t.searchTextCount?t.searchTextCount-e.searchTextCount:e.hitCount!==t.hitCount?t.hitCount-e.hitCount:t.id-e.id});var a='<ul class="search-result-list">';o.forEach(function(e){a+=e.item}),a+="</ul>",s.innerHTML=a}};r.addEventListener("input",a),$(".local-search-pop-overlay").remove(),$("body").css("overflow",""),proceedsearch()}})};$(".popup-trigger").click(function(e){e.stopPropagation(),isfetched===!1?searchFunc(path,"local-search-input","local-search-result"):proceedsearch()}),$(".popup-btn-close").click(onPopupClose),$(".popup").click(function(e){e.stopPropagation()}),$(document).on("keyup",function(e){var t=27===e.which&&$(".search-popup").is(":visible");t&&onPopupClose()})</script><script>!function(){var t=document.createElement("script"),e=window.location.protocol.split(":")[0];t.src="https"===e?"https://zz.bdstatic.com/linksubmit/push.js":"http://push.zhanzhang.baidu.com/push.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}()</script><script src="/lib/needsharebutton/needsharebutton.js"></script><script>pbOptions={},pbOptions.iconStyle="box",pbOptions.boxForm="horizontal",pbOptions.position="bottomCenter",pbOptions.networks="Weibo,Wechat,QQZone,Twitter,Facebook,GooglePlus,Tumblr,Evernote",new needShareButton("#needsharebutton-postbottom",pbOptions)</script></body></html><!-- rebuild by neat -->
+        });
+      
+    </script>
+  
+
+
+  
+  
+  <script id="dsq-count-scr" src="https://wwillv.disqus.com/count.js" async></script>
+
+
+
+
+
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,QQZone,Twitter,Facebook,GooglePlus,Tumblr,Evernote";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
