@@ -21,6 +21,7 @@ const ignoreFetch = [
   /https?:\/\/disqus.com\//,
   /https?:\/\/hm.baidu.com\//,
   /https?:\/\/sslapi.hitokoto.cn\//,
+  /https?:\/\/v1.hitokoto.cn\//,
   /https?:\/\/qzonestyle.gtimg.cn\//,
 ];
 

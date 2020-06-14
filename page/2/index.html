@@ -447,6 +447,191 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2018/07/21/RSA-ATTACK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/07/21/RSA-ATTACK/" class="post-title-link" itemprop="url">CTF中常见的RSA相关问题总结[转]</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-21 17:33:51" itemprop="dateCreated datePublished" datetime="2018-07-21T17:33:51+08:00">2018-07-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-23 22:43:01" itemprop="dateModified" datetime="2019-04-23T22:43:01+08:00">2019-04-23</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/07/21/RSA-ATTACK/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/07/21/RSA-ATTACK/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="原文-CTF中常见的RSA相关问题总结"><a href="#原文-CTF中常见的RSA相关问题总结" class="headerlink" title="原文:CTF中常见的RSA相关问题总结"></a><a href="https://github.com/findneo/RSA-ATTACK" target="_blank" rel="noopener">原文:CTF中常见的RSA相关问题总结</a></h1><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>理解基本概念后，代码就可以说明一切，所以本文将每种攻击方式的实现方法都提炼成了一个函数，在理解原理时会有帮助，在需要时也可以直接调用。</p>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="RSA概要"><a href="#RSA概要" class="headerlink" title="RSA概要"></a>RSA概要</h2><p>在开始前可以通过 <a href="http://www.guideep.com/read?guide=5676830073815040" target="_blank" rel="noopener">《RSA算法详解》</a> 这篇文章了解关于RSA的基础知识，包括加解密方法，算法原理和可行性证明等。</p>
+<h2 id="应用流程"><a href="#应用流程" class="headerlink" title="应用流程"></a>应用流程</h2><ol>
+<li><p>选取两个较大的互不相等的质数p和q，计算<code>n = p * q</code> 。</p>
+</li>
+<li><p>计算<code>phi = (p-1) * (q-1)</code> 。</p>
+</li>
+<li><p>选取任意e，使得e满足 <code>1&lt;e&lt;phi</code> 且 <code>gcd(e , phi) == 1</code> 。</p>
+</li>
+<li><p>计算e关于n的模逆元d， 即d满足<code>(e * d)% n ==1</code>  。</p>
+</li>
+<li><p>加解密：<code>c = (m ^ e) % n</code> ， <code>m = (c ^ d) % n</code> 。其中m为明文，c为密文，(n,e)为公钥对，d为私钥，要求 <code>0 &lt;= m &lt; n</code> 。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/21/RSA-ATTACK/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </li></ol></div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://willv.cn/2018/02/15/bacon-fence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1357,7 +1542,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

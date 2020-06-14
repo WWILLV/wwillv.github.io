@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://willv.cn/diary/slim.html</loc>
+    <loc>https://willv.cn/hitokoto.html</loc>
     
-    <lastmod>2020-06-05T06:29:27.034Z</lastmod>
+    <lastmod>2020-06-14T15:02:58.069Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://willv.cn/diary/index.html</loc>
     
-    <lastmod>2020-06-05T06:27:05.920Z</lastmod>
+    <lastmod>2020-06-14T13:57:34.225Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/2020/06/14/rf-ga/</loc>
+    
+    <lastmod>2020-06-14T04:38:14.989Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/diary/slim.html</loc>
+    
+    <lastmod>2020-06-13T03:25:10.293Z</lastmod>
     
   </url>
   
@@ -208,13 +222,6 @@
     <loc>https://willv.cn/writeups/ctf.bugku.com/re.html</loc>
     
     <lastmod>2019-04-07T11:41:27.570Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://willv.cn/hitokoto.html</loc>
-    
-    <lastmod>2019-04-06T15:32:04.741Z</lastmod>
     
   </url>
   
