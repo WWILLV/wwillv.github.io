@@ -2,23 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://willv.cn/2020/06/27/php-unserialize/</loc>
+    <loc>https://willv.cn/diary/index.html</loc>
     
-    <lastmod>2020-06-29T09:59:47.017Z</lastmod>
+    <lastmod>2020-08-19T05:53:51.450Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://willv.cn/diary/index.html</loc>
+    <loc>https://willv.cn/2020/07/18/sqli-handbook/</loc>
     
-    <lastmod>2020-06-28T12:48:22.152Z</lastmod>
+    <lastmod>2020-07-21T12:07:57.963Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/writeups/sqli-labs/index.html</loc>
+    
+    <lastmod>2020-07-21T12:05:33.262Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://willv.cn/2020/06/27/php-unserialize/</loc>
+    
+    <lastmod>2020-07-13T12:29:32.866Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://willv.cn/diary/slim.html</loc>
     
-    <lastmod>2020-06-25T13:16:54.784Z</lastmod>
+    <lastmod>2020-07-05T12:03:51.073Z</lastmod>
     
   </url>
   

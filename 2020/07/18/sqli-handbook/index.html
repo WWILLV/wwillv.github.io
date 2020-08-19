@@ -110,17 +110,18 @@
 		}
 	})();
 </script>
-  <meta name="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
-<meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="时光">
-<meta property="og:url" content="https://willv.cn/tags/python/index.html">
+  <meta name="description" content="这篇文章记录并分析介绍一些我遇到SQL注入方法。 大多数的SQL注入例子都来自sqli-labs。我的解题思路都在这里">
+<meta name="keywords" content="技术,安全,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL注入手册">
+<meta property="og:url" content="https://willv.cn/2020/07/18/sqli-handbook/index.html">
 <meta property="og:site_name" content="时光">
-<meta property="og:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta property="og:description" content="这篇文章记录并分析介绍一些我遇到SQL注入方法。 大多数的SQL注入例子都来自sqli-labs。我的解题思路都在这里">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-21T12:07:57.963Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时光">
-<meta name="twitter:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta name="twitter:title" content="SQL注入手册">
+<meta name="twitter:description" content="这篇文章记录并分析介绍一些我遇到SQL注入方法。 大多数的SQL注入例子都来自sqli-labs。我的解题思路都在这里">
 
 
 
@@ -130,7 +131,7 @@
 
   
   
-  <link rel="canonical" href="https://willv.cn/tags/python/">
+  <link rel="canonical" href="https://willv.cn/2020/07/18/sqli-handbook/">
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title>标签: python | 时光</title>
+  <title>SQL注入手册 | 时光</title>
   
 
 
@@ -198,7 +199,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,7 +271,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -426,92 +427,396 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>python<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2020/07/18/sqli-handbook/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2020/03/04/python-timeout-retry/" itemprop="url">
-            
-              <span itemprop="name">python的timeout和retry解决urlopen可能出现的卡死问题</span>
-            
-          </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">SQL注入手册
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-04T10:05:35+08:00" content="2020-03-04">
-          03-04
-        </time>
-      </div>
+              
+            
+          </h2>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-18 12:46:07" itemprop="dateCreated datePublished" datetime="2020-07-18T12:46:07+08:00">2020-07-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-07-21 20:07:57" itemprop="dateModified" datetime="2020-07-21T20:07:57+08:00">2020-07-21</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章记录并分析介绍一些我遇到SQL注入方法。</p>
+<p>大多数的SQL注入例子都来自sqli-labs。我的解题思路都在<a href="https://willv.cn/writeups/sqli-labs/">这里</a></p>
+<a id="more"></a>
+<h2 id="双查询注入"><a href="#双查询注入" class="headerlink" title="双查询注入"></a>双查询注入</h2><p>sql-labs的这道题是<code>Less-5 Double Query- Single Quotes- String</code>，解题过程在<a href="https://willv.cn/writeups/sqli-labs/#Less-5-Double-Query-Single-Quotes-String">这里</a>。</p>
+<p>简单说就是通过双查询，利用数据库的报错信息来进行注入。</p>
+<p>首先要注意几个函数：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rand() //随机函数</span><br><span class="line">Floor() //取整函数</span><br><span class="line">Count() //汇总函数</span><br><span class="line">Group by //分组语句</span><br></pre></td></tr></table></figure>
+<p>当在一个聚合函数，比如count函数后面如果使用分组语句就会把查询的一部分以错误的形式显示出来。</p>
+<p><code>SELECT concat(&#39;string1&#39;,&#39;string2&#39;);</code>用concat()只是为了将之后报错的结果更好的显示出来，结合后面的group by分类。</p>
+<table>
+<thead>
+<tr>
+<th>concat(‘string1’,’string2’)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string1string2</td>
+</tr>
+</tbody>
+</table>
+<p><code>Select rand();</code>函数返回大于0，小于1之间的数</p>
+<table>
+<thead>
+<tr>
+<th>rand()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.674872587132149</td>
+</tr>
+</tbody>
+</table>
+<p><code>select floor(3.14159)</code>floor向下取整</p>
+<table>
+<thead>
+<tr>
+<th>floor(3.14159)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>我们组合随机和取整函数，即<code>SELECT floor(rand()*2);</code>查询的结果只能是1或0</p>
+<p>那我们执行<code>SELECT CONCAT((SELECT database()), FLOOR(RAND()*2));</code>那么结果就会有两种可能，security0或security1。（以sqli-labs数据库为例）</p>
+<p>执行<code>SELECT CONCAT((SELECT database()), FLOOR(RAND()*2)) as &#39;users&#39; from users;</code>结果为：</p>
+<table>
+<thead>
+<tr>
+<th>users</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>security0</td>
+</tr>
+<tr>
+<td>security0</td>
+</tr>
+<tr>
+<td>security1</td>
+</tr>
+<tr>
+<td>security1</td>
+</tr>
+<tr>
+<td>security1</td>
+</tr>
+<tr>
+<td>security1</td>
+</tr>
+<tr>
+<td>security0</td>
+</tr>
+<tr>
+<td>security1</td>
+</tr>
+<tr>
+<td>security0</td>
+</tr>
+<tr>
+<td>security1</td>
+</tr>
+<tr>
+<td>security0</td>
+</tr>
+<tr>
+<td>security0</td>
+</tr>
+<tr>
+<td>security0</td>
+</tr>
+</tbody>
+</table>
+<p>此时如果懂SQL语句的话，这其实就说明了users这个表里有13条数据。</p>
+<p>一些研究人员发现，使用group by子句结合rand()函数以及像<code>count（*）</code>这样的聚合函数，在SQL查询时会出现错误，这种错误是随机产生的，这就产生了双重查询注入。使用floor()函数只是为了将查询结果分类。具体怎么做呢？</p>
+<p>执行<code>select concat((select database()), floor(rand()*2))as a from information_schema.tables group by a;</code>结果显而易见，只有两条，即两个分组security0和security1。</p>
+<p>但是如果执行这条语句（加一个count(*)）：</p>
+<p><code>select count(*), concat((select database()), floor(rand()*2))as a from information_schema.tables group by a;</code></p>
+<p>这个语句查询几次会有一定的概率爆出<code>Duplicate entry</code>错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1062 - Duplicate entry &apos;security0&apos; for key &apos;group_key&apos;</span><br></pre></td></tr></table></figure>
+<p>是不是发现什么了？对，数据库名爆出来了，在报错信息里。</p>
+<blockquote>
+<p>通过floor报错的方法来爆数据的本质是group by语句的报错。group by语句报错的原因是floor(random(0)*2)的不确定性，即可能为0也可能为1（group by key的原理是循环读取数据的每一行，将结果保存于临时表中。读取每一行的key时，如果key存在于临时表中，则不在临时表中则更新临时表中的数据；如果该key不存在于临时表中，则在临时表中插入key所在行的数据。group by floor(random(0)*2)出错的原因是key是个随机数，检测临时表中key是否存在时计算了一下floor(random(0)*2)可能为0，如果此时临时表只有key为1的行不存在key为0的行，那么数据库要将该条记录插入临时表，由于是随机数，插时又要计算一下随机值，此时floor(random(0)*2)结果可能为1，就会导致插入时冲突而报错。即检测时和插入时两次计算了随机数的值。<br>Ref: <a href="https://www.jianshu.com/p/e097a1c0d9ef" target="_blank" rel="noopener">https://www.jianshu.com/p/e097a1c0d9ef</a> / <a href="https://www.cnblogs.com/BloodZero/p/4660971.html" target="_blank" rel="noopener">https://www.cnblogs.com/BloodZero/p/4660971.html</a></p>
+</blockquote>
+<p>简单来说，为什么键值会重复呢，就是因为concat函数执行了两次，因为concat是连接两个随机字符串，当第二次执行的时候，有可能会出现与第一次键值重复的情况！那么这种情况下，就会报错！</p>
+<p>使用聚合函数，group by子句，并利用随机函数产生错误运行时，由于涉及的随机函数和聚合函数计算；当在一个聚合函数，比如count后面如果使用分组语句就会把查询的一部分以错误形式显示出来；因为concat函数执行两次，比如select database()，这样就执行了两次select database，与后面的随机函数链接在一起，可能会随机重复，就会报错；</p>
+<h2 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h2><h3 id="基于布尔的盲注"><a href="#基于布尔的盲注" class="headerlink" title="基于布尔的盲注"></a>基于布尔的盲注</h3><p>具体可见sqli-labs的[Less-8]</p>
 
       
     </div>
 
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://ooo.0o0.ooo/2018/01/02/5a4afb332f3b6.png" alt="WILL_V 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://ooo.0o0.ooo/2018/01/02/5a4afb332ef22.png" alt="WILL_V 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>WILL_V</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://willv.cn/2020/07/18/sqli-handbook/" title="SQL注入手册">https://willv.cn/2020/07/18/sqli-handbook/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
+          
+            <a href="/tags/安全/" rel="tag"><i class="fa fa-tag"></i> 安全</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"><i class="fa fa-tag"></i> 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/27/php-unserialize/" rel="next" title="php反序列化漏洞">
+                <i class="fa fa-chevron-left"></i> php反序列化漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -531,8 +836,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -687,6 +1001,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#双查询注入"><span class="nav-number">1.</span> <span class="nav-text">双查询注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盲注"><span class="nav-number">2.</span> <span class="nav-text">盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于布尔的盲注"><span class="nav-number">2.1.</span> <span class="nav-text">基于布尔的盲注</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -818,6 +1149,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -843,9 +1178,63 @@
   
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://willv.cn/2020/07/18/sqli-handbook/";
+    this.page.identifier = "2020/07/18/sqli-handbook/";
+    this.page.title = 'SQL注入手册';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wwillv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
 
 
 
+
+
+  
+    
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js"></script>
+
+<script>
+  var dsqjs = new DisqusJS({
+    api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+    apikey: 'BOmm2MYh9jOZ82WCk1flJ5KDNWQWEyyQH0YKHEgJ1wqWW4zTuHFxlOOlmgreU34u',
+    shortname: 'wwillv'
+  });
+</script>
+
+  
 
 
   

