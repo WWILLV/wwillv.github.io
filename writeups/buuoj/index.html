@@ -110,17 +110,18 @@
 		}
 	})();
 </script>
-  <meta name="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+  <meta name="description" content="BUUCTF  Web">
 <meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="时光">
-<meta property="og:url" content="https://willv.cn/tags/CCS/index.html">
+<meta property="og:title" content="BUUCTF">
+<meta property="og:url" content="https://willv.cn/writeups/buuoj/index.html">
 <meta property="og:site_name" content="时光">
-<meta property="og:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta property="og:description" content="BUUCTF  Web">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-13T05:53:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时光">
-<meta name="twitter:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta name="twitter:title" content="BUUCTF">
+<meta name="twitter:description" content="BUUCTF  Web">
 
 
 
@@ -130,7 +131,7 @@
 
   
   
-  <link rel="canonical" href="https://willv.cn/tags/CCS/">
+  <link rel="canonical" href="https://willv.cn/writeups/buuoj/">
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title>标签: CCS | 时光</title>
+  <title>BUUCTF | 时光</title>
   
 
 
@@ -198,7 +199,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,7 +271,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -321,7 +322,7 @@
         
         
           
-          <li class="menu-item menu-item-writeup">
+          <li class="menu-item menu-item-writeup menu-item-active">
 
     
     
@@ -461,57 +462,123 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>CCS<small>标签</small>
-        </h2>
-      </div>
+<h2 class="post-title" itemprop="name headline">BUUCTF
 
+</h2>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
       
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/2020/03/30/since18-4big-web/" itemprop="url">
+          
             
-              <span itemprop="name">2018年来系统安全四大顶会“泛”Web方向论文整理（更新至20年10月）</span>
-            
-          </a>
+          
+          
+            <li><a href="/writeups/">WRITEUPS</a></li>
+          
         
-      </h3>
+      
+    
+      
+      
+        
+          <li>BUUOJ</li>
+        
+      
+    
+      
+      
+    
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-30T11:51:24+08:00" content="2020-03-30">
-          03-30
-        </time>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p><a href="https://buuoj.cn/challenges" target="_blank" rel="noopener">BUUCTF</a></p>
+<ul>
+<li><a href="web.html">Web</a></li>
+</ul>
+
+        
       </div>
-
-    </header>
-  </article>
-
-
+      
+      
       
     </div>
+    
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/writeups/">WRITEUPS</a></li>
+          
+        
+      
+    
+      
+      
+        
+          <li>BUUOJ</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -818,6 +885,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -843,9 +914,63 @@
   
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://willv.cn/writeups/buuoj/index.html";
+    this.page.identifier = "writeups/buuoj/index.html";
+    this.page.title = 'BUUCTF';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wwillv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
 
 
 
+
+
+  
+    
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js"></script>
+
+<script>
+  var dsqjs = new DisqusJS({
+    api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+    apikey: 'BOmm2MYh9jOZ82WCk1flJ5KDNWQWEyyQH0YKHEgJ1wqWW4zTuHFxlOOlmgreU34u',
+    shortname: 'wwillv'
+  });
+</script>
+
+  
 
 
   

