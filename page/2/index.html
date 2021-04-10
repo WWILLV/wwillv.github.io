@@ -449,6 +449,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2019/11/21/CVE-2019-1388/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/21/CVE-2019-1388/" class="post-title-link" itemprop="url">CVE-2019-1388 UAC提权</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-21 16:19:18" itemprop="dateCreated datePublished" datetime="2019-11-21T16:19:18+08:00">2019-11-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-24 18:16:10" itemprop="dateModified" datetime="2019-11-24T18:16:10+08:00">2019-11-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="CVE-2019-1388"><a href="#CVE-2019-1388" class="headerlink" title="CVE-2019-1388"></a>CVE-2019-1388</h2><p><a href="https://www.thezdi.com/blog/2019/11/19/thanksgiving-treat-easy-as-pie-windows-7-secure-desktop-escalation-of-privilege" target="_blank" rel="noopener">CVE-2019-1388 | Windows Certificate Dialog Elevation of Privilege Vulnerability</a></p>
+<p>2019年11月12日msrc发布了漏洞，官方的介绍是</p>
+<blockquote>
+<p>An elevation of privilege vulnerability exists in the Windows Certificate Dialog when it does not properly enforce user privileges. An attacker who successfully exploited this vulnerability could run processes in an elevated context. An attacker could then install programs; view, change or delete data.</p>
+<p>To exploit this vulnerability, an attacker would first have to log on to the system. An attacker could then run a specially crafted application that could exploit the vulnerability and take control of an affected system.</p>
+<p>The security update addresses the vulnerability by ensuring Windows Certificate Dialog properly enforces user privileges.</p>
+<p>如果 Windows 证书对话框没有正确执行用户特权，则存在特权提升漏洞。成功利用此漏洞的攻击者可以在提升的环境中运行进程。然后，攻击者可能会安装程序，查看、更改或删除数据。<br>要利用此漏洞，攻击者首先必须以普通用户权限登录系统。然后攻击者运行一个精心调制的应用，该应用可以利用此漏洞并控制受影响的系统。<br>该安全更新通过确保 Windows 证书对话框正确执行用户特权来解决该漏洞。</p>
+</blockquote>
+<p>影响范围也比较广，从win7到win10，server2008到2016，如果不打补丁都有威胁。</p>
+<p><a href="https://gist.github.com/gentilkiwi/802c221c0731c06c22bb75650e884e5a" target="_blank" rel="noopener">威胁测试名单</a></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/21/CVE-2019-1388/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://willv.cn/2019/10/14/oray-from-afr-to-getshell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1957,7 +2127,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

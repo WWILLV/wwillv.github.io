@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+  <link rel="manifest" href="/manifest.json">
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+  <meta name="description" content="PDF    Source Pellegrino, G., Tschürtz, C., Bodden, E., &amp;amp; Rossow, C. (2015, November). jäk: Using dynamic analysis to crawl and test modern web applications. In International Symposium on Recent">
+<meta name="keywords" content="Hexo, willv, 信息安全, hack, 技术, 博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="jÄk Using Dynamic Analysis to Crawland Test Modern Web Applications">
+<meta property="og:url" content="https://willv.cn/papers-reader/jak@RAID15.html">
+<meta property="og:site_name" content="时光">
+<meta property="og:description" content="PDF    Source Pellegrino, G., Tschürtz, C., Bodden, E., &amp;amp; Rossow, C. (2015, November). jäk: Using dynamic analysis to crawl and test modern web applications. In International Symposium on Recent">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/U0a7c9fee92fe42309ee839762172d4b40.jpg">
+<meta property="og:updated_time" content="2021-02-17T11:38:58.210Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jÄk Using Dynamic Analysis to Crawland Test Modern Web Applications">
+<meta name="twitter:description" content="PDF    Source Pellegrino, G., Tschürtz, C., Bodden, E., &amp;amp; Rossow, C. (2015, November). jäk: Using dynamic analysis to crawl and test modern web applications. In International Symposium on Recent">
+<meta name="twitter:image" content="https://ae01.alicdn.com/kf/U0a7c9fee92fe42309ee839762172d4b40.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时光" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://willv.cn/papers-reader/jak@RAID15">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>jÄk Using Dynamic Analysis to Crawland Test Modern Web Applications | 时光</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?62382cd2dc6f4cabe6aae29a96f8cc47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时光</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/projects/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br>项目</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-writeup">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/writeups/" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br>writeup</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-papers menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/papers-reader/" rel="section"><i class="menu-item-icon fa fa-fw fa-file-pdf-o"></i> <br>读论文</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friends">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friends/" rel="section"><i class="menu-item-icon fa fa-fw fa-group"></i> <br>友链</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h2 class="post-title" itemprop="name headline">jÄk Using Dynamic Analysis to Crawland Test Modern Web Applications
+
+</h2>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <blockquote>
+<p><a href="https://link.springer.com/chapter/10.1007/978-3-319-26362-5_14" target="_blank" rel="noopener">PDF</a>    <a href="https://github.com/ConstantinT/jAEk/" target="_blank" rel="noopener">Source</a></p>
+<p>Pellegrino, G., Tschürtz, C., Bodden, E., &amp; Rossow, C. (2015, November). jäk: Using dynamic analysis to crawl and test modern web applications. In <em>International Symposium on Recent Advances in Intrusion Detection</em> (pp. 295-316). Springer, Cham.</p>
+</blockquote>
+<h2 id="关于文章"><a href="#关于文章" class="headerlink" title="关于文章"></a>关于文章</h2><p>这篇文章是RAID 2015的一篇文章，是我从一篇S&amp;P 21的论文的参考文献和代码里找到的一个核心组件。主要思想就是利用JS动态分析Web应用来进行爬虫操作。主要的工作就是各种函数和API的Hook及动态分析指引爬虫探索。还是有不小的改动空间的。文章中也提到他们使用的是WebKit默认的JavaScript引擎，即JavaScript Core来进行动态分析，可以使用V8或者其他的引擎来Hook set函数。这也是他们未来的工作内容。</p>
+<p>下面是文章的大致内容。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>传统的爬虫程序会通过解析HTML文档并应用静态正则表达式来提取新的URL。虽然这种方法可以提取传统Web应用程序中的URL，但它无法探索大部分基于JavaScript的现代应用程序。本文提出了一种基于客户端JavaScript程序动态分析的Web应用新技术。我们使用动态分析来Hook JavaScript  API，这使我们能够检测事件的注册、网络通信API的使用以及动态生成的URL或用户表单。然后，我们建议使用导航图来执行进一步的爬行。基于这一新的爬行技术，我们提出了一种Web应用扫描器jÄk。</p>
+<h2 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h2><ul>
+<li>提出了一种新的基于JavaScript API函数挂钩和运行时DOM分析的动态程序分析技术。</li>
+<li>出了一种基于模型的Web应用爬行技术，它可以通过与JavaScript程序的交互来推断导航图</li>
+<li>（实现jÄk并与现有工具比较证明其有效性）</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><h3 id="事件处理注册"><a href="#事件处理注册" class="headerlink" title="事件处理注册"></a>事件处理注册</h3><p>Event Handler Attribute:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"contact.php"</span> <span class="attr">onclick</span>=<span class="string">"doSomething"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Event Handler Property:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"link"</span> <span class="attr">href</span>=<span class="string">"contact.php"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* do something */</span> &#125;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> link = <span class="built_in">document</span>.getElementsById(<span class="string">"link"</span>);</span></span><br><span class="line"><span class="undefined">	link.onclick = handler;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>addEventListener Function:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">id</span>=<span class="string">"link"</span> <span class="attr">href</span>=<span class="string">"contact.php"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	<span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>&#123; <span class="comment">/* do something */</span> &#125;</span></span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> link = <span class="built_in">document</span>.getElementsById(<span class="string">"link"</span>);</span></span><br><span class="line"><span class="javascript">	link.addEventListener(<span class="string">"click"</span>, handler);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Timing Events:</p>
+<p>这些事件的处理程序注册分别通过setTimeout和setInterval函数执行。</p>
+<h3 id="网络通信API"><a href="#网络通信API" class="headerlink" title="网络通信API"></a>网络通信API</h3><p>XMLHttpRequest (XHR) API的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = <span class="string">"http://foo.com/"</span>;</span><br><span class="line"><span class="keyword">var</span> token = <span class="string">"D3EA0F8FA2"</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="string">"POST"</span>, server);</span><br><span class="line">xhr.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// process HTTP response</span></span><br><span class="line">&#125;);</span><br><span class="line">xhr.send(<span class="string">"token="</span> + token);</span><br></pre></td></tr></table></figure>
+<p>经典爬虫静态分析HTML和JavaScript代码以提取URL，传统爬虫无法提取HTTP POST请求的结构。如果URL是动态生成的也无法检测。现代Web应用程序的许多部分只能通过解释这种动态生成的请求来实现，从而限制了现有爬虫程序的覆盖范围。</p>
+<h2 id="爬取现代Web应用"><a href="#爬取现代Web应用" class="headerlink" title="爬取现代Web应用"></a>爬取现代Web应用</h2><p><img src="https://ae01.alicdn.com/kf/U0a7c9fee92fe42309ee839762172d4b40.jpg" alt="Fig.1"></p>
+<p>最初，用户加载URL  <a href="http://foo.com/，该URL将Web应用程序的登录页面加载到浏览器中。然后，该页面被加载到其初始状态并显示给用户。然后，用户可以与页面交互，例如提交HTML" target="_blank" rel="noopener">http://foo.com/，该URL将Web应用程序的登录页面加载到浏览器中。然后，该页面被加载到其初始状态并显示给用户。然后，用户可以与页面交互，例如提交HTML</a> Forms或单击HTML Links，这将调用更多页面，如<a href="http://foo.com/BAR/，如右侧所示。但是，用户事件或自发事件(如计时器)也可以更改页面的内部和可视状态，如虚线箭头所示。这些内部状态可能会对页面的DOM造成重大更改，这就是爬虫程序也应该考虑它们的原因。然而，大多数当前的爬行器只关注HTML，这实际上限制了它们只能发现那些HTML页面的初始状态。" target="_blank" rel="noopener">http://foo.com/BAR/，如右侧所示。但是，用户事件或自发事件(如计时器)也可以更改页面的内部和可视状态，如虚线箭头所示。这些内部状态可能会对页面的DOM造成重大更改，这就是爬虫程序也应该考虑它们的原因。然而，大多数当前的爬行器只关注HTML，这实际上限制了它们只能发现那些HTML页面的初始状态。</a></p>
+<p>总体思路是将经典的Web应用爬虫与Web应用客户端的程序分析结合起来。爬虫从种子URL(例如，登录页面)开始，并且它检索客户端程序(例如，HTML页面或JavaScript程序)的资源。然后，它在修改后的JavaScript执行环境中运行客户端程序，以分析其行为。从分析中，爬虫程序可以提取事件和URL，这些事件和URL稍后用于探索客户端程序和服务器端程序。最后，爬虫重复分析，直到无法发现更多新行为。</p>
+<h3 id="动态JavaScript程序分析"><a href="#动态JavaScript程序分析" class="headerlink" title="动态JavaScript程序分析"></a>动态JavaScript程序分析</h3><p>一种方法是修改JavaScript解释器以检查和监视程序的执行。每当执行感兴趣的指令时，解释器都会执行Hook函数，而不是原始指令，或者除了原始指令之外还执行钩子函数。然而，这种方法需要修改JavaScript引擎，比较复杂。此外，该方法将该技术绑定到特定引擎。</p>
+<p>另一种方法是在客户端JavaScript程序的源代码中插入对自己的JavaScript函数的调用。这种方法需要对程序的源代码进行处理和转换。不幸的是，JavaScript程序的源代码可能不是作为一个整体提供的，因为它可能在运行时一次一段地流到客户端。</p>
+<p>本文的jÄk使用第三种方法，通过将函数挂钩到JavaScript执行环境内的API来监视程序的执行。首先初始化JavaScript引擎。然后，它通过在引擎中运行自己的JavaScript代码来修改执行环境。此代码安装函数挂钩以捕获对JavaScript  API函数和对象方法的调用，并安排对DOM树的检查。之后，它运行客户端JavaScript程序</p>
+<h4 id="函数挂钩"><a href="#函数挂钩" class="headerlink" title="函数挂钩"></a>函数挂钩</h4><p>函数挂钩是一系列允许截取函数调用以检查参数或改变程序行为的技术。不解释了，直接看demo：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="string">"Hello world!"</span>); <span class="comment">// show a popup window</span></span><br><span class="line"><span class="keyword">var</span> orig_alert = alert;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">alert</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"call to alert"</span> + s); <span class="comment">// hook</span></span><br><span class="line">	<span class="keyword">return</span> orig_alert(s);</span><br><span class="line">&#125;</span><br><span class="line">alert(<span class="string">"Hello world!"</span>); <span class="comment">// message is also shown in the console</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj,<span class="string">"prop"</span>,&#123;<span class="attr">set</span>:myHook&#125;).</span><br></pre></td></tr></table></figure>
+<h4 id="事件处理程序注册"><a href="#事件处理程序注册" class="headerlink" title="事件处理程序注册"></a>事件处理程序注册</h4><p>addEventListener函数、事件处理程序属性（event handler property）和计时事件。对于事件处理程序属性，我们不使用函数挂钩。因为在此模型中，处理程序注册为HTML属性，所以我们通过访问HTML DOM树来捕获它们。</p>
+<h5 id="Hooking-addEventListener"><a href="#Hooking-addEventListener" class="headerlink" title="Hooking addEventListener"></a>Hooking addEventListener</h5><p>每当调用addEventListener函数时，jÄk都会注入自己的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">installHook(Element.prototype , <span class="string">"addEventListener"</span>, myHook)</span><br></pre></td></tr></table></figure>
+<p>Element.Prototype是一个特殊的对象，它定义了所有DOM节点的基本行为。</p>
+<h5 id="Hooking-Event-Handler-Properties"><a href="#Hooking-Event-Handler-Properties" class="headerlink" title="Hooking Event Handler Properties"></a>Hooking Event Handler Properties</h5><p>在DOM元素中安装一个钩子函数作为set函数，set函数不能保证Hook在整个分析过程中都保持不变。这可以通过首先重新定义fineProperty函数，然后监视其使用来解决。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">installHook</span>(<span class="params">obj, f, hook</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> orig = obj[f];</span><br><span class="line">	obj[f] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		hook(<span class="keyword">this</span> , <span class="built_in">arguments</span>);</span><br><span class="line">		<span class="keyword">return</span> orig.apply(<span class="keyword">this</span> , <span class="built_in">arguments</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Hooking-Timing-Event-Handlers"><a href="#Hooking-Timing-Event-Handlers" class="headerlink" title="Hooking Timing Event Handlers"></a>Hooking Timing Event Handlers</h5><p>用上面的installHook：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">installHook(<span class="built_in">window</span> , <span class="string">"setTimeout"</span>, myHook)</span><br><span class="line">installHook(<span class="built_in">window</span> , <span class="string">"setInterval"</span>, myHook)</span><br></pre></td></tr></table></figure>
+<h4 id="网络通信API-1"><a href="#网络通信API-1" class="headerlink" title="网络通信API"></a>网络通信API</h4><p>首先，实例化一个XHR对象。然后，通过open函数将服务器端的HTTP请求方法和URL传递给XHR对象。最后，使用函数Send发送HTTP请求。同样使用installHook函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">installHook(XMLHttpRequest , <span class="string">"open"</span>, myHook);</span><br><span class="line">installHook(XMLHttpRequest , <span class="string">"open"</span>, myHook);</span><br></pre></td></tr></table></figure>
+<p>通常，想要在构造函数中hook一个函数时，需要修改installHook的第5行以返回该对象的一个实例，即<code>return new orig(arguments[0], ...)</code>。</p>
+<h4 id="运行时DOM分析"><a href="#运行时DOM分析" class="headerlink" title="运行时DOM分析"></a>运行时DOM分析</h4><p>我们考虑运行时DOM分析的三种用途。首先，它用于将处理程序的注册提取为HTML属性。其次，它用于在触发事件时识别树中的更改。第三，当JavaScript引擎不允许将代码作为集合函数挂钩时，它可以用来发现事件处理程序的注册。</p>
+<h4 id="动态跟踪收集"><a href="#动态跟踪收集" class="headerlink" title="动态跟踪收集"></a>动态跟踪收集</h4><p>对于事件处理程序注册，钩子函数取决于事件类型。例如，对于DOM事件，钩子函数收集事件的名称、源的DOM树中的位置，并将其发送到爬虫程序。相反，对于计时事件，钩子可以收集调用者设置的超时。在这两种情况下，钩子函数都会通过JavaScript对象跟踪将跟踪条目发送到爬虫程序，该跟踪项映射到爬虫程序内存中的队列对象。该对象充当JavaScript执行环境和爬虫执行环境之间的桥梁。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEventListenerHook</span>(<span class="params">elem , args</span>) </span>&#123;</span><br><span class="line">	path = getPath(elem);</span><br><span class="line">	entry = &#123;</span><br><span class="line">		<span class="string">"evt_type"</span> : args[<span class="number">0</span>], <span class="comment">//1st par of addEventListener</span></span><br><span class="line">		<span class="string">"evt_source"</span> : path</span><br><span class="line">	&#125;;</span><br><span class="line">	trace.push(entry);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timeoutHook</span>(<span class="params">elem , args</span>) </span>&#123;</span><br><span class="line">	entry = &#123;</span><br><span class="line">		<span class="string">"evt_type"</span> : <span class="string">"timeout"</span>,</span><br><span class="line">		<span class="string">"time"</span> : args[<span class="number">1</span>] <span class="comment">//1st par of setTimeout</span></span><br><span class="line">	&#125;;</span><br><span class="line">	trace.push(entry);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在收集网络通信API的跟踪条目时，API通常需要多个步骤才能建立通信通道并将消息传递到服务器端，这些步骤不一定是原子的。jÄk为每个API函数定义了一个钩子，然后使用API对象来存储API调用的当前状态。</p>
+<h3 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h3><h4 id="导航图"><a href="#导航图" class="headerlink" title="导航图"></a>导航图</h4><p>jÄk创建并维护Web应用程序的导航图，该导航图对客户端程序内的转换和网页之间的转换进行建模。该模型是一个类似于图1的有向图，其中节点是页面群集，边可以是事件和URL。</p>
+<h4 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h4><p>JavaScript程序的动态分析生成包含事件处理程序注册和动态生成的URL的运行时跟踪。它还包括DOM树分析的结果，例如链接的URL和表单。然后，该信息被分类到两个列表中，即事件列表和URL列表。这些列表代表了爬虫可以采取的行动前沿，以进一步探索网络应用。</p>
+<p>每种类型的动作都可能有不同的结果。一方面，请求一个新的URL肯定会导致检索一个新的页面，如果该页面包含一个JavaScript程序，那么它就会在一个新的JavaScript环境中执行。事件则不一定如此。触发事件可能让爬虫探索JavaScript程序的更多行为，即生成新的URL。然而，事件也可能导致运行新的JavaScript程序，例如将<code>window.location</code>设置为新的URL。然而，我们可以通过函数挂钩来阻止这种行为。由于这些原因，我们的爬虫对事件的优先级高于URL。当列表中没有更多的事件了，那么我们就会处理URL的列表。当所有列表都是空的时候，那么爬虫就会退出。</p>
+<p>诸如点击、聚焦、双击和鼠标移动等事件可以在JavaScript执行环境中被触发。要启动一个事件e，jÄk首先识别DOM元素，然后通过DOM事件接口函数dispatchEvent来启动事件。之后，jÄk通过动态分析观察处理程序的执行结果。事件处理程序可以引起页面的刷新，加载新的页面，向服务器端发送消息。为了避免对服务器端的任何干扰，当发生事件时，例如，网络通信API的Hook函数将阻止消息的发送。</p>
+<p>如果事件处理程序的结果是网络通信API，那么jÄk从跟踪中获取URL，并将其列入URL列表。类似的，如果事件处理程序设置了一个新的URL(例如，window.location=UR L)，那么jÄk会把这个URL加入到linked-URLs列表中。如果事件处理程序添加了新的链接URL和表单，那么它们将被插入到相应的列表中。最后，如果事件处理程序注册了新的事件，那么jÄk准备了特殊事件，它包括了导致这一点的事件序列。</p>
+<p>爬虫的目标应该是找到包含新内容的页面，而不是已知内容的页面。为了选择下一个页面，jÄk根据两个因素给每个前沿的URL分配一个优先级。(i)jÄk在过去见过多少次类似的URL，(ii)过去的URL在集群中的分散程度。爬虫会从最高优先级到较低优先级处理URL。</p>
+<p> jÄk使用两种技术来终止执行。首先，它对搜索深度有一个硬限制。第二，如果不能再找到新的内容，爬虫就会终止。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>jÄk是用Python编写的，通过Qt应用框架绑定在WebKit浏览器引擎上。开源：<a href="https://github.com/ConstantinT/jAEk/" target="_blank" rel="noopener">https://github.com/ConstantinT/jAEk/</a></p>
+<p>jÄk包括四个模块：动态分析模块、爬虫模块、攻击者模块和分析模块。jÄk依靠WebKit默认的JavaScript引擎，即JavaScript Core来进行动态分析。然而JavaScript Core将事件属性设置为不可配置。因此，JavaScript Core不允许通过set函数来使用函数挂钩。为了解决这个问题，jÄk通过DOM检查来处理这些情况。然而，我们验证了Google和Mozilla的JavaScript引擎，即V8和SpiderMonkey，允许Hook set函数。在未来，我们计划用V8取代JavaScript Core引擎。</p>
+<p>爬虫模块实现了前面的爬虫逻辑，从种子URL开始，jÄk检索客户端程序并传递给动态分析模块。从一个种子URL开始，jÄk检索客户端程序，并将其传递给动态分析模块。动态分析模块返回用于填充URLs和事件边界的痕迹。然后，jÄk选择下一个动作并提供给动态分析模块。在整个过程中，jÄk创建并维护网络应用的导航图，用于选择下一个动作。爬虫模块的输出是表单和URL的列表。最后，攻击者和分析模块针对一些漏洞测试服务器端。对于每个URL，攻击者模块都会准备携带payload的URL。然后，它将URL传递给动态分析模块以请求URL。然后，响应在动态分析模块内执行，该模块返回一个执行跟踪。然后，分析模块对跟踪进行分析，以决定测试是否成功。</p>
+<h2 id="评估和相关工作"><a href="#评估和相关工作" class="headerlink" title="评估和相关工作"></a>评估和相关工作</h2><p>略</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本文提出了一种基于客户端JavaScript程序动态分析的新型网络应用抓取技术。动态分析Hook JavaScript API的函数，检测事件的注册、网络通信API的使用，发现动态生成的URL和用户表单。然后，这将被爬虫用来执行下一个动作。爬虫创建并建立一个导航图，用于选择下一个动作。我们搞了一个工具jÄk，它实现了所介绍的方法。我们使用13个网络应用对jÄk和其他四个网络应用扫描器进行了评估。我们的实验结果表明，jÄk可以探索网络应用的表面，比其他工具大86%。</p>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg" alt="WILL_V">
+            
+              <p class="site-author-name" itemprop="name">WILL_V</p>
+              <div class="site-description motion-element" itemprop="description">辣鸡CTF选手，渣Web，逆向只会F5的渣渣</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WWILLV" title="GitHub &rarr; https://github.com/WWILLV" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:admin@willv.cn" title="E-Mail &rarr; mailto:admin@willv.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/twwillv" title="Twitter &rarr; https://twitter.com/twwillv" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/u/2693120655" title="微博 &rarr; https://weibo.com/u/2693120655" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于文章"><span class="nav-number">1.</span> <span class="nav-text">关于文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">2.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要贡献"><span class="nav-number">3.</span> <span class="nav-text">主要贡献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">4.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理注册"><span class="nav-number">4.1.</span> <span class="nav-text">事件处理注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络通信API"><span class="nav-number">4.2.</span> <span class="nav-text">网络通信API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爬取现代Web应用"><span class="nav-number">5.</span> <span class="nav-text">爬取现代Web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态JavaScript程序分析"><span class="nav-number">5.1.</span> <span class="nav-text">动态JavaScript程序分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#函数挂钩"><span class="nav-number">5.1.1.</span> <span class="nav-text">函数挂钩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件处理程序注册"><span class="nav-number">5.1.2.</span> <span class="nav-text">事件处理程序注册</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hooking-addEventListener"><span class="nav-number">5.1.2.1.</span> <span class="nav-text">Hooking addEventListener</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hooking-Event-Handler-Properties"><span class="nav-number">5.1.2.2.</span> <span class="nav-text">Hooking Event Handler Properties</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hooking-Timing-Event-Handlers"><span class="nav-number">5.1.2.3.</span> <span class="nav-text">Hooking Timing Event Handlers</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络通信API-1"><span class="nav-number">5.1.3.</span> <span class="nav-text">网络通信API</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行时DOM分析"><span class="nav-number">5.1.4.</span> <span class="nav-text">运行时DOM分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态跟踪收集"><span class="nav-number">5.1.5.</span> <span class="nav-text">动态跟踪收集</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#爬虫"><span class="nav-number">5.2.</span> <span class="nav-text">爬虫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导航图"><span class="nav-number">5.2.1.</span> <span class="nav-text">导航图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航"><span class="nav-number">5.2.2.</span> <span class="nav-text">导航</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">6.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评估和相关工作"><span class="nav-number">7.</span> <span class="nav-text">评估和相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">8.</span> <span class="nav-text">结论</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WILL_V</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://willv.cn/papers-reader/jak@RAID15.html";
+    this.page.identifier = "papers-reader/jak@RAID15.html";
+    this.page.title = 'jÄk Using Dynamic Analysis to Crawland Test Modern Web Applications';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wwillv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
+
+
+
+
+
+  
+    
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js"></script>
+
+<script>
+  var dsqjs = new DisqusJS({
+    api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+    apikey: 'BOmm2MYh9jOZ82WCk1flJ5KDNWQWEyyQH0YKHEgJ1wqWW4zTuHFxlOOlmgreU34u',
+    shortname: 'wwillv'
+  });
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,QQZone,Twitter,Facebook,GooglePlus,Tumblr,Evernote";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
