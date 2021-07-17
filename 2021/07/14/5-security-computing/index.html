@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.jpg?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+  <link rel="manifest" href="/manifest.json">
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+  <meta name="description" content="这篇文章是重新整理后再发的。前几天和日本大老板开视频会太尴尬了，虽然没怼我，但是还是很难受。今天还收到了论文盲审和提交的通知，真的是没有时间再摸鱼了，得加班肝论文了。之前的这篇文章整理的时候还不太懂安全多方计算，现在懂的稍微多点了，也多拉了几篇论文。论文来自于系统安全四大顶会CCS、SP、USENIX Security、NDSS以及密码两大顶会美密会（CRYPTO）和欧密会（EUROCRYPT）1">
+<meta name="keywords" content="安全,论文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18至21年2+3大顶会MPC方向论文">
+<meta property="og:url" content="https://willv.cn/2021/07/14/5-security-computing/index.html">
+<meta property="og:site_name" content="时光">
+<meta property="og:description" content="这篇文章是重新整理后再发的。前几天和日本大老板开视频会太尴尬了，虽然没怼我，但是还是很难受。今天还收到了论文盲审和提交的通知，真的是没有时间再摸鱼了，得加班肝论文了。之前的这篇文章整理的时候还不太懂安全多方计算，现在懂的稍微多点了，也多拉了几篇论文。论文来自于系统安全四大顶会CCS、SP、USENIX Security、NDSS以及密码两大顶会美密会（CRYPTO）和欧密会（EUROCRYPT）1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-07-14T14:53:14.427Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="18至21年2+3大顶会MPC方向论文">
+<meta name="twitter:description" content="这篇文章是重新整理后再发的。前几天和日本大老板开视频会太尴尬了，虽然没怼我，但是还是很难受。今天还收到了论文盲审和提交的通知，真的是没有时间再摸鱼了，得加班肝论文了。之前的这篇文章整理的时候还不太懂安全多方计算，现在懂的稍微多点了，也多拉了几篇论文。论文来自于系统安全四大顶会CCS、SP、USENIX Security、NDSS以及密码两大顶会美密会（CRYPTO）和欧密会（EUROCRYPT）1">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="时光" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://willv.cn/2021/07/14/5-security-computing/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>18至21年2+3大顶会MPC方向论文 | 时光</title>
+  
+
+
+
+
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?62382cd2dc6f4cabe6aae29a96f8cc47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">时光</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/projects/" rel="section"><i class="menu-item-icon fa fa-fw fa-code"></i> <br>项目</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-writeup">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/writeups/" rel="section"><i class="menu-item-icon fa fa-fw fa-flag"></i> <br>writeup</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-papers">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/papers-reader/" rel="section"><i class="menu-item-icon fa fa-fw fa-file-pdf-o"></i> <br>读论文</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friends">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/friends/" rel="section"><i class="menu-item-icon fa fa-fw fa-group"></i> <br>友链</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://willv.cn/2021/07/14/5-security-computing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WILL_V">
+      <meta itemprop="description" content="辣鸡CTF选手，渣Web，逆向只会F5的渣渣">
+      <meta itemprop="image" content="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="时光">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">18至21年2+3大顶会MPC方向论文
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-07-14 18:02:46 / 修改时间：22:53:14" itemprop="dateCreated datePublished" datetime="2021-07-14T18:02:46+08:00">2021-07-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章是重新整理后再发的。前几天和日本大老板开视频会太尴尬了，虽然没怼我，但是还是很难受。今天还收到了论文盲审和提交的通知，真的是没有时间再摸鱼了，得加班肝论文了。之前的这篇文章整理的时候还不太懂安全多方计算，现在懂的稍微多点了，也多拉了几篇论文。论文来自于系统安全四大顶会CCS、SP、USENIX Security、NDSS以及密码两大顶会美密会（CRYPTO）和欧密会（EUROCRYPT）18至21年所有安全多方计算相关论文，总共131篇。爬论文时图方便，在dblp和官网找到论文后用One-Tab整理标签页再导出，写了一个小脚本可以把One-Tab导出标签页转换为markdown，脚本在本文最后面。最近几天好好学习一下，找找idea。</p>
+<a id="more"></a>
+<h2 id="CRYPTO"><a href="#CRYPTO" class="headerlink" title="CRYPTO"></a>CRYPTO</h2><h3 id="CRYPTO-18"><a href="#CRYPTO-18" class="headerlink" title="CRYPTO 18"></a>CRYPTO 18</h3><h4 id="Non-malleable-Secret-Sharing-for-General-Access-Structures-SpringerLink"><a href="#Non-malleable-Secret-Sharing-for-General-Access-Structures-SpringerLink" class="headerlink" title="Non-malleable Secret Sharing for General Access Structures | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96884-1_17" target="_blank" rel="noopener">Non-malleable Secret Sharing for General Access Structures | SpringerLink</a></h4><h4 id="On-the-Local-Leakage-Resilience-of-Linear-Secret-Sharing-Schemes-SpringerLink"><a href="#On-the-Local-Leakage-Resilience-of-Linear-Secret-Sharing-Schemes-SpringerLink" class="headerlink" title="On the Local Leakage Resilience of Linear Secret Sharing Schemes | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96884-1_18" target="_blank" rel="noopener">On the Local Leakage Resilience of Linear Secret Sharing Schemes | SpringerLink</a></h4><h4 id="Round-Optimal-Secure-Multiparty-Computation-with-Honest-Majority-SpringerLink"><a href="#Round-Optimal-Secure-Multiparty-Computation-with-Honest-Majority-SpringerLink" class="headerlink" title="Round-Optimal Secure Multiparty Computation with Honest Majority | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96881-0_14" target="_blank" rel="noopener">Round-Optimal Secure Multiparty Computation with Honest Majority | SpringerLink</a></h4><h4 id="On-the-Exact-Round-Complexity-of-Secure-Three-Party-Computation-SpringerLink"><a href="#On-the-Exact-Round-Complexity-of-Secure-Three-Party-Computation-SpringerLink" class="headerlink" title="On the Exact Round Complexity of Secure Three-Party Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96881-0_15" target="_blank" rel="noopener">On the Exact Round Complexity of Secure Three-Party Computation | SpringerLink</a></h4><h4 id="Promise-Zero-Knowledge-and-Its-Applications-to-Round-Optimal-MPC-SpringerLink"><a href="#Promise-Zero-Knowledge-and-Its-Applications-to-Round-Optimal-MPC-SpringerLink" class="headerlink" title="Promise Zero Knowledge and Its Applications to Round Optimal MPC | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96881-0_16" target="_blank" rel="noopener">Promise Zero Knowledge and Its Applications to Round Optimal MPC | SpringerLink</a></h4><h4 id="Round-Optimal-Secure-Multi-Party-Computation-SpringerLink"><a href="#Round-Optimal-Secure-Multi-Party-Computation-SpringerLink" class="headerlink" title="Round-Optimal Secure Multi-Party Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96881-0_17" target="_blank" rel="noopener">Round-Optimal Secure Multi-Party Computation | SpringerLink</a></h4><h4 id="SPD-equation-Efficient-MPC-mod-equation-for-Dishonest-Majority-SpringerLink"><a href="#SPD-equation-Efficient-MPC-mod-equation-for-Dishonest-Majority-SpringerLink" class="headerlink" title="SPD[equation]: Efficient MPC mod [equation] for Dishonest Majority | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96881-0_26" target="_blank" rel="noopener">SPD[equation]: Efficient MPC mod [equation] for Dishonest Majority | SpringerLink</a></h4><h4 id="Yet-Another-Compiler-for-Active-Security-or-Efficient-MPC-Over-Arbitrary-Rings-SpringerLink"><a href="#Yet-Another-Compiler-for-Active-Security-or-Efficient-MPC-Over-Arbitrary-Rings-SpringerLink" class="headerlink" title="Yet Another Compiler for Active Security or: Efficient MPC Over Arbitrary Rings | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96881-0_27" target="_blank" rel="noopener">Yet Another Compiler for Active Security or: Efficient MPC Over Arbitrary Rings | SpringerLink</a></h4><h4 id="TinyKeys-A-New-Approach-to-Efficient-Multi-Party-Computation-SpringerLink"><a href="#TinyKeys-A-New-Approach-to-Efficient-Multi-Party-Computation-SpringerLink" class="headerlink" title="TinyKeys: A New Approach to Efficient Multi-Party Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_1" target="_blank" rel="noopener">TinyKeys: A New Approach to Efficient Multi-Party Computation | SpringerLink</a></h4><h4 id="Fast-Large-Scale-Honest-Majority-MPC-for-Malicious-Adversaries-SpringerLink"><a href="#Fast-Large-Scale-Honest-Majority-MPC-for-Malicious-Adversaries-SpringerLink" class="headerlink" title="Fast Large-Scale Honest-Majority MPC for Malicious Adversaries | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_2" target="_blank" rel="noopener">Fast Large-Scale Honest-Majority MPC for Malicious Adversaries | SpringerLink</a></h4><h4 id="An-Optimal-Distributed-Discrete-Log-Protocol-with-Applications-to-Homomorphic-Secret-Sharing-SpringerLink"><a href="#An-Optimal-Distributed-Discrete-Log-Protocol-with-Applications-to-Homomorphic-Secret-Sharing-SpringerLink" class="headerlink" title="An Optimal Distributed Discrete Log Protocol with Applications to Homomorphic Secret Sharing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_8" target="_blank" rel="noopener">An Optimal Distributed Discrete Log Protocol with Applications to Homomorphic Secret Sharing | SpringerLink</a></h4><h4 id="Must-the-Communication-Graph-of-MPC-Protocols-be-an-Expander-SpringerLink"><a href="#Must-the-Communication-Graph-of-MPC-Protocols-be-an-Expander-SpringerLink" class="headerlink" title="Must the Communication Graph of MPC Protocols be an Expander? | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_9" target="_blank" rel="noopener">Must the Communication Graph of MPC Protocols be an Expander? | SpringerLink</a></h4><h4 id="Two-Round-Multiparty-Secure-Computation-Minimizing-Public-Key-Operations-SpringerLink"><a href="#Two-Round-Multiparty-Secure-Computation-Minimizing-Public-Key-Operations-SpringerLink" class="headerlink" title="Two-Round Multiparty Secure Computation Minimizing Public Key Operations | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_10" target="_blank" rel="noopener">Two-Round Multiparty Secure Computation Minimizing Public Key Operations | SpringerLink</a></h4><h4 id="Limits-of-Practical-Sublinear-Secure-Computation-SpringerLink"><a href="#Limits-of-Practical-Sublinear-Secure-Computation-SpringerLink" class="headerlink" title="Limits of Practical Sublinear Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_11" target="_blank" rel="noopener">Limits of Practical Sublinear Secure Computation | SpringerLink</a></h4><h4 id="Amortized-Complexity-of-Information-Theoretically-Secure-MPC-Revisited-SpringerLink"><a href="#Amortized-Complexity-of-Information-Theoretically-Secure-MPC-Revisited-SpringerLink" class="headerlink" title="Amortized Complexity of Information-Theoretically Secure MPC Revisited | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_14" target="_blank" rel="noopener">Amortized Complexity of Information-Theoretically Secure MPC Revisited | SpringerLink</a></h4><h4 id="Private-Circuits-A-Modular-Approach-SpringerLink"><a href="#Private-Circuits-A-Modular-Approach-SpringerLink" class="headerlink" title="Private Circuits: A Modular Approach | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_15" target="_blank" rel="noopener">Private Circuits: A Modular Approach | SpringerLink</a></h4><h4 id="Adaptive-Garbled-RAM-from-Laconic-Oblivious-Transfer-SpringerLink"><a href="#Adaptive-Garbled-RAM-from-Laconic-Oblivious-Transfer-SpringerLink" class="headerlink" title="Adaptive Garbled RAM from Laconic Oblivious Transfer | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_18" target="_blank" rel="noopener">Adaptive Garbled RAM from Laconic Oblivious Transfer | SpringerLink</a></h4><h4 id="On-the-Round-Complexity-of-OT-Extension-SpringerLink"><a href="#On-the-Round-Complexity-of-OT-Extension-SpringerLink" class="headerlink" title="On the Round Complexity of OT Extension | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-96878-0_19" target="_blank" rel="noopener">On the Round Complexity of OT Extension | SpringerLink</a></h4><h3 id="CRYPTO-19"><a href="#CRYPTO-19" class="headerlink" title="CRYPTO 19"></a>CRYPTO 19</h3><h4 id="The-Communication-Complexity-of-Threshold-Private-Set-Intersection-SpringerLink"><a href="#The-Communication-Complexity-of-Threshold-Private-Set-Intersection-SpringerLink" class="headerlink" title="The Communication Complexity of Threshold Private Set Intersection | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26951-7_1" target="_blank" rel="noopener">The Communication Complexity of Threshold Private Set Intersection | SpringerLink</a></h4><h4 id="Adaptively-Secure-MPC-with-Sublinear-Communication-Complexity-SpringerLink"><a href="#Adaptively-Secure-MPC-with-Sublinear-Communication-Complexity-SpringerLink" class="headerlink" title="Adaptively Secure MPC with Sublinear Communication Complexity | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26951-7_2" target="_blank" rel="noopener">Adaptively Secure MPC with Sublinear Communication Complexity | SpringerLink</a></h4><h4 id="Communication-Lower-Bounds-for-Statistically-Secure-MPC-With-or-Without-Preprocessing-SpringerLink"><a href="#Communication-Lower-Bounds-for-Statistically-Secure-MPC-With-or-Without-Preprocessing-SpringerLink" class="headerlink" title="Communication Lower Bounds for Statistically Secure MPC, With or Without Preprocessing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26951-7_3" target="_blank" rel="noopener">Communication Lower Bounds for Statistically Secure MPC, With or Without Preprocessing | SpringerLink</a></h4><h4 id="Communication-Efficient-Unconditional-MPC-with-Guaranteed-Output-Delivery-SpringerLink"><a href="#Communication-Efficient-Unconditional-MPC-with-Guaranteed-Output-Delivery-SpringerLink" class="headerlink" title="Communication-Efficient Unconditional MPC with Guaranteed Output Delivery | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26951-7_4" target="_blank" rel="noopener">Communication-Efficient Unconditional MPC with Guaranteed Output Delivery | SpringerLink</a></h4><h4 id="SpOT-Light-Lightweight-Private-Set-Intersection-from-Sparse-OT-Extension-SpringerLink"><a href="#SpOT-Light-Lightweight-Private-Set-Intersection-from-Sparse-OT-Extension-SpringerLink" class="headerlink" title="SpOT-Light: Lightweight Private Set Intersection from Sparse OT Extension | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26954-8_13" target="_blank" rel="noopener">SpOT-Light: Lightweight Private Set Intersection from Sparse OT Extension | SpringerLink</a></h4><h4 id="Universally-Composable-Secure-Computation-with-Corrupted-Tokens-SpringerLink"><a href="#Universally-Composable-Secure-Computation-with-Corrupted-Tokens-SpringerLink" class="headerlink" title="Universally Composable Secure Computation with Corrupted Tokens | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26954-8_14" target="_blank" rel="noopener">Universally Composable Secure Computation with Corrupted Tokens | SpringerLink</a></h4><h4 id="Reusable-Non-Interactive-Secure-Computation-SpringerLink"><a href="#Reusable-Non-Interactive-Secure-Computation-SpringerLink" class="headerlink" title="Reusable Non-Interactive Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26954-8_15" target="_blank" rel="noopener">Reusable Non-Interactive Secure Computation | SpringerLink</a></h4><h4 id="Efficient-Pseudorandom-Correlation-Generators-Silent-OT-Extension-and-More-SpringerLink"><a href="#Efficient-Pseudorandom-Correlation-Generators-Silent-OT-Extension-and-More-SpringerLink" class="headerlink" title="Efficient Pseudorandom Correlation Generators: Silent OT Extension and More | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-26954-8_16" target="_blank" rel="noopener">Efficient Pseudorandom Correlation Generators: Silent OT Extension and More | SpringerLink</a></h4><h3 id="CRYPTO-20"><a href="#CRYPTO-20" class="headerlink" title="CRYPTO 20"></a>CRYPTO 20</h3><h4 id="Round-Optimal-Black-Box-Commit-and-Prove-with-Succinct-Communication-SpringerLink"><a href="#Round-Optimal-Black-Box-Commit-and-Prove-with-Succinct-Communication-SpringerLink" class="headerlink" title="Round-Optimal Black-Box Commit-and-Prove with Succinct Communication | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_19" target="_blank" rel="noopener">Round-Optimal Black-Box Commit-and-Prove with Succinct Communication | SpringerLink</a></h4><h4 id="Efficient-Constant-Round-MPC-with-Identifiable-Abort-and-Public-Verifiability-SpringerLink"><a href="#Efficient-Constant-Round-MPC-with-Identifiable-Abort-and-Public-Verifiability-SpringerLink" class="headerlink" title="Efficient Constant-Round MPC with Identifiable Abort and Public Verifiability | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_20" target="_blank" rel="noopener">Efficient Constant-Round MPC with Identifiable Abort and Public Verifiability | SpringerLink</a></h4><h4 id="Black-Box-Use-of-One-Way-Functions-is-Useless-for-Optimal-Fair-Coin-Tossing-SpringerLink"><a href="#Black-Box-Use-of-One-Way-Functions-is-Useless-for-Optimal-Fair-Coin-Tossing-SpringerLink" class="headerlink" title="Black-Box Use of One-Way Functions is Useless for Optimal Fair Coin-Tossing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_21" target="_blank" rel="noopener">Black-Box Use of One-Way Functions is Useless for Optimal Fair Coin-Tossing | SpringerLink</a></h4><h4 id="Guaranteed-Output-Delivery-Comes-Free-in-Honest-Majority-MPC-SpringerLink"><a href="#Guaranteed-Output-Delivery-Comes-Free-in-Honest-Majority-MPC-SpringerLink" class="headerlink" title="Guaranteed Output Delivery Comes Free in Honest Majority MPC | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_22" target="_blank" rel="noopener">Guaranteed Output Delivery Comes Free in Honest Majority MPC | SpringerLink</a></h4><h4 id="Black-Box-Transformations-from-Passive-to-Covert-Security-with-Public-Verifiability-SpringerLink"><a href="#Black-Box-Transformations-from-Passive-to-Covert-Security-with-Public-Verifiability-SpringerLink" class="headerlink" title="Black-Box Transformations from Passive to Covert Security with Public Verifiability | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_23" target="_blank" rel="noopener">Black-Box Transformations from Passive to Covert Security with Public Verifiability | SpringerLink</a></h4><h4 id="MPC-with-Friends-and-Foes-SpringerLink"><a href="#MPC-with-Friends-and-Foes-SpringerLink" class="headerlink" title="MPC with Friends and Foes | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_24" target="_blank" rel="noopener">MPC with Friends and Foes | SpringerLink</a></h4><h4 id="Always-Have-a-Backup-Plan-Fully-Secure-Synchronous-MPC-with-Asynchronous-Fallback-SpringerLink"><a href="#Always-Have-a-Backup-Plan-Fully-Secure-Synchronous-MPC-with-Asynchronous-Fallback-SpringerLink" class="headerlink" title="Always Have a Backup Plan: Fully Secure Synchronous MPC with Asynchronous Fallback | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_25" target="_blank" rel="noopener">Always Have a Backup Plan: Fully Secure Synchronous MPC with Asynchronous Fallback | SpringerLink</a></h4><h4 id="Reverse-Firewalls-for-Actively-Secure-MPCs-SpringerLink"><a href="#Reverse-Firewalls-for-Actively-Secure-MPCs-SpringerLink" class="headerlink" title="Reverse Firewalls for Actively Secure MPCs | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_26" target="_blank" rel="noopener">Reverse Firewalls for Actively Secure MPCs | SpringerLink</a></h4><h4 id="Stacked-Garbling-SpringerLink"><a href="#Stacked-Garbling-SpringerLink" class="headerlink" title="Stacked Garbling | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_27" target="_blank" rel="noopener">Stacked Garbling | SpringerLink</a></h4><h4 id="Better-Concrete-Security-for-Half-Gates-Garbling-in-the-Multi-instance-Setting-SpringerLink"><a href="#Better-Concrete-Security-for-Half-Gates-Garbling-in-the-Multi-instance-Setting-SpringerLink" class="headerlink" title="Better Concrete Security for Half-Gates Garbling (in the Multi-instance Setting) | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_28" target="_blank" rel="noopener">Better Concrete Security for Half-Gates Garbling (in the Multi-instance Setting) | SpringerLink</a></h4><h4 id="Improved-Primitives-for-MPC-over-Mixed-Arithmetic-Binary-Circuits-SpringerLink"><a href="#Improved-Primitives-for-MPC-over-Mixed-Arithmetic-Binary-Circuits-SpringerLink" class="headerlink" title="Improved Primitives for MPC over Mixed Arithmetic-Binary Circuits | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56880-1_29" target="_blank" rel="noopener">Improved Primitives for MPC over Mixed Arithmetic-Binary Circuits | SpringerLink</a></h4><h4 id="Two-Sided-Malicious-Security-for-Private-Intersection-Sum-with-Cardinality-SpringerLink"><a href="#Two-Sided-Malicious-Security-for-Private-Intersection-Sum-with-Cardinality-SpringerLink" class="headerlink" title="Two-Sided Malicious Security for Private Intersection-Sum with Cardinality | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56877-1_1" target="_blank" rel="noopener">Two-Sided Malicious Security for Private Intersection-Sum with Cardinality | SpringerLink</a></h4><h4 id="Private-Set-Intersection-in-the-Internet-Setting-from-Lightweight-Oblivious-PRF-SpringerLink"><a href="#Private-Set-Intersection-in-the-Internet-Setting-from-Lightweight-Oblivious-PRF-SpringerLink" class="headerlink" title="Private Set Intersection in the Internet Setting from Lightweight Oblivious PRF | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56877-1_2" target="_blank" rel="noopener">Private Set Intersection in the Internet Setting from Lightweight Oblivious PRF | SpringerLink</a></h4><h4 id="Multiparty-Generation-of-an-RSA-Modulus-SpringerLink"><a href="#Multiparty-Generation-of-an-RSA-Modulus-SpringerLink" class="headerlink" title="Multiparty Generation of an RSA Modulus | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56877-1_3" target="_blank" rel="noopener">Multiparty Generation of an RSA Modulus | SpringerLink</a></h4><h4 id="Non-malleability-Against-Polynomial-Tampering-SpringerLink"><a href="#Non-malleability-Against-Polynomial-Tampering-SpringerLink" class="headerlink" title="Non-malleability Against Polynomial Tampering | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56877-1_4" target="_blank" rel="noopener">Non-malleability Against Polynomial Tampering | SpringerLink</a></h4><h4 id="Non-malleable-Secret-Sharing-Against-Bounded-Joint-Tampering-Attacks-in-the-Plain-Model-SpringerLink"><a href="#Non-malleable-Secret-Sharing-Against-Bounded-Joint-Tampering-Attacks-in-the-Plain-Model-SpringerLink" class="headerlink" title="Non-malleable Secret Sharing Against Bounded Joint-Tampering Attacks in the Plain Model | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56877-1_5" target="_blank" rel="noopener">Non-malleable Secret Sharing Against Bounded Joint-Tampering Attacks in the Plain Model | SpringerLink</a></h4><h4 id="Nearly-Optimal-Robust-Secret-Sharing-Against-Rushing-Adversaries-SpringerLink"><a href="#Nearly-Optimal-Robust-Secret-Sharing-Against-Rushing-Adversaries-SpringerLink" class="headerlink" title="Nearly Optimal Robust Secret Sharing Against Rushing Adversaries | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-56877-1_6" target="_blank" rel="noopener">Nearly Optimal Robust Secret Sharing Against Rushing Adversaries | SpringerLink</a></h4><h2 id="EUROCRYPT"><a href="#EUROCRYPT" class="headerlink" title="EUROCRYPT"></a>EUROCRYPT</h2><h3 id="EUROCRYPT-18"><a href="#EUROCRYPT-18" class="headerlink" title="EUROCRYPT 18"></a>EUROCRYPT 18</h3><h4 id="Towards-Breaking-the-Exponential-Barrier-for-General-Secret-Sharing-SpringerLink"><a href="#Towards-Breaking-the-Exponential-Barrier-for-General-Secret-Sharing-SpringerLink" class="headerlink" title="Towards Breaking the Exponential Barrier for General Secret Sharing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78381-9_21" target="_blank" rel="noopener">Towards Breaking the Exponential Barrier for General Secret Sharing | SpringerLink</a></h4><h4 id="Improving-the-Linear-Programming-Technique-in-the-Search-for-Lower-Bounds-in-Secret-Sharing-SpringerLink"><a href="#Improving-the-Linear-Programming-Technique-in-the-Search-for-Lower-Bounds-in-Secret-Sharing-SpringerLink" class="headerlink" title="Improving the Linear Programming Technique in the Search for Lower Bounds in Secret Sharing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78381-9_22" target="_blank" rel="noopener">Improving the Linear Programming Technique in the Search for Lower Bounds in Secret Sharing | SpringerLink</a></h4><h4 id="Adaptively-Secure-Garbling-with-Near-Optimal-Online-Complexity-SpringerLink"><a href="#Adaptively-Secure-Garbling-with-Near-Optimal-Online-Complexity-SpringerLink" class="headerlink" title="Adaptively Secure Garbling with Near Optimal Online Complexity | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78375-8_18" target="_blank" rel="noopener">Adaptively Secure Garbling with Near Optimal Online Complexity | SpringerLink</a></h4><h4 id="A-New-Approach-to-Black-Box-Concurrent-Secure-Computation-SpringerLink"><a href="#A-New-Approach-to-Black-Box-Concurrent-Secure-Computation-SpringerLink" class="headerlink" title="A New Approach to Black-Box Concurrent Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78375-8_19" target="_blank" rel="noopener">A New Approach to Black-Box Concurrent Secure Computation | SpringerLink</a></h4><h4 id="Efficient-Maliciously-Secure-Multiparty-Computation-for-RAM-SpringerLink"><a href="#Efficient-Maliciously-Secure-Multiparty-Computation-for-RAM-SpringerLink" class="headerlink" title="Efficient Maliciously Secure Multiparty Computation for RAM | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78372-7_4" target="_blank" rel="noopener">Efficient Maliciously Secure Multiparty Computation for RAM | SpringerLink</a></h4><h4 id="Efficient-Circuit-Based-PSI-via-Cuckoo-Hashing-SpringerLink"><a href="#Efficient-Circuit-Based-PSI-via-Cuckoo-Hashing-SpringerLink" class="headerlink" title="Efficient Circuit-Based PSI via Cuckoo Hashing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78372-7_5" target="_blank" rel="noopener">Efficient Circuit-Based PSI via Cuckoo Hashing | SpringerLink</a></h4><h4 id="Overdrive-Making-SPDZ-Great-Again-SpringerLink"><a href="#Overdrive-Making-SPDZ-Great-Again-SpringerLink" class="headerlink" title="Overdrive: Making SPDZ Great Again | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-78372-7_6" target="_blank" rel="noopener">Overdrive: Making SPDZ Great Again | SpringerLink</a></h4><h3 id="EUROCRYPT-19"><a href="#EUROCRYPT-19" class="headerlink" title="EUROCRYPT 19"></a>EUROCRYPT 19</h3><h4 id="Founding-Secure-Computation-on-Blockchains-SpringerLink"><a href="#Founding-Secure-Computation-on-Blockchains-SpringerLink" class="headerlink" title="Founding Secure Computation on Blockchains | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17656-3_13" target="_blank" rel="noopener">Founding Secure Computation on Blockchains | SpringerLink</a></h4><h4 id="Uncovering-Algebraic-Structures-in-the-MPC-Landscape-SpringerLink"><a href="#Uncovering-Algebraic-Structures-in-the-MPC-Landscape-SpringerLink" class="headerlink" title="Uncovering Algebraic Structures in the MPC Landscape | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17656-3_14" target="_blank" rel="noopener">Uncovering Algebraic Structures in the MPC Landscape | SpringerLink</a></h4><h4 id="A-Note-on-the-Communication-Complexity-of-Multiparty-Computation-in-the-Correlated-Randomness-Model-SpringerLink"><a href="#A-Note-on-the-Communication-Complexity-of-Multiparty-Computation-in-the-Correlated-Randomness-Model-SpringerLink" class="headerlink" title="A Note on the Communication Complexity of Multiparty Computation in the Correlated Randomness Model | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17656-3_17" target="_blank" rel="noopener">A Note on the Communication Complexity of Multiparty Computation in the Correlated Randomness Model | SpringerLink</a></h4><h4 id="Degree-2-is-Complete-for-the-Round-Complexity-of-Malicious-MPC-SpringerLink"><a href="#Degree-2-is-Complete-for-the-Round-Complexity-of-Malicious-MPC-SpringerLink" class="headerlink" title="Degree 2 is Complete for the Round-Complexity of Malicious MPC | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17656-3_18" target="_blank" rel="noopener">Degree 2 is Complete for the Round-Complexity of Malicious MPC | SpringerLink</a></h4><h4 id="Two-Round-Information-Theoretic-MPC-with-Malicious-Security-SpringerLink"><a href="#Two-Round-Information-Theoretic-MPC-with-Malicious-Security-SpringerLink" class="headerlink" title="Two Round Information-Theoretic MPC with Malicious Security | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17656-3_19" target="_blank" rel="noopener">Two Round Information-Theoretic MPC with Malicious Security | SpringerLink</a></h4><h4 id="Covert-Security-with-Public-Verifiability-Faster-Leaner-and-Simpler-SpringerLink"><a href="#Covert-Security-with-Public-Verifiability-Faster-Leaner-and-Simpler-SpringerLink" class="headerlink" title="Covert Security with Public Verifiability: Faster, Leaner, and Simpler | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17659-4_4" target="_blank" rel="noopener">Covert Security with Public Verifiability: Faster, Leaner, and Simpler | SpringerLink</a></h4><h4 id="Efficient-Circuit-Based-PSI-with-Linear-Communication-SpringerLink"><a href="#Efficient-Circuit-Based-PSI-with-Linear-Communication-SpringerLink" class="headerlink" title="Efficient Circuit-Based PSI with Linear Communication | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17659-4_5" target="_blank" rel="noopener">Efficient Circuit-Based PSI with Linear Communication | SpringerLink</a></h4><h4 id="An-Algebraic-Approach-to-Maliciously-Secure-Private-Set-Intersection-SpringerLink"><a href="#An-Algebraic-Approach-to-Maliciously-Secure-Private-Set-Intersection-SpringerLink" class="headerlink" title="An Algebraic Approach to Maliciously Secure Private Set Intersection | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-17659-4_6" target="_blank" rel="noopener">An Algebraic Approach to Maliciously Secure Private Set Intersection | SpringerLink</a></h4><h3 id="EUROCRYPT-20"><a href="#EUROCRYPT-20" class="headerlink" title="EUROCRYPT 20"></a>EUROCRYPT 20</h3><h4 id="Blackbox-Secret-Sharing-Revisited-A-Coding-Theoretic-Approach-with-Application-to-Expansionless-Near-Threshold-Schemes-SpringerLink"><a href="#Blackbox-Secret-Sharing-Revisited-A-Coding-Theoretic-Approach-with-Application-to-Expansionless-Near-Threshold-Schemes-SpringerLink" class="headerlink" title="Blackbox Secret Sharing Revisited: A Coding-Theoretic Approach with Application to Expansionless Near-Threshold Schemes | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45721-1_18" target="_blank" rel="noopener">Blackbox Secret Sharing Revisited: A Coding-Theoretic Approach with Application to Expansionless Near-Threshold Schemes | SpringerLink</a></h4><h4 id="Evolving-Ramp-Secret-Sharing-with-a-Small-Gap-SpringerLink"><a href="#Evolving-Ramp-Secret-Sharing-with-a-Small-Gap-SpringerLink" class="headerlink" title="Evolving Ramp Secret Sharing with a Small Gap | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45721-1_19" target="_blank" rel="noopener">Evolving Ramp Secret Sharing with a Small Gap | SpringerLink</a></h4><h4 id="Lower-Bounds-for-Leakage-Resilient-Secret-Sharing-SpringerLink"><a href="#Lower-Bounds-for-Leakage-Resilient-Secret-Sharing-SpringerLink" class="headerlink" title="Lower Bounds for Leakage-Resilient Secret Sharing | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45721-1_20" target="_blank" rel="noopener">Lower Bounds for Leakage-Resilient Secret Sharing | SpringerLink</a></h4><h4 id="Resource-Restricted-Cryptography-Revisiting-MPC-Bounds-in-the-Proof-of-Work-Era-SpringerLink"><a href="#Resource-Restricted-Cryptography-Revisiting-MPC-Bounds-in-the-Proof-of-Work-Era-SpringerLink" class="headerlink" title="Resource-Restricted Cryptography: Revisiting MPC Bounds in the Proof-of-Work Era | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_5" target="_blank" rel="noopener">Resource-Restricted Cryptography: Revisiting MPC Bounds in the Proof-of-Work Era | SpringerLink</a></h4><h4 id="Efficient-Constructions-for-Almost-Everywhere-Secure-Computation-SpringerLink"><a href="#Efficient-Constructions-for-Almost-Everywhere-Secure-Computation-SpringerLink" class="headerlink" title="Efficient Constructions for Almost-Everywhere Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_6" target="_blank" rel="noopener">Efficient Constructions for Almost-Everywhere Secure Computation | SpringerLink</a></h4><h4 id="The-Price-of-Active-Security-in-Cryptographic-Protocols-SpringerLink"><a href="#The-Price-of-Active-Security-in-Cryptographic-Protocols-SpringerLink" class="headerlink" title="The Price of Active Security in Cryptographic Protocols | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_7" target="_blank" rel="noopener">The Price of Active Security in Cryptographic Protocols | SpringerLink</a></h4><h4 id="Succinct-Non-interactive-Secure-Computation-SpringerLink"><a href="#Succinct-Non-interactive-Secure-Computation-SpringerLink" class="headerlink" title="Succinct Non-interactive Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_8" target="_blank" rel="noopener">Succinct Non-interactive Secure Computation | SpringerLink</a></h4><h4 id="PSI-from-PaXoS-Fast-Malicious-Private-Set-Intersection-SpringerLink"><a href="#PSI-from-PaXoS-Fast-Malicious-Private-Set-Intersection-SpringerLink" class="headerlink" title="PSI from PaXoS: Fast, Malicious Private Set Intersection | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_25" target="_blank" rel="noopener">PSI from PaXoS: Fast, Malicious Private Set Intersection | SpringerLink</a></h4><h4 id="Two-Round-Oblivious-Transfer-from-CDH-or-LPN-SpringerLink"><a href="#Two-Round-Oblivious-Transfer-from-CDH-or-LPN-SpringerLink" class="headerlink" title="Two-Round Oblivious Transfer from CDH or LPN | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_26" target="_blank" rel="noopener">Two-Round Oblivious Transfer from CDH or LPN | SpringerLink</a></h4><h4 id="Private-Aggregation-from-Fewer-Anonymous-Messages-SpringerLink"><a href="#Private-Aggregation-from-Fewer-Anonymous-Messages-SpringerLink" class="headerlink" title="Private Aggregation from Fewer Anonymous Messages | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_27" target="_blank" rel="noopener">Private Aggregation from Fewer Anonymous Messages | SpringerLink</a></h4><h4 id="Broadcast-Optimal-Two-Round-MPC-SpringerLink"><a href="#Broadcast-Optimal-Two-Round-MPC-SpringerLink" class="headerlink" title="Broadcast-Optimal Two-Round MPC | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-45724-2_28" target="_blank" rel="noopener">Broadcast-Optimal Two-Round MPC | SpringerLink</a></h4><h3 id="EUROCRYPT-21"><a href="#EUROCRYPT-21" class="headerlink" title="EUROCRYPT 21"></a>EUROCRYPT 21</h3><h4 id="Order-C-Secure-Multiparty-Computation-for-Highly-Repetitive-Circuits-SpringerLink"><a href="#Order-C-Secure-Multiparty-Computation-for-Highly-Repetitive-Circuits-SpringerLink" class="headerlink" title="Order-C Secure Multiparty Computation for Highly Repetitive Circuits | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_23" target="_blank" rel="noopener">Order-C Secure Multiparty Computation for Highly Repetitive Circuits | SpringerLink</a></h4><h4 id="The-More-the-Merrier-Reducing-the-Cost-of-Large-Scale-MPC-SpringerLink"><a href="#The-More-the-Merrier-Reducing-the-Cost-of-Large-Scale-MPC-SpringerLink" class="headerlink" title="The More the Merrier: Reducing the Cost of Large Scale MPC | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_24" target="_blank" rel="noopener">The More the Merrier: Reducing the Cost of Large Scale MPC | SpringerLink</a></h4><h4 id="Multiparty-Reusable-Non-interactive-Secure-Computation-from-LWE-SpringerLink"><a href="#Multiparty-Reusable-Non-interactive-Secure-Computation-from-LWE-SpringerLink" class="headerlink" title="Multiparty Reusable Non-interactive Secure Computation from LWE | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_25" target="_blank" rel="noopener">Multiparty Reusable Non-interactive Secure Computation from LWE | SpringerLink</a></h4><h4 id="Unbounded-Multi-party-Computation-from-Learning-with-Errors-SpringerLink"><a href="#Unbounded-Multi-party-Computation-from-Learning-with-Errors-SpringerLink" class="headerlink" title="Unbounded Multi-party Computation from Learning with Errors | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_26" target="_blank" rel="noopener">Unbounded Multi-party Computation from Learning with Errors | SpringerLink</a></h4><h4 id="Generic-Compiler-for-Publicly-Verifiable-Covert-Multi-Party-Computation-SpringerLink"><a href="#Generic-Compiler-for-Publicly-Verifiable-Covert-Multi-Party-Computation-SpringerLink" class="headerlink" title="Generic Compiler for Publicly Verifiable Covert Multi-Party Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_27" target="_blank" rel="noopener">Generic Compiler for Publicly Verifiable Covert Multi-Party Computation | SpringerLink</a></h4><h4 id="Constant-Overhead-Unconditionally-Secure-Multiparty-Computation-Over-Binary-Fields-SpringerLink"><a href="#Constant-Overhead-Unconditionally-Secure-Multiparty-Computation-Over-Binary-Fields-SpringerLink" class="headerlink" title="Constant-Overhead Unconditionally Secure Multiparty Computation Over Binary Fields | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_28" target="_blank" rel="noopener">Constant-Overhead Unconditionally Secure Multiparty Computation Over Binary Fields | SpringerLink</a></h4><h4 id="Breaking-the-Circuit-Size-Barrier-for-Secure-Computation-Under-Quasi-Polynomial-LPN-SpringerLink"><a href="#Breaking-the-Circuit-Size-Barrier-for-Secure-Computation-Under-Quasi-Polynomial-LPN-SpringerLink" class="headerlink" title="Breaking the Circuit Size Barrier for Secure Computation Under Quasi-Polynomial LPN | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_29" target="_blank" rel="noopener">Breaking the Circuit Size Barrier for Secure Computation Under Quasi-Polynomial LPN | SpringerLink</a></h4><h4 id="Function-Secret-Sharing-for-Mixed-Mode-and-Fixed-Point-Secure-Computation-SpringerLink"><a href="#Function-Secret-Sharing-for-Mixed-Mode-and-Fixed-Point-Secure-Computation-SpringerLink" class="headerlink" title="Function Secret Sharing for Mixed-Mode and Fixed-Point Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_30" target="_blank" rel="noopener">Function Secret Sharing for Mixed-Mode and Fixed-Point Secure Computation | SpringerLink</a></h4><h4 id="VOLE-PSI-Fast-OPRF-and-Circuit-PSI-from-Vector-OLE-SpringerLink"><a href="#VOLE-PSI-Fast-OPRF-and-Circuit-PSI-from-Vector-OLE-SpringerLink" class="headerlink" title="VOLE-PSI: Fast OPRF and Circuit-PSI from Vector-OLE | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77886-6_31" target="_blank" rel="noopener">VOLE-PSI: Fast OPRF and Circuit-PSI from Vector-OLE | SpringerLink</a></h4><h4 id="equation-Stacked-Garbling-with-equation-Computation-SpringerLink"><a href="#equation-Stacked-Garbling-with-equation-Computation-SpringerLink" class="headerlink" title="[equation]: Stacked Garbling with [equation] Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77883-5_1" target="_blank" rel="noopener">[equation]: Stacked Garbling with [equation] Computation | SpringerLink</a></h4><h4 id="Large-Scale-Actively-Secure-Computation-from-LPN-and-Free-XOR-Garbled-Circuits-SpringerLink"><a href="#Large-Scale-Actively-Secure-Computation-from-LPN-and-Free-XOR-Garbled-Circuits-SpringerLink" class="headerlink" title="Large Scale, Actively Secure Computation from LPN and Free-XOR Garbled Circuits | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77883-5_2" target="_blank" rel="noopener">Large Scale, Actively Secure Computation from LPN and Free-XOR Garbled Circuits | SpringerLink</a></h4><h4 id="Threshold-Garbled-Circuits-and-Ad-Hoc-Secure-Computation-SpringerLink"><a href="#Threshold-Garbled-Circuits-and-Ad-Hoc-Secure-Computation-SpringerLink" class="headerlink" title="Threshold Garbled Circuits and Ad Hoc Secure Computation | SpringerLink"></a><a href="https://link.springer.com/chapter/10.1007%2F978-3-030-77883-5_3" target="_blank" rel="noopener">Threshold Garbled Circuits and Ad Hoc Secure Computation | SpringerLink</a></h4><h2 id="IEEE-S-amp-P"><a href="#IEEE-S-amp-P" class="headerlink" title="IEEE S&amp;P"></a>IEEE S&amp;P</h2><h3 id="IEEE-S-amp-P-18"><a href="#IEEE-S-amp-P-18" class="headerlink" title="IEEE S&amp;P 18"></a>IEEE S&amp;P 18</h3><h4 id="FuturesMEX-Secure-Distributed-Futures-Market-Exchange-IEEE-Conference-Publication-IEEE-Xplore"><a href="#FuturesMEX-Secure-Distributed-Futures-Market-Exchange-IEEE-Conference-Publication-IEEE-Xplore" class="headerlink" title="FuturesMEX: Secure, Distributed Futures Market Exchange | IEEE Conference Publication | IEEE Xplore"></a><a href="https://ieeexplore.ieee.org/document/8418612" target="_blank" rel="noopener">FuturesMEX: Secure, Distributed Futures Market Exchange | IEEE Conference Publication | IEEE Xplore</a></h4><h4 id="PIR-with-Compressed-Queries-and-Amortized-Query-Processing-IEEE-Conference-Publication-IEEE-Xplore"><a href="#PIR-with-Compressed-Queries-and-Amortized-Query-Processing-IEEE-Conference-Publication-IEEE-Xplore" class="headerlink" title="PIR with Compressed Queries and Amortized Query Processing | IEEE Conference Publication | IEEE Xplore"></a><a href="https://ieeexplore.ieee.org/document/8418648" target="_blank" rel="noopener">PIR with Compressed Queries and Amortized Query Processing | IEEE Conference Publication | IEEE Xplore</a></h4><h3 id="IEEE-S-amp-P-20"><a href="#IEEE-S-amp-P-20" class="headerlink" title="IEEE S&amp;P 20"></a>IEEE S&amp;P 20</h3><h4 id="Efficient-and-Secure-Multiparty-Computation-from-Fixed-Key-Block-Ciphers-IEEE-Conference-Publication-IEEE-Xplore"><a href="#Efficient-and-Secure-Multiparty-Computation-from-Fixed-Key-Block-Ciphers-IEEE-Conference-Publication-IEEE-Xplore" class="headerlink" title="Efficient and Secure Multiparty Computation from Fixed-Key Block Ciphers | IEEE Conference Publication | IEEE Xplore"></a><a href="https://ieeexplore.ieee.org/document/9152760" target="_blank" rel="noopener">Efficient and Secure Multiparty Computation from Fixed-Key Block Ciphers | IEEE Conference Publication | IEEE Xplore</a></h4><h4 id="Path-Oblivious-Heap-Optimal-and-Practical-Oblivious-Priority-Queue-IEEE-Conference-Publication-IEEE-Xplore"><a href="#Path-Oblivious-Heap-Optimal-and-Practical-Oblivious-Priority-Queue-IEEE-Conference-Publication-IEEE-Xplore" class="headerlink" title="Path Oblivious Heap: Optimal and Practical Oblivious Priority Queue | IEEE Conference Publication | IEEE Xplore"></a><a href="https://ieeexplore.ieee.org/document/9152809" target="_blank" rel="noopener">Path Oblivious Heap: Optimal and Practical Oblivious Priority Queue | IEEE Conference Publication | IEEE Xplore</a></h4><h4 id="Transparent-Polynomial-Delegation-and-Its-Applications-to-Zero-Knowledge-Proof-IEEE-Conference-Publication-IEEE-Xplore"><a href="#Transparent-Polynomial-Delegation-and-Its-Applications-to-Zero-Knowledge-Proof-IEEE-Conference-Publication-IEEE-Xplore" class="headerlink" title="Transparent Polynomial Delegation and Its Applications to Zero Knowledge Proof | IEEE Conference Publication | IEEE Xplore"></a><a href="https://ieeexplore.ieee.org/document/9152704" target="_blank" rel="noopener">Transparent Polynomial Delegation and Its Applications to Zero Knowledge Proof | IEEE Conference Publication | IEEE Xplore</a></h4><h4 id="Towards-Scalable-Threshold-Cryptosystems-IEEE-Conference-Publication-IEEE-Xplore"><a href="#Towards-Scalable-Threshold-Cryptosystems-IEEE-Conference-Publication-IEEE-Xplore" class="headerlink" title="Towards Scalable Threshold Cryptosystems | IEEE Conference Publication | IEEE Xplore"></a><a href="https://ieeexplore.ieee.org/document/9152696" target="_blank" rel="noopener">Towards Scalable Threshold Cryptosystems | IEEE Conference Publication | IEEE Xplore</a></h4><h2 id="USENIX-Security"><a href="#USENIX-Security" class="headerlink" title="USENIX Security"></a>USENIX Security</h2><h3 id="USENIX-Security-19"><a href="#USENIX-Security-19" class="headerlink" title="USENIX Security 19"></a>USENIX Security 19</h3><h4 id="Mobile-Private-Contact-Discovery-at-Scale-USENIX"><a href="#Mobile-Private-Contact-Discovery-at-Scale-USENIX" class="headerlink" title="Mobile Private Contact Discovery at Scale | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity19/presentation/kales" target="_blank" rel="noopener">Mobile Private Contact Discovery at Scale | USENIX</a></h4><h3 id="USENIX-Security-20"><a href="#USENIX-Security-20" class="headerlink" title="USENIX Security 20"></a>USENIX Security 20</h3><h4 id="Secure-Multi-party-Computation-of-Differentially-Private-Median-USENIX"><a href="#Secure-Multi-party-Computation-of-Differentially-Private-Median-USENIX" class="headerlink" title="Secure Multi-party Computation of Differentially Private Median | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity20/presentation/boehler" target="_blank" rel="noopener">Secure Multi-party Computation of Differentially Private Median | USENIX</a></h4><h4 id="Secure-parallel-computation-on-national-scale-volumes-of-data-USENIX"><a href="#Secure-parallel-computation-on-national-scale-volumes-of-data-USENIX" class="headerlink" title="Secure parallel computation on national scale volumes of data | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity20/presentation/mazloom" target="_blank" rel="noopener">Secure parallel computation on national scale volumes of data | USENIX</a></h4><h3 id="USENIX-Security-21"><a href="#USENIX-Security-21" class="headerlink" title="USENIX Security 21"></a>USENIX Security 21</h3><h4 id="Privacy-and-Integrity-Preserving-Computations-with-CRISP-USENIX"><a href="#Privacy-and-Integrity-Preserving-Computations-with-CRISP-USENIX" class="headerlink" title="Privacy and Integrity Preserving Computations with CRISP | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/chatel" target="_blank" rel="noopener">Privacy and Integrity Preserving Computations with CRISP | USENIX</a></h4><h4 id="Senate-A-Maliciously-Secure-MPC-Platform-for-Collaborative-Analytics-USENIX"><a href="#Senate-A-Maliciously-Secure-MPC-Platform-for-Collaborative-Analytics-USENIX" class="headerlink" title="Senate: A Maliciously-Secure MPC Platform for Collaborative Analytics | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/poddar" target="_blank" rel="noopener">Senate: A Maliciously-Secure MPC Platform for Collaborative Analytics | USENIX</a></h4><h4 id="GForce-GPU-Friendly-Oblivious-and-Rapid-Neural-Network-Inference-USENIX"><a href="#GForce-GPU-Friendly-Oblivious-and-Rapid-Neural-Network-Inference-USENIX" class="headerlink" title="GForce: GPU-Friendly Oblivious and Rapid Neural Network Inference | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/ng" target="_blank" rel="noopener">GForce: GPU-Friendly Oblivious and Rapid Neural Network Inference | USENIX</a></h4><h4 id="ABY2-0-Improved-Mixed-Protocol-Secure-Two-Party-Computation-USENIX"><a href="#ABY2-0-Improved-Mixed-Protocol-Secure-Two-Party-Computation-USENIX" class="headerlink" title="ABY2.0: Improved Mixed-Protocol Secure Two-Party Computation | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/patra" target="_blank" rel="noopener">ABY2.0: Improved Mixed-Protocol Secure Two-Party Computation | USENIX</a></h4><h4 id="Fantastic-Four-Honest-Majority-Four-Party-Secure-Computation-With-Malicious-Security-USENIX"><a href="#Fantastic-Four-Honest-Majority-Four-Party-Secure-Computation-With-Malicious-Security-USENIX" class="headerlink" title="Fantastic Four: Honest-Majority Four-Party Secure Computation With Malicious Security | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/dalskov" target="_blank" rel="noopener">Fantastic Four: Honest-Majority Four-Party Secure Computation With Malicious Security | USENIX</a></h4><h4 id="Muse-Secure-Inference-Resilient-to-Malicious-Clients-USENIX"><a href="#Muse-Secure-Inference-Resilient-to-Malicious-Clients-USENIX" class="headerlink" title="Muse: Secure Inference Resilient to Malicious Clients | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/lehmkuhl" target="_blank" rel="noopener">Muse: Secure Inference Resilient to Malicious Clients | USENIX</a></h4><h4 id="ObliCheck-Efficient-Verification-of-Oblivious-Algorithms-with-Unobservable-State-USENIX"><a href="#ObliCheck-Efficient-Verification-of-Oblivious-Algorithms-with-Unobservable-State-USENIX" class="headerlink" title="ObliCheck: Efficient Verification of Oblivious Algorithms with Unobservable State | USENIX"></a><a href="https://www.usenix.org/conference/usenixsecurity21/presentation/son" target="_blank" rel="noopener">ObliCheck: Efficient Verification of Oblivious Algorithms with Unobservable State | USENIX</a></h4><h2 id="CCS"><a href="#CCS" class="headerlink" title="CCS"></a>CCS</h2><h3 id="CCS-20"><a href="#CCS-20" class="headerlink" title="CCS 20"></a>CCS 20</h3><h4 id="Minimal-Symmetric-PAKE-and-1-out-of-N-OT-from-Programmable-Once-Public-Functions-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Minimal-Symmetric-PAKE-and-1-out-of-N-OT-from-Programmable-Once-Public-Functions-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Minimal Symmetric PAKE and 1-out-of-N OT from Programmable-Once Public Functions | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3372297.3417870" target="_blank" rel="noopener">Minimal Symmetric PAKE and 1-out-of-N OT from Programmable-Once Public Functions | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Fast-Database-Joins-and-PSI-for-Secret-Shared-Data-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Fast-Database-Joins-and-PSI-for-Secret-Shared-Data-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Fast Database Joins and PSI for Secret Shared Data | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3372297.3423358" target="_blank" rel="noopener">Fast Database Joins and PSI for Secret Shared Data | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="MP-SPDZ-A-Versatile-Framework-for-Multi-Party-Computation-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#MP-SPDZ-A-Versatile-Framework-for-Multi-Party-Computation-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="MP-SPDZ: A Versatile Framework for Multi-Party Computation | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3372297.3417872" target="_blank" rel="noopener">MP-SPDZ: A Versatile Framework for Multi-Party Computation | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Is-the-Classical-GMW-Paradigm-Practical-The-Case-of-Non-Interactive-Actively-Secure-2PC-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Is-the-Classical-GMW-Paradigm-Practical-The-Case-of-Non-Interactive-Actively-Secure-2PC-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Is the Classical GMW Paradigm Practical? The Case of Non-Interactive Actively Secure 2PC | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3372297.3423366" target="_blank" rel="noopener">Is the Classical GMW Paradigm Practical? The Case of Non-Interactive Actively Secure 2PC | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Ferret-Fast-Extension-for-Correlated-OT-with-Small-Communication-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Ferret-Fast-Extension-for-Correlated-OT-with-Small-Communication-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Ferret: Fast Extension for Correlated OT with Small Communication | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3372297.3417276" target="_blank" rel="noopener">Ferret: Fast Extension for Correlated OT with Small Communication | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="More-Efficient-MPC-from-Improved-Triple-Generation-and-Authenticated-Garbling-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#More-Efficient-MPC-from-Improved-Triple-Generation-and-Authenticated-Garbling-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="More Efficient MPC from Improved Triple Generation and Authenticated Garbling | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3372297.3417285" target="_blank" rel="noopener">More Efficient MPC from Improved Triple Generation and Authenticated Garbling | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h3 id="CCS-19"><a href="#CCS-19" class="headerlink" title="CCS 19"></a>CCS 19</h3><h4 id="Efficient-Two-Round-OT-Extension-and-Silent-Non-Interactive-Secure-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Efficient-Two-Round-OT-Extension-and-Silent-Non-Interactive-Secure-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Efficient Two-Round OT Extension and Silent Non-Interactive Secure Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354255" target="_blank" rel="noopener">Efficient Two-Round OT Extension and Silent Non-Interactive Secure Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Endemic-Oblivious-Transfer-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Endemic-Oblivious-Transfer-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Endemic Oblivious Transfer | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354210" target="_blank" rel="noopener">Endemic Oblivious Transfer | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="LevioSA-Lightweight-Secure-Arithmetic-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#LevioSA-Lightweight-Secure-Arithmetic-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="LevioSA: Lightweight Secure Arithmetic Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354258" target="_blank" rel="noopener">LevioSA: Lightweight Secure Arithmetic Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Onion-Ring-ORAM-Efficient-Constant-Bandwidth-Oblivious-RAM-from-Leveled-TFHE-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Onion-Ring-ORAM-Efficient-Constant-Bandwidth-Oblivious-RAM-from-Leveled-TFHE-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Onion Ring ORAM: Efficient Constant Bandwidth Oblivious RAM from (Leveled) TFHE | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354226" target="_blank" rel="noopener">Onion Ring ORAM: Efficient Constant Bandwidth Oblivious RAM from (Leveled) TFHE | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Securely-Sampling-Biased-Coins-with-Applications-to-Differential-Privacy-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Securely-Sampling-Biased-Coins-with-Applications-to-Differential-Privacy-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Securely Sampling Biased Coins with Applications to Differential Privacy | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354256" target="_blank" rel="noopener">Securely Sampling Biased Coins with Applications to Differential Privacy | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Stormy-Statistics-in-Tor-by-Measuring-Securely-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Stormy-Statistics-in-Tor-by-Measuring-Securely-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Stormy: Statistics in Tor by Measuring Securely | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3345650" target="_blank" rel="noopener">Stormy: Statistics in Tor by Measuring Securely | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Efficient-Publicly-Verifiable-2PC-over-a-Blockchain-with-Applications-to-Financially-Secure-Computations-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Efficient-Publicly-Verifiable-2PC-over-a-Blockchain-with-Applications-to-Financially-Secure-Computations-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Efficient Publicly Verifiable 2PC over a Blockchain with Applications to Financially-Secure Computations | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3363215" target="_blank" rel="noopener">Efficient Publicly Verifiable 2PC over a Blockchain with Applications to Financially-Secure Computations | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="A-High-Assurance-Evaluator-for-Machine-Checked-Secure-Multiparty-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#A-High-Assurance-Evaluator-for-Machine-Checked-Secure-Multiparty-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="A High-Assurance Evaluator for Machine-Checked Secure Multiparty Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354205" target="_blank" rel="noopener">A High-Assurance Evaluator for Machine-Checked Secure Multiparty Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Practical-Fully-Secure-Three-Party-Computation-via-Sublinear-Distributed-Zero-Knowledge-Proofs-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Practical-Fully-Secure-Three-Party-Computation-via-Sublinear-Distributed-Zero-Knowledge-Proofs-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Practical Fully Secure Three-Party Computation via Sublinear Distributed Zero-Knowledge Proofs | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3363227" target="_blank" rel="noopener">Practical Fully Secure Three-Party Computation via Sublinear Distributed Zero-Knowledge Proofs | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="HoneyBadgerMPC-and-AsynchroMix-Practical-Asynchronous-MPC-and-its-Application-to-Anonymous-Communication-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#HoneyBadgerMPC-and-AsynchroMix-Practical-Asynchronous-MPC-and-its-Application-to-Anonymous-Communication-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="HoneyBadgerMPC and AsynchroMix: Practical Asynchronous MPC and its Application to Anonymous Communication | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354238" target="_blank" rel="noopener">HoneyBadgerMPC and AsynchroMix: Practical Asynchronous MPC and its Application to Anonymous Communication | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Transparency-Logs-via-Append-Only-Authenticated-Dictionaries-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Transparency-Logs-via-Append-Only-Authenticated-Dictionaries-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Transparency Logs via Append-Only Authenticated Dictionaries | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3345652" target="_blank" rel="noopener">Transparency Logs via Append-Only Authenticated Dictionaries | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Probabilistic-Data-Structures-in-Adversarial-Environments-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Probabilistic-Data-Structures-in-Adversarial-Environments-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Probabilistic Data Structures in Adversarial Environments | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354235" target="_blank" rel="noopener">Probabilistic Data Structures in Adversarial Environments | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Make-Some-ROOM-for-the-Zeros-Data-Sparsity-in-Secure-Distributed-Machine-Learning-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Make-Some-ROOM-for-the-Zeros-Data-Sparsity-in-Secure-Distributed-Machine-Learning-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Make Some ROOM for the Zeros: Data Sparsity in Secure Distributed Machine Learning | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3339816" target="_blank" rel="noopener">Make Some ROOM for the Zeros: Data Sparsity in Secure Distributed Machine Learning | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="PIEs-Public-Incompressible-Encodings-for-Decentralized-Storage-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#PIEs-Public-Incompressible-Encodings-for-Decentralized-Storage-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="PIEs: Public Incompressible Encodings for Decentralized Storage | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354231" target="_blank" rel="noopener">PIEs: Public Incompressible Encodings for Decentralized Storage | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="How-to-not-Share-a-Password-Privacy-Preserving-Protocols-for-Finding-Heavy-Hitters-with-Adversarial-Behavior-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#How-to-not-Share-a-Password-Privacy-Preserving-Protocols-for-Finding-Heavy-Hitters-with-Adversarial-Behavior-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="How to (not) Share a Password: Privacy Preserving Protocols for Finding Heavy Hitters with Adversarial Behavior | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3363204" target="_blank" rel="noopener">How to (not) Share a Password: Privacy Preserving Protocols for Finding Heavy Hitters with Adversarial Behavior | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Efficient-MPC-via-Program-Analysis-A-Framework-for-Efficient-Optimal-Mixing-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Efficient-MPC-via-Program-Analysis-A-Framework-for-Efficient-Optimal-Mixing-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Efficient MPC via Program Analysis: A Framework for Efficient Optimal Mixing | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3339818" target="_blank" rel="noopener">Efficient MPC via Program Analysis: A Framework for Efficient Optimal Mixing | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Two-Thirds-Honest-Majority-MPC-for-Malicious-Adversaries-at-Almost-the-Cost-of-Semi-Honest-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Two-Thirds-Honest-Majority-MPC-for-Malicious-Adversaries-at-Almost-the-Cost-of-Semi-Honest-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Two-Thirds Honest-Majority MPC for Malicious Adversaries at Almost the Cost of Semi-Honest | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3339811" target="_blank" rel="noopener">Two-Thirds Honest-Majority MPC for Malicious Adversaries at Almost the Cost of Semi-Honest | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Fast-Actively-Secure-Five-Party-Computation-with-Security-Beyond-Abort-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Fast-Actively-Secure-Five-Party-Computation-with-Security-Beyond-Abort-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Fast Actively Secure Five-Party Computation with Security Beyond Abort | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3345657" target="_blank" rel="noopener">Fast Actively Secure Five-Party Computation with Security Beyond Abort | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="SEEMless-Secure-End-to-End-Encrypted-Messaging-with-less-Trust-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#SEEMless-Secure-End-to-End-Encrypted-Messaging-with-less-Trust-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="SEEMless: Secure End-to-End Encrypted Messaging with less Trust | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3363202" target="_blank" rel="noopener">SEEMless: Secure End-to-End Encrypted Messaging with less Trust | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="CHURP-Dynamic-Committee-Proactive-Secret-Sharing-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#CHURP-Dynamic-Committee-Proactive-Secret-Sharing-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="CHURP: Dynamic-Committee Proactive Secret Sharing | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3363203" target="_blank" rel="noopener">CHURP: Dynamic-Committee Proactive Secret Sharing | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Efficient-Verifiable-Secret-Sharing-with-Share-Recovery-in-BFT-Protocols-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Efficient-Verifiable-Secret-Sharing-with-Share-Recovery-in-BFT-Protocols-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Efficient Verifiable Secret Sharing with Share Recovery in BFT Protocols | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3354207" target="_blank" rel="noopener">Efficient Verifiable Secret Sharing with Share Recovery in BFT Protocols | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Two-party-Private-Set-Intersection-with-an-Untrusted-Third-Party-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Two-party-Private-Set-Intersection-with-an-Untrusted-Third-Party-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Two-party Private Set Intersection with an Untrusted Third Party | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3319535.3345661" target="_blank" rel="noopener">Two-party Private Set Intersection with an Untrusted Third Party | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h3 id="CCS-18"><a href="#CCS-18" class="headerlink" title="CCS 18"></a>CCS 18</h3><h4 id="Fast-Secure-Computation-for-Small-Population-over-the-Internet-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Fast-Secure-Computation-for-Small-Population-over-the-Internet-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Fast Secure Computation for Small Population over the Internet | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3243734.3243784" target="_blank" rel="noopener">Fast Secure Computation for Small Population over the Internet | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="An-End-to-End-System-for-Large-Scale-P2P-MPC-as-a-Service-and-Low-Bandwidth-MPC-for-Weak-Participants-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#An-End-to-End-System-for-Large-Scale-P2P-MPC-as-a-Service-and-Low-Bandwidth-MPC-for-Weak-Participants-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="An End-to-End System for Large Scale P2P MPC-as-a-Service and Low-Bandwidth MPC for Weak Participants | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3243734.3243801" target="_blank" rel="noopener">An End-to-End System for Large Scale P2P MPC-as-a-Service and Low-Bandwidth MPC for Weak Participants | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="HyCC-Compilation-of-Hybrid-Protocols-for-Practical-Secure-Computation-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#HyCC-Compilation-of-Hybrid-Protocols-for-Practical-Secure-Computation-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="HyCC: Compilation of Hybrid Protocols for Practical Secure Computation | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3243734.3243786" target="_blank" rel="noopener">HyCC: Compilation of Hybrid Protocols for Practical Secure Computation | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="NANOPI-Extreme-Scale-Actively-Secure-Multi-Party-Computation-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#NANOPI-Extreme-Scale-Actively-Secure-Multi-Party-Computation-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="NANOPI: Extreme-Scale Actively-Secure Multi-Party Computation | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3243734.3243850" target="_blank" rel="noopener">NANOPI: Extreme-Scale Actively-Secure Multi-Party Computation | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Generalizing-the-SPDZ-Compiler-For-Other-Protocols-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Generalizing-the-SPDZ-Compiler-For-Other-Protocols-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Generalizing the SPDZ Compiler For Other Protocols | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3243734.3243854" target="_blank" rel="noopener">Generalizing the SPDZ Compiler For Other Protocols | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h4 id="Compressing-Vector-OLE-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><a href="#Compressing-Vector-OLE-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security" class="headerlink" title="Compressing Vector OLE | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security"></a><a href="https://dl.acm.org/doi/10.1145/3243734.3243868" target="_blank" rel="noopener">Compressing Vector OLE | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</a></h4><h2 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h2><p>需要注意，CCS有的论文页的title和论文不一致，会丢失论文标题中<code>:</code>后的内容，需要整理检查。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*-</span></span><br><span class="line">__author__ = <span class="string">'WILL_V'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">ot = <span class="string">"ot.txt"</span></span><br><span class="line">md = <span class="string">"demo.md"</span></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">mdFormat = <span class="string">"#### [&#123;r_title&#125;](&#123;r_url&#125;) \n"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(ot, <span class="string">'r'</span>) <span class="keyword">as</span> fo:</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fo.readlines():</span><br><span class="line">            <span class="keyword">with</span> open(md, <span class="string">'a+'</span>) <span class="keyword">as</span> fm:</span><br><span class="line">                fm.write(format(line)+<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">format</span><span class="params">(otline)</span>:</span></span><br><span class="line">    url = re.findall(<span class="string">r'^http.*?\| '</span>, otline)</span><br><span class="line">    <span class="keyword">if</span> len(url) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> otline</span><br><span class="line">    url = url[<span class="number">0</span>].replace(<span class="string">" | "</span>, <span class="string">""</span>)</span><br><span class="line">    title = re.findall(<span class="string">r" \| .*$"</span>, otline)[<span class="number">0</span>].lstrip(<span class="string">" | "</span>)</span><br><span class="line">    f = mdFormat.replace(<span class="string">"&#123;r_title&#125;"</span>, title).replace(<span class="string">"&#123;r_url&#125;"</span>, url)</span><br><span class="line">    <span class="keyword">global</span> count</span><br><span class="line">    count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    convert()</span><br><span class="line">    print(<span class="string">"已转换%d条链接"</span> % count)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://ooo.0o0.ooo/2018/01/02/5a4afb332f3b6.png" alt="WILL_V 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="https://ooo.0o0.ooo/2018/01/02/5a4afb332ef22.png" alt="WILL_V 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>WILL_V</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://willv.cn/2021/07/14/5-security-computing/" title="18至21年2+3大顶会MPC方向论文">https://willv.cn/2021/07/14/5-security-computing/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/安全/" rel="tag"><i class="fa fa-tag"></i> 安全</a>
+          
+            <a href="/tags/论文/" rel="tag"><i class="fa fa-tag"></i> 论文</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/31/Bye-0x7e4-Hello-0x7e5/" rel="next" title="20 Tooo 21">
+                <i class="fa fa-chevron-left"></i> 20 Tooo 21
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://ae01.alicdn.com/kf/Hc2d66c4827bf408f987afb1fc777d0129.jpg" alt="WILL_V">
+            
+              <p class="site-author-name" itemprop="name">WILL_V</p>
+              <div class="site-description motion-element" itemprop="description">辣鸡CTF选手，渣Web，逆向只会F5的渣渣</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/WWILLV" title="GitHub &rarr; https://github.com/WWILLV" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:admin@willv.cn" title="E-Mail &rarr; mailto:admin@willv.cn"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/twwillv" title="Twitter &rarr; https://twitter.com/twwillv" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/u/2693120655" title="微博 &rarr; https://weibo.com/u/2693120655" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                </span>
+              
+            </div>
+          
+
+          
+             <div class="cc-license motion-element" itemprop="license">
+              
+              
+                
+              
+              
+              
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+             </div>
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CRYPTO"><span class="nav-number">1.</span> <span class="nav-text">CRYPTO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRYPTO-18"><span class="nav-number">1.1.</span> <span class="nav-text">CRYPTO 18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Non-malleable-Secret-Sharing-for-General-Access-Structures-SpringerLink"><span class="nav-number">1.1.1.</span> <span class="nav-text">Non-malleable Secret Sharing for General Access Structures | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#On-the-Local-Leakage-Resilience-of-Linear-Secret-Sharing-Schemes-SpringerLink"><span class="nav-number">1.1.2.</span> <span class="nav-text">On the Local Leakage Resilience of Linear Secret Sharing Schemes | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Round-Optimal-Secure-Multiparty-Computation-with-Honest-Majority-SpringerLink"><span class="nav-number">1.1.3.</span> <span class="nav-text">Round-Optimal Secure Multiparty Computation with Honest Majority | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#On-the-Exact-Round-Complexity-of-Secure-Three-Party-Computation-SpringerLink"><span class="nav-number">1.1.4.</span> <span class="nav-text">On the Exact Round Complexity of Secure Three-Party Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-Zero-Knowledge-and-Its-Applications-to-Round-Optimal-MPC-SpringerLink"><span class="nav-number">1.1.5.</span> <span class="nav-text">Promise Zero Knowledge and Its Applications to Round Optimal MPC | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Round-Optimal-Secure-Multi-Party-Computation-SpringerLink"><span class="nav-number">1.1.6.</span> <span class="nav-text">Round-Optimal Secure Multi-Party Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SPD-equation-Efficient-MPC-mod-equation-for-Dishonest-Majority-SpringerLink"><span class="nav-number">1.1.7.</span> <span class="nav-text">SPD[equation]: Efficient MPC mod [equation] for Dishonest Majority | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Yet-Another-Compiler-for-Active-Security-or-Efficient-MPC-Over-Arbitrary-Rings-SpringerLink"><span class="nav-number">1.1.8.</span> <span class="nav-text">Yet Another Compiler for Active Security or: Efficient MPC Over Arbitrary Rings | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TinyKeys-A-New-Approach-to-Efficient-Multi-Party-Computation-SpringerLink"><span class="nav-number">1.1.9.</span> <span class="nav-text">TinyKeys: A New Approach to Efficient Multi-Party Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fast-Large-Scale-Honest-Majority-MPC-for-Malicious-Adversaries-SpringerLink"><span class="nav-number">1.1.10.</span> <span class="nav-text">Fast Large-Scale Honest-Majority MPC for Malicious Adversaries | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#An-Optimal-Distributed-Discrete-Log-Protocol-with-Applications-to-Homomorphic-Secret-Sharing-SpringerLink"><span class="nav-number">1.1.11.</span> <span class="nav-text">An Optimal Distributed Discrete Log Protocol with Applications to Homomorphic Secret Sharing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Must-the-Communication-Graph-of-MPC-Protocols-be-an-Expander-SpringerLink"><span class="nav-number">1.1.12.</span> <span class="nav-text">Must the Communication Graph of MPC Protocols be an Expander? | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-Round-Multiparty-Secure-Computation-Minimizing-Public-Key-Operations-SpringerLink"><span class="nav-number">1.1.13.</span> <span class="nav-text">Two-Round Multiparty Secure Computation Minimizing Public Key Operations | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Limits-of-Practical-Sublinear-Secure-Computation-SpringerLink"><span class="nav-number">1.1.14.</span> <span class="nav-text">Limits of Practical Sublinear Secure Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Amortized-Complexity-of-Information-Theoretically-Secure-MPC-Revisited-SpringerLink"><span class="nav-number">1.1.15.</span> <span class="nav-text">Amortized Complexity of Information-Theoretically Secure MPC Revisited | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Private-Circuits-A-Modular-Approach-SpringerLink"><span class="nav-number">1.1.16.</span> <span class="nav-text">Private Circuits: A Modular Approach | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adaptive-Garbled-RAM-from-Laconic-Oblivious-Transfer-SpringerLink"><span class="nav-number">1.1.17.</span> <span class="nav-text">Adaptive Garbled RAM from Laconic Oblivious Transfer | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#On-the-Round-Complexity-of-OT-Extension-SpringerLink"><span class="nav-number">1.1.18.</span> <span class="nav-text">On the Round Complexity of OT Extension | SpringerLink</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRYPTO-19"><span class="nav-number">1.2.</span> <span class="nav-text">CRYPTO 19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Communication-Complexity-of-Threshold-Private-Set-Intersection-SpringerLink"><span class="nav-number">1.2.1.</span> <span class="nav-text">The Communication Complexity of Threshold Private Set Intersection | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adaptively-Secure-MPC-with-Sublinear-Communication-Complexity-SpringerLink"><span class="nav-number">1.2.2.</span> <span class="nav-text">Adaptively Secure MPC with Sublinear Communication Complexity | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Communication-Lower-Bounds-for-Statistically-Secure-MPC-With-or-Without-Preprocessing-SpringerLink"><span class="nav-number">1.2.3.</span> <span class="nav-text">Communication Lower Bounds for Statistically Secure MPC, With or Without Preprocessing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Communication-Efficient-Unconditional-MPC-with-Guaranteed-Output-Delivery-SpringerLink"><span class="nav-number">1.2.4.</span> <span class="nav-text">Communication-Efficient Unconditional MPC with Guaranteed Output Delivery | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SpOT-Light-Lightweight-Private-Set-Intersection-from-Sparse-OT-Extension-SpringerLink"><span class="nav-number">1.2.5.</span> <span class="nav-text">SpOT-Light: Lightweight Private Set Intersection from Sparse OT Extension | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Universally-Composable-Secure-Computation-with-Corrupted-Tokens-SpringerLink"><span class="nav-number">1.2.6.</span> <span class="nav-text">Universally Composable Secure Computation with Corrupted Tokens | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reusable-Non-Interactive-Secure-Computation-SpringerLink"><span class="nav-number">1.2.7.</span> <span class="nav-text">Reusable Non-Interactive Secure Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Pseudorandom-Correlation-Generators-Silent-OT-Extension-and-More-SpringerLink"><span class="nav-number">1.2.8.</span> <span class="nav-text">Efficient Pseudorandom Correlation Generators: Silent OT Extension and More | SpringerLink</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRYPTO-20"><span class="nav-number">1.3.</span> <span class="nav-text">CRYPTO 20</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Round-Optimal-Black-Box-Commit-and-Prove-with-Succinct-Communication-SpringerLink"><span class="nav-number">1.3.1.</span> <span class="nav-text">Round-Optimal Black-Box Commit-and-Prove with Succinct Communication | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Constant-Round-MPC-with-Identifiable-Abort-and-Public-Verifiability-SpringerLink"><span class="nav-number">1.3.2.</span> <span class="nav-text">Efficient Constant-Round MPC with Identifiable Abort and Public Verifiability | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-Box-Use-of-One-Way-Functions-is-Useless-for-Optimal-Fair-Coin-Tossing-SpringerLink"><span class="nav-number">1.3.3.</span> <span class="nav-text">Black-Box Use of One-Way Functions is Useless for Optimal Fair Coin-Tossing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Guaranteed-Output-Delivery-Comes-Free-in-Honest-Majority-MPC-SpringerLink"><span class="nav-number">1.3.4.</span> <span class="nav-text">Guaranteed Output Delivery Comes Free in Honest Majority MPC | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-Box-Transformations-from-Passive-to-Covert-Security-with-Public-Verifiability-SpringerLink"><span class="nav-number">1.3.5.</span> <span class="nav-text">Black-Box Transformations from Passive to Covert Security with Public Verifiability | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MPC-with-Friends-and-Foes-SpringerLink"><span class="nav-number">1.3.6.</span> <span class="nav-text">MPC with Friends and Foes | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Always-Have-a-Backup-Plan-Fully-Secure-Synchronous-MPC-with-Asynchronous-Fallback-SpringerLink"><span class="nav-number">1.3.7.</span> <span class="nav-text">Always Have a Backup Plan: Fully Secure Synchronous MPC with Asynchronous Fallback | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reverse-Firewalls-for-Actively-Secure-MPCs-SpringerLink"><span class="nav-number">1.3.8.</span> <span class="nav-text">Reverse Firewalls for Actively Secure MPCs | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stacked-Garbling-SpringerLink"><span class="nav-number">1.3.9.</span> <span class="nav-text">Stacked Garbling | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Better-Concrete-Security-for-Half-Gates-Garbling-in-the-Multi-instance-Setting-SpringerLink"><span class="nav-number">1.3.10.</span> <span class="nav-text">Better Concrete Security for Half-Gates Garbling (in the Multi-instance Setting) | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improved-Primitives-for-MPC-over-Mixed-Arithmetic-Binary-Circuits-SpringerLink"><span class="nav-number">1.3.11.</span> <span class="nav-text">Improved Primitives for MPC over Mixed Arithmetic-Binary Circuits | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-Sided-Malicious-Security-for-Private-Intersection-Sum-with-Cardinality-SpringerLink"><span class="nav-number">1.3.12.</span> <span class="nav-text">Two-Sided Malicious Security for Private Intersection-Sum with Cardinality | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Private-Set-Intersection-in-the-Internet-Setting-from-Lightweight-Oblivious-PRF-SpringerLink"><span class="nav-number">1.3.13.</span> <span class="nav-text">Private Set Intersection in the Internet Setting from Lightweight Oblivious PRF | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiparty-Generation-of-an-RSA-Modulus-SpringerLink"><span class="nav-number">1.3.14.</span> <span class="nav-text">Multiparty Generation of an RSA Modulus | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Non-malleability-Against-Polynomial-Tampering-SpringerLink"><span class="nav-number">1.3.15.</span> <span class="nav-text">Non-malleability Against Polynomial Tampering | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Non-malleable-Secret-Sharing-Against-Bounded-Joint-Tampering-Attacks-in-the-Plain-Model-SpringerLink"><span class="nav-number">1.3.16.</span> <span class="nav-text">Non-malleable Secret Sharing Against Bounded Joint-Tampering Attacks in the Plain Model | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Nearly-Optimal-Robust-Secret-Sharing-Against-Rushing-Adversaries-SpringerLink"><span class="nav-number">1.3.17.</span> <span class="nav-text">Nearly Optimal Robust Secret Sharing Against Rushing Adversaries | SpringerLink</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EUROCRYPT"><span class="nav-number">2.</span> <span class="nav-text">EUROCRYPT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#EUROCRYPT-18"><span class="nav-number">2.1.</span> <span class="nav-text">EUROCRYPT 18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Towards-Breaking-the-Exponential-Barrier-for-General-Secret-Sharing-SpringerLink"><span class="nav-number">2.1.1.</span> <span class="nav-text">Towards Breaking the Exponential Barrier for General Secret Sharing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Improving-the-Linear-Programming-Technique-in-the-Search-for-Lower-Bounds-in-Secret-Sharing-SpringerLink"><span class="nav-number">2.1.2.</span> <span class="nav-text">Improving the Linear Programming Technique in the Search for Lower Bounds in Secret Sharing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Adaptively-Secure-Garbling-with-Near-Optimal-Online-Complexity-SpringerLink"><span class="nav-number">2.1.3.</span> <span class="nav-text">Adaptively Secure Garbling with Near Optimal Online Complexity | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-New-Approach-to-Black-Box-Concurrent-Secure-Computation-SpringerLink"><span class="nav-number">2.1.4.</span> <span class="nav-text">A New Approach to Black-Box Concurrent Secure Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Maliciously-Secure-Multiparty-Computation-for-RAM-SpringerLink"><span class="nav-number">2.1.5.</span> <span class="nav-text">Efficient Maliciously Secure Multiparty Computation for RAM | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Circuit-Based-PSI-via-Cuckoo-Hashing-SpringerLink"><span class="nav-number">2.1.6.</span> <span class="nav-text">Efficient Circuit-Based PSI via Cuckoo Hashing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Overdrive-Making-SPDZ-Great-Again-SpringerLink"><span class="nav-number">2.1.7.</span> <span class="nav-text">Overdrive: Making SPDZ Great Again | SpringerLink</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EUROCRYPT-19"><span class="nav-number">2.2.</span> <span class="nav-text">EUROCRYPT 19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Founding-Secure-Computation-on-Blockchains-SpringerLink"><span class="nav-number">2.2.1.</span> <span class="nav-text">Founding Secure Computation on Blockchains | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uncovering-Algebraic-Structures-in-the-MPC-Landscape-SpringerLink"><span class="nav-number">2.2.2.</span> <span class="nav-text">Uncovering Algebraic Structures in the MPC Landscape | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-Note-on-the-Communication-Complexity-of-Multiparty-Computation-in-the-Correlated-Randomness-Model-SpringerLink"><span class="nav-number">2.2.3.</span> <span class="nav-text">A Note on the Communication Complexity of Multiparty Computation in the Correlated Randomness Model | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Degree-2-is-Complete-for-the-Round-Complexity-of-Malicious-MPC-SpringerLink"><span class="nav-number">2.2.4.</span> <span class="nav-text">Degree 2 is Complete for the Round-Complexity of Malicious MPC | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-Round-Information-Theoretic-MPC-with-Malicious-Security-SpringerLink"><span class="nav-number">2.2.5.</span> <span class="nav-text">Two Round Information-Theoretic MPC with Malicious Security | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Covert-Security-with-Public-Verifiability-Faster-Leaner-and-Simpler-SpringerLink"><span class="nav-number">2.2.6.</span> <span class="nav-text">Covert Security with Public Verifiability: Faster, Leaner, and Simpler | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Circuit-Based-PSI-with-Linear-Communication-SpringerLink"><span class="nav-number">2.2.7.</span> <span class="nav-text">Efficient Circuit-Based PSI with Linear Communication | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#An-Algebraic-Approach-to-Maliciously-Secure-Private-Set-Intersection-SpringerLink"><span class="nav-number">2.2.8.</span> <span class="nav-text">An Algebraic Approach to Maliciously Secure Private Set Intersection | SpringerLink</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EUROCRYPT-20"><span class="nav-number">2.3.</span> <span class="nav-text">EUROCRYPT 20</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Blackbox-Secret-Sharing-Revisited-A-Coding-Theoretic-Approach-with-Application-to-Expansionless-Near-Threshold-Schemes-SpringerLink"><span class="nav-number">2.3.1.</span> <span class="nav-text">Blackbox Secret Sharing Revisited: A Coding-Theoretic Approach with Application to Expansionless Near-Threshold Schemes | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Evolving-Ramp-Secret-Sharing-with-a-Small-Gap-SpringerLink"><span class="nav-number">2.3.2.</span> <span class="nav-text">Evolving Ramp Secret Sharing with a Small Gap | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Lower-Bounds-for-Leakage-Resilient-Secret-Sharing-SpringerLink"><span class="nav-number">2.3.3.</span> <span class="nav-text">Lower Bounds for Leakage-Resilient Secret Sharing | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resource-Restricted-Cryptography-Revisiting-MPC-Bounds-in-the-Proof-of-Work-Era-SpringerLink"><span class="nav-number">2.3.4.</span> <span class="nav-text">Resource-Restricted Cryptography: Revisiting MPC Bounds in the Proof-of-Work Era | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Constructions-for-Almost-Everywhere-Secure-Computation-SpringerLink"><span class="nav-number">2.3.5.</span> <span class="nav-text">Efficient Constructions for Almost-Everywhere Secure Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Price-of-Active-Security-in-Cryptographic-Protocols-SpringerLink"><span class="nav-number">2.3.6.</span> <span class="nav-text">The Price of Active Security in Cryptographic Protocols | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Succinct-Non-interactive-Secure-Computation-SpringerLink"><span class="nav-number">2.3.7.</span> <span class="nav-text">Succinct Non-interactive Secure Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PSI-from-PaXoS-Fast-Malicious-Private-Set-Intersection-SpringerLink"><span class="nav-number">2.3.8.</span> <span class="nav-text">PSI from PaXoS: Fast, Malicious Private Set Intersection | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-Round-Oblivious-Transfer-from-CDH-or-LPN-SpringerLink"><span class="nav-number">2.3.9.</span> <span class="nav-text">Two-Round Oblivious Transfer from CDH or LPN | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Private-Aggregation-from-Fewer-Anonymous-Messages-SpringerLink"><span class="nav-number">2.3.10.</span> <span class="nav-text">Private Aggregation from Fewer Anonymous Messages | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Broadcast-Optimal-Two-Round-MPC-SpringerLink"><span class="nav-number">2.3.11.</span> <span class="nav-text">Broadcast-Optimal Two-Round MPC | SpringerLink</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EUROCRYPT-21"><span class="nav-number">2.4.</span> <span class="nav-text">EUROCRYPT 21</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Order-C-Secure-Multiparty-Computation-for-Highly-Repetitive-Circuits-SpringerLink"><span class="nav-number">2.4.1.</span> <span class="nav-text">Order-C Secure Multiparty Computation for Highly Repetitive Circuits | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-More-the-Merrier-Reducing-the-Cost-of-Large-Scale-MPC-SpringerLink"><span class="nav-number">2.4.2.</span> <span class="nav-text">The More the Merrier: Reducing the Cost of Large Scale MPC | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiparty-Reusable-Non-interactive-Secure-Computation-from-LWE-SpringerLink"><span class="nav-number">2.4.3.</span> <span class="nav-text">Multiparty Reusable Non-interactive Secure Computation from LWE | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Unbounded-Multi-party-Computation-from-Learning-with-Errors-SpringerLink"><span class="nav-number">2.4.4.</span> <span class="nav-text">Unbounded Multi-party Computation from Learning with Errors | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generic-Compiler-for-Publicly-Verifiable-Covert-Multi-Party-Computation-SpringerLink"><span class="nav-number">2.4.5.</span> <span class="nav-text">Generic Compiler for Publicly Verifiable Covert Multi-Party Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Constant-Overhead-Unconditionally-Secure-Multiparty-Computation-Over-Binary-Fields-SpringerLink"><span class="nav-number">2.4.6.</span> <span class="nav-text">Constant-Overhead Unconditionally Secure Multiparty Computation Over Binary Fields | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Breaking-the-Circuit-Size-Barrier-for-Secure-Computation-Under-Quasi-Polynomial-LPN-SpringerLink"><span class="nav-number">2.4.7.</span> <span class="nav-text">Breaking the Circuit Size Barrier for Secure Computation Under Quasi-Polynomial LPN | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-Secret-Sharing-for-Mixed-Mode-and-Fixed-Point-Secure-Computation-SpringerLink"><span class="nav-number">2.4.8.</span> <span class="nav-text">Function Secret Sharing for Mixed-Mode and Fixed-Point Secure Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#VOLE-PSI-Fast-OPRF-and-Circuit-PSI-from-Vector-OLE-SpringerLink"><span class="nav-number">2.4.9.</span> <span class="nav-text">VOLE-PSI: Fast OPRF and Circuit-PSI from Vector-OLE | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#equation-Stacked-Garbling-with-equation-Computation-SpringerLink"><span class="nav-number">2.4.10.</span> <span class="nav-text">[equation]: Stacked Garbling with [equation] Computation | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Large-Scale-Actively-Secure-Computation-from-LPN-and-Free-XOR-Garbled-Circuits-SpringerLink"><span class="nav-number">2.4.11.</span> <span class="nav-text">Large Scale, Actively Secure Computation from LPN and Free-XOR Garbled Circuits | SpringerLink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Threshold-Garbled-Circuits-and-Ad-Hoc-Secure-Computation-SpringerLink"><span class="nav-number">2.4.12.</span> <span class="nav-text">Threshold Garbled Circuits and Ad Hoc Secure Computation | SpringerLink</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IEEE-S-amp-P"><span class="nav-number">3.</span> <span class="nav-text">IEEE S&amp;P</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-S-amp-P-18"><span class="nav-number">3.1.</span> <span class="nav-text">IEEE S&amp;P 18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#FuturesMEX-Secure-Distributed-Futures-Market-Exchange-IEEE-Conference-Publication-IEEE-Xplore"><span class="nav-number">3.1.1.</span> <span class="nav-text">FuturesMEX: Secure, Distributed Futures Market Exchange | IEEE Conference Publication | IEEE Xplore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PIR-with-Compressed-Queries-and-Amortized-Query-Processing-IEEE-Conference-Publication-IEEE-Xplore"><span class="nav-number">3.1.2.</span> <span class="nav-text">PIR with Compressed Queries and Amortized Query Processing | IEEE Conference Publication | IEEE Xplore</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IEEE-S-amp-P-20"><span class="nav-number">3.2.</span> <span class="nav-text">IEEE S&amp;P 20</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-and-Secure-Multiparty-Computation-from-Fixed-Key-Block-Ciphers-IEEE-Conference-Publication-IEEE-Xplore"><span class="nav-number">3.2.1.</span> <span class="nav-text">Efficient and Secure Multiparty Computation from Fixed-Key Block Ciphers | IEEE Conference Publication | IEEE Xplore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Path-Oblivious-Heap-Optimal-and-Practical-Oblivious-Priority-Queue-IEEE-Conference-Publication-IEEE-Xplore"><span class="nav-number">3.2.2.</span> <span class="nav-text">Path Oblivious Heap: Optimal and Practical Oblivious Priority Queue | IEEE Conference Publication | IEEE Xplore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transparent-Polynomial-Delegation-and-Its-Applications-to-Zero-Knowledge-Proof-IEEE-Conference-Publication-IEEE-Xplore"><span class="nav-number">3.2.3.</span> <span class="nav-text">Transparent Polynomial Delegation and Its Applications to Zero Knowledge Proof | IEEE Conference Publication | IEEE Xplore</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Towards-Scalable-Threshold-Cryptosystems-IEEE-Conference-Publication-IEEE-Xplore"><span class="nav-number">3.2.4.</span> <span class="nav-text">Towards Scalable Threshold Cryptosystems | IEEE Conference Publication | IEEE Xplore</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#USENIX-Security"><span class="nav-number">4.</span> <span class="nav-text">USENIX Security</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#USENIX-Security-19"><span class="nav-number">4.1.</span> <span class="nav-text">USENIX Security 19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mobile-Private-Contact-Discovery-at-Scale-USENIX"><span class="nav-number">4.1.1.</span> <span class="nav-text">Mobile Private Contact Discovery at Scale | USENIX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#USENIX-Security-20"><span class="nav-number">4.2.</span> <span class="nav-text">USENIX Security 20</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Secure-Multi-party-Computation-of-Differentially-Private-Median-USENIX"><span class="nav-number">4.2.1.</span> <span class="nav-text">Secure Multi-party Computation of Differentially Private Median | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Secure-parallel-computation-on-national-scale-volumes-of-data-USENIX"><span class="nav-number">4.2.2.</span> <span class="nav-text">Secure parallel computation on national scale volumes of data | USENIX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#USENIX-Security-21"><span class="nav-number">4.3.</span> <span class="nav-text">USENIX Security 21</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Privacy-and-Integrity-Preserving-Computations-with-CRISP-USENIX"><span class="nav-number">4.3.1.</span> <span class="nav-text">Privacy and Integrity Preserving Computations with CRISP | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Senate-A-Maliciously-Secure-MPC-Platform-for-Collaborative-Analytics-USENIX"><span class="nav-number">4.3.2.</span> <span class="nav-text">Senate: A Maliciously-Secure MPC Platform for Collaborative Analytics | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GForce-GPU-Friendly-Oblivious-and-Rapid-Neural-Network-Inference-USENIX"><span class="nav-number">4.3.3.</span> <span class="nav-text">GForce: GPU-Friendly Oblivious and Rapid Neural Network Inference | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ABY2-0-Improved-Mixed-Protocol-Secure-Two-Party-Computation-USENIX"><span class="nav-number">4.3.4.</span> <span class="nav-text">ABY2.0: Improved Mixed-Protocol Secure Two-Party Computation | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fantastic-Four-Honest-Majority-Four-Party-Secure-Computation-With-Malicious-Security-USENIX"><span class="nav-number">4.3.5.</span> <span class="nav-text">Fantastic Four: Honest-Majority Four-Party Secure Computation With Malicious Security | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Muse-Secure-Inference-Resilient-to-Malicious-Clients-USENIX"><span class="nav-number">4.3.6.</span> <span class="nav-text">Muse: Secure Inference Resilient to Malicious Clients | USENIX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ObliCheck-Efficient-Verification-of-Oblivious-Algorithms-with-Unobservable-State-USENIX"><span class="nav-number">4.3.7.</span> <span class="nav-text">ObliCheck: Efficient Verification of Oblivious Algorithms with Unobservable State | USENIX</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CCS"><span class="nav-number">5.</span> <span class="nav-text">CCS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CCS-20"><span class="nav-number">5.1.</span> <span class="nav-text">CCS 20</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Minimal-Symmetric-PAKE-and-1-out-of-N-OT-from-Programmable-Once-Public-Functions-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.1.1.</span> <span class="nav-text">Minimal Symmetric PAKE and 1-out-of-N OT from Programmable-Once Public Functions | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fast-Database-Joins-and-PSI-for-Secret-Shared-Data-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.1.2.</span> <span class="nav-text">Fast Database Joins and PSI for Secret Shared Data | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MP-SPDZ-A-Versatile-Framework-for-Multi-Party-Computation-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.1.3.</span> <span class="nav-text">MP-SPDZ: A Versatile Framework for Multi-Party Computation | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Is-the-Classical-GMW-Paradigm-Practical-The-Case-of-Non-Interactive-Actively-Secure-2PC-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.1.4.</span> <span class="nav-text">Is the Classical GMW Paradigm Practical? The Case of Non-Interactive Actively Secure 2PC | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ferret-Fast-Extension-for-Correlated-OT-with-Small-Communication-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.1.5.</span> <span class="nav-text">Ferret: Fast Extension for Correlated OT with Small Communication | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#More-Efficient-MPC-from-Improved-Triple-Generation-and-Authenticated-Garbling-Proceedings-of-the-2020-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.1.6.</span> <span class="nav-text">More Efficient MPC from Improved Triple Generation and Authenticated Garbling | Proceedings of the 2020 ACM SIGSAC Conference on Computer and Communications Security</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CCS-19"><span class="nav-number">5.2.</span> <span class="nav-text">CCS 19</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Two-Round-OT-Extension-and-Silent-Non-Interactive-Secure-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.1.</span> <span class="nav-text">Efficient Two-Round OT Extension and Silent Non-Interactive Secure Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Endemic-Oblivious-Transfer-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.2.</span> <span class="nav-text">Endemic Oblivious Transfer | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LevioSA-Lightweight-Secure-Arithmetic-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.3.</span> <span class="nav-text">LevioSA: Lightweight Secure Arithmetic Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Onion-Ring-ORAM-Efficient-Constant-Bandwidth-Oblivious-RAM-from-Leveled-TFHE-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.4.</span> <span class="nav-text">Onion Ring ORAM: Efficient Constant Bandwidth Oblivious RAM from (Leveled) TFHE | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Securely-Sampling-Biased-Coins-with-Applications-to-Differential-Privacy-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.5.</span> <span class="nav-text">Securely Sampling Biased Coins with Applications to Differential Privacy | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Stormy-Statistics-in-Tor-by-Measuring-Securely-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.6.</span> <span class="nav-text">Stormy: Statistics in Tor by Measuring Securely | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Publicly-Verifiable-2PC-over-a-Blockchain-with-Applications-to-Financially-Secure-Computations-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.7.</span> <span class="nav-text">Efficient Publicly Verifiable 2PC over a Blockchain with Applications to Financially-Secure Computations | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-High-Assurance-Evaluator-for-Machine-Checked-Secure-Multiparty-Computation-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.8.</span> <span class="nav-text">A High-Assurance Evaluator for Machine-Checked Secure Multiparty Computation | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Practical-Fully-Secure-Three-Party-Computation-via-Sublinear-Distributed-Zero-Knowledge-Proofs-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.9.</span> <span class="nav-text">Practical Fully Secure Three-Party Computation via Sublinear Distributed Zero-Knowledge Proofs | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HoneyBadgerMPC-and-AsynchroMix-Practical-Asynchronous-MPC-and-its-Application-to-Anonymous-Communication-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.10.</span> <span class="nav-text">HoneyBadgerMPC and AsynchroMix: Practical Asynchronous MPC and its Application to Anonymous Communication | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Transparency-Logs-via-Append-Only-Authenticated-Dictionaries-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.11.</span> <span class="nav-text">Transparency Logs via Append-Only Authenticated Dictionaries | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Probabilistic-Data-Structures-in-Adversarial-Environments-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.12.</span> <span class="nav-text">Probabilistic Data Structures in Adversarial Environments | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Make-Some-ROOM-for-the-Zeros-Data-Sparsity-in-Secure-Distributed-Machine-Learning-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.13.</span> <span class="nav-text">Make Some ROOM for the Zeros: Data Sparsity in Secure Distributed Machine Learning | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PIEs-Public-Incompressible-Encodings-for-Decentralized-Storage-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.14.</span> <span class="nav-text">PIEs: Public Incompressible Encodings for Decentralized Storage | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How-to-not-Share-a-Password-Privacy-Preserving-Protocols-for-Finding-Heavy-Hitters-with-Adversarial-Behavior-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.15.</span> <span class="nav-text">How to (not) Share a Password: Privacy Preserving Protocols for Finding Heavy Hitters with Adversarial Behavior | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-MPC-via-Program-Analysis-A-Framework-for-Efficient-Optimal-Mixing-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.16.</span> <span class="nav-text">Efficient MPC via Program Analysis: A Framework for Efficient Optimal Mixing | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-Thirds-Honest-Majority-MPC-for-Malicious-Adversaries-at-Almost-the-Cost-of-Semi-Honest-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.17.</span> <span class="nav-text">Two-Thirds Honest-Majority MPC for Malicious Adversaries at Almost the Cost of Semi-Honest | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fast-Actively-Secure-Five-Party-Computation-with-Security-Beyond-Abort-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.18.</span> <span class="nav-text">Fast Actively Secure Five-Party Computation with Security Beyond Abort | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SEEMless-Secure-End-to-End-Encrypted-Messaging-with-less-Trust-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.19.</span> <span class="nav-text">SEEMless: Secure End-to-End Encrypted Messaging with less Trust | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CHURP-Dynamic-Committee-Proactive-Secret-Sharing-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.20.</span> <span class="nav-text">CHURP: Dynamic-Committee Proactive Secret Sharing | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Efficient-Verifiable-Secret-Sharing-with-Share-Recovery-in-BFT-Protocols-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.21.</span> <span class="nav-text">Efficient Verifiable Secret Sharing with Share Recovery in BFT Protocols | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-party-Private-Set-Intersection-with-an-Untrusted-Third-Party-Proceedings-of-the-2019-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.2.22.</span> <span class="nav-text">Two-party Private Set Intersection with an Untrusted Third Party | Proceedings of the 2019 ACM SIGSAC Conference on Computer and Communications Security</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CCS-18"><span class="nav-number">5.3.</span> <span class="nav-text">CCS 18</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Fast-Secure-Computation-for-Small-Population-over-the-Internet-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.3.1.</span> <span class="nav-text">Fast Secure Computation for Small Population over the Internet | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#An-End-to-End-System-for-Large-Scale-P2P-MPC-as-a-Service-and-Low-Bandwidth-MPC-for-Weak-Participants-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.3.2.</span> <span class="nav-text">An End-to-End System for Large Scale P2P MPC-as-a-Service and Low-Bandwidth MPC for Weak Participants | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HyCC-Compilation-of-Hybrid-Protocols-for-Practical-Secure-Computation-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.3.3.</span> <span class="nav-text">HyCC: Compilation of Hybrid Protocols for Practical Secure Computation | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NANOPI-Extreme-Scale-Actively-Secure-Multi-Party-Computation-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.3.4.</span> <span class="nav-text">NANOPI: Extreme-Scale Actively-Secure Multi-Party Computation | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Generalizing-the-SPDZ-Compiler-For-Other-Protocols-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.3.5.</span> <span class="nav-text">Generalizing the SPDZ Compiler For Other Protocols | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compressing-Vector-OLE-Proceedings-of-the-2018-ACM-SIGSAC-Conference-on-Computer-and-Communications-Security"><span class="nav-number">5.3.6.</span> <span class="nav-text">Compressing Vector OLE | Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others"><span class="nav-number">6.</span> <span class="nav-text">Others</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 – <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WILL_V</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://willv.cn/2021/07/14/5-security-computing/";
+    this.page.identifier = "2021/07/14/5-security-computing/";
+    this.page.title = '18至21年2+3大顶会MPC方向论文';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://wwillv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        loadComments();
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
+
+
+
+
+
+  
+    
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js"></script>
+
+<script>
+  var dsqjs = new DisqusJS({
+    api: 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+    apikey: 'BOmm2MYh9jOZ82WCk1flJ5KDNWQWEyyQH0YKHEgJ1wqWW4zTuHFxlOOlmgreU34u',
+    shortname: 'wwillv'
+  });
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,QQZone,Twitter,Facebook,GooglePlus,Tumblr,Evernote";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
